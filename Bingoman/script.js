@@ -1,4 +1,4 @@
-// En lista på möjliga utmaningar
+// En lista på möjliga utmaningar (kommer såklart uppdateras)
 const challenges = [
     "Drick en öl jättefort",
     "Drick en öl jättefort",
@@ -26,9 +26,6 @@ const challenges = [
     "Drick en öl jättefort",
     "Drick en öl jättefort"
   ];
-  
-  // En loop för 
-
   
   /* Funktion som väljer .board klassen och därefter kör en for-loop som itererar igenom hela "challenges" listan
      för varje utmaning i listan skapas en ny div med klass-namnet "square" som senare får husa texten av de indexet som loopen var på
