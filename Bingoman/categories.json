@@ -97,5 +97,39 @@
         "Krama en främling",
         "Dansa tryckare"
 	]			
+},
+{
+    "id": 3,
+    "category": "Barrunda",
+    "challenges":[
+        "Ta med ett glas hem",
+       	"Få en tampong",
+        "Övertala en främling att ni känner varann",
+        "Vinn stirrtävling med en främling",
+        "Ta bild med en ordningsvakt",
+        "Lägg ut på din instastory",
+        "Sjung en snapsvisa med en främling",
+        "Ta en bild med en bartender",
+        "Få en främling att skratta",
+        "Beställ en flaska till bordet",
+        "Få någon att visa ett partytrick för dig",
+        "Visa en främling ditt partytrick",
+        "Sjung karaoke med en främling",
+        "Fråga någon vad deras stjärntecken är",
+        "Hitta någon med samma förnamn",
+        "Använd en cheesy raggningsreplik",
+    	"Ta en främlings dricka",
+        "Fotobomba främlingar",
+        "Skåla med tre främlingar",
+        "Få en ny vän på Facebook",
+        "Bjud en främling på en öl",
+     	"Ta bild med fyra mustacher",
+        "Beställ på en dialekt som inte är din egen",
+        "Vinn en ölhävartävling",
+        "Drick öl på minst 4 ställen",
+        "Beställ en shot",
+        "Plocka blommor",
+        "Säg till en främling att du fyller år",
+	]
 }
 ]
