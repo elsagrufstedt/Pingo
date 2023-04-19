@@ -1,3 +1,7 @@
+h1{
+  font-size: 15px;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
