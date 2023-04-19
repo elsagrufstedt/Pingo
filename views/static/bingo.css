@@ -1,19 +1,13 @@
 body {
 	background: #f8f8f8;
-	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-family:helvetica 'Courier New', Courier, monospace;
 }
 
-.main-content {
-	width: 100%;
-	margin: 4em auto 0;
-	overflow: hidden;
-}
+
 
 .title {
-	background: black;
-	color: #fff;
+	color: black;
 	padding: 30px 10px;
-	grid-column: span 5;
 	text-align: center;
 }
 
@@ -37,3 +31,8 @@ body {
     background-color: green;
 }
 
+#hem{
+	width: 50px;
+	position: absolute;
+	padding-top: 10px;
+}
