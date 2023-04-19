@@ -1,7 +1,12 @@
-const gridItems = document.querySelectorAll('box');
+const bingo_boxes = document.querySelectorAll('.box');
 
-gridItems.forEach(gridItem => {
-  gridItem.addEventListener('click', () => {
-    gridItem.classList.toggle('green');
+// Kodrad som räknar 
+bingo_boxes.forEach(bingo_box => {
+  bingo_box.addEventListener('click', function() {
+    if (this.classList.contains('green')) {
+      this.classList.remove('green');
+    } else {
+      this.classList.add('green');
+    }
   });
 });
