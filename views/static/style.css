@@ -1,20 +1,24 @@
-h1{
+h1 {
   font-size: 15px;
 }
 
-.board {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);    
-  }
-  
-  
-  .won {
-    background-color: green;
-    color: white;
-  }
-  
-.categories{
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.box {
+  color: black;
+  border: solid black;
+}
+
+.won {
+  background-color: green;
+  color: white;
+}
+
+.categories {
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -23,7 +27,7 @@ h1{
   max-width: fit-content;
 }
 
-a{
+a {
   color: black;
   text-decoration: none;
 }

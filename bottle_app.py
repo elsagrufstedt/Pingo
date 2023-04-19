@@ -27,10 +27,12 @@ def categories():
     data = read_categories()
     return template('views/categories', data=data)
 
-@route('/bingo')
-def bingo():
+@route('/bingo/<category>')
+def bingo(category):
     data = read_categories()
-    return template('views/bingo', data=data)
+    for item in data:
+        if item['category'] == category:
+            return template('views/bingo', data=item['challenges'], category=category)
 
 @route('/login')
 def login():

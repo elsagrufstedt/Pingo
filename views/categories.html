@@ -9,12 +9,13 @@
 </head>
 <body>
     <h1>Bingo Categories</h1>
-    <ul>
+      
+
       % for game in data:
-      <div class="categories"><a href="/bingo/{{game['id']}}">{{game["category"]}}</a></div>
+        <a href="/bingo/{{game['category']}}">{{game["category"]}}</a>
       % end
      
-  
-    </ul>
+    <script src="./static/script.js"></script>
+
 </body>
 </html>
