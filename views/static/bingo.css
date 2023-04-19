@@ -1,6 +1,6 @@
 body {
 	background: #f8f8f8;
-	font-family: "Nunito", sans-serif;
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .main-content {
@@ -24,7 +24,6 @@ body {
 	grid-gap: 3px;
 	grid-template-rows: repeat(5, 110px);
 	grid-template-columns: repeat(5, 1fr);
-	text-transform: uppercase;
 }		
 
 .box{

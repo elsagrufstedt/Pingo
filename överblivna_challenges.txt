@@ -24,3 +24,47 @@
 		"Ställ dig upp och sjung ja må han leva",
 		"Tänd ett ljus"
         "Tävla med någon vem som sänker glaset snabbast"
+
+
+Från Klubbkväll
+		"Ge en främling ett glas vatten",
+        "Köp en shot till en främling",
+        "Få en snus eller cigg från en främling",
+        "Sno med en souvenir",
+       	"Låtsas att du känner någon på dansgolvet",
+       	"Sitt på någons axlar",
+        "Winga en polare",
+        "Dansa med någon som är minst 10 år äldre än dig",
+        "Stå uppe hos DJ:n",
+      	"Bjud en främling på ett glas vatten",
+       	"Hitta en huvudbonad",
+        "Krama en främling",
+        "Dansa tryckare",
+
+
+Från Barrunda
+		"Ge en främling ett glas vatten",
+        "Köp en shot till en främling",
+        "Få en snus eller cigg från en främling",
+        "Sno med en souvenir",
+       	"Låtsas att du känner någon på dansgolvet",
+       	"Sitt på någons axlar",
+        "Winga en polare",
+        "Dansa med någon som är minst 10 år äldre än dig",
+        "Stå uppe hos DJ:n",
+      	"Bjud en främling på ett glas vatten",
+       	"Hitta en huvudbonad",
+        "Krama en främling",
+        "Dansa tryckare",
+		"39",
+		"40",
+		"41",
+		"42",
+		"43",
+		"44",
+		"45",
+		"46",
+		"47",
+		"48",
+		"49",
+		"50"
