@@ -27,10 +27,9 @@ const challenges = [
     "Få en främling att skratta"
   ];
   
-  /* Funktion som väljer .board klassen och därefter kör en for-loop som itererar igenom hela "challenges" listan
-     för varje utmaning i listan skapas en ny div med klass-namnet "square" som senare får husa texten av de indexet som loopen var på
-     Efter loopen görs en event-listener som vid en klick på square elementet byter klassen från "square" till "won". Till sist appendar vi dem nya 
-     div elementen till "board" containern. 
+  /* Väljer .board klassen och för varje utmaning i "challenges" skapas ny div med klass-namnet "square"
+     som får texten av de indexet som loopen var på, efter loopen görs en event-listener som vid klick på square 
+     byter klass från "square" till "won". Hämtar de nya divsen till "board" containern.
 */
 
   function pingo_game() {
