@@ -17,9 +17,4 @@ def send_static(filename):
     return static_file(filename, root='./views/static')
 
 
-@route('/download/<filename:path>')
-def download(filename):
-    return static_file(filename, root='/path/to/static/files', download=filename)
-
-
 run(host='127.0.0.1', port=8080, reloader=True)
