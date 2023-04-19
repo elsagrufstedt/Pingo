@@ -1,12 +1,11 @@
 async function categories() {
-
-  const requestURL = './categories.json';
+  const requestURL = "./static/categories.json";
   const request = new Request(requestURL);
   const response = await fetch(request);
   const result = await response.json();
-  console.log(result)
+  console.log(result);
 
-  pingo_game(result)
+  pingo_game(result);
 }
 
 /* Funktion som väljer .board klassen och därefter kör en for-loop som itererar igenom hela "challenges" listan
@@ -16,18 +15,17 @@ async function categories() {
 */
 
 function pingo_game(result) {
-const challenges = result[0].challenges;
-const board = document.querySelector(".board");
-for (let i = 0; i < challenges.length; i++) {
-  const square = document.createElement("div");
-  square.classList.add("square");
-  square.textContent = challenges[i];
-  square.addEventListener("click", function () {
-    this.classList.toggle("won");
-  });
-  board.appendChild(square);
+  const challenges = result[0].challenges;
+  const board = document.querySelector(".board");
+  for (let i = 0; i < challenges.length; i++) {
+    const square = document.createElement("div");
+    square.classList.add("square");
+    square.textContent = challenges[i];
+    square.addEventListener("click", function () {
+      this.classList.toggle("won");
+    });
+    board.appendChild(square);
+  }
 }
-}
-
 
 categories();
