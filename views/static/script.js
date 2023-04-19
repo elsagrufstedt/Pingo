@@ -35,15 +35,10 @@ const challenges = [
 
 function pingo_game() {
   const board = document.querySelector(".board");
-  for (let i = 0; i < challenges.length; i++) {
-    const square = document.createElement("div");
-    square.classList.add("square");
-    square.textContent = challenges[i];
+    const square = document.querySelector(".box");
     square.addEventListener("click", function () {
       this.classList.toggle("won");
     });
-    board.appendChild(square);
   }
-}
 
 pingo_game();
