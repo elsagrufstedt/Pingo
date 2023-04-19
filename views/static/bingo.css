@@ -1,0 +1,38 @@
+body {
+	background: #f8f8f8;
+	font-family: "Nunito", sans-serif;
+}
+
+.main-content {
+	width: 100%;
+	margin: 4em auto 0;
+	overflow: hidden;
+}
+
+.title {
+	background: black;
+	color: #fff;
+	padding: 30px 10px;
+	grid-column: span 5;
+	text-align: center;
+}
+
+.bingo-card {
+	background: whitesmoke;
+	padding: 10px;
+	display: grid;
+	grid-gap: 3px;
+	grid-template-rows: repeat(5, 110px);
+	grid-template-columns: repeat(5, 1fr);
+	text-transform: uppercase;
+}		
+
+.box{
+    border: solid black 1px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.green{
+    background-color: green;
+}

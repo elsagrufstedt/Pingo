@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <title>Pingo</title>
+  <link rel="stylesheet" href="/static/bingo.css">
 </head>
 <body>
-	<h1>{{category}}</h1>
-	<div class="container">
-		% for challenge in data: 
-			<div class="box">
-				{{challenge}}
-			</div>
-		% end 
+  <div class="main-content">
+    <header class="title">{{category}}</header>
+    <div class="bingo-card">
+      % for challenge in data: 
+        <div class="box">
+          {{challenge}}
+        </div>
+      % end 
+  </div>
+
 </body>
 <script src="/static/script.js"></script>
 </html>

@@ -1,8 +1,7 @@
-function pingo_game() {
-  const square = document.querySelector(".box");
-  square.addEventListener("click", function () {
-      this.classList.toggle("won");
-    });
-  }
+const gridItems = document.querySelectorAll('box');
 
-pingo_game();
+gridItems.forEach(gridItem => {
+  gridItem.addEventListener('click', () => {
+    gridItem.classList.toggle('green');
+  });
+});
