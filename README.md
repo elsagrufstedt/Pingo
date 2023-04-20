@@ -1,5 +1,5 @@
 # Pingo
-Detta är en Python-webbapplikation som använder ramverket Bottle som 
+Detta är en Python-webbapplikation som använder ramverket Bottle
 
 ## Krav
 * Python 3
