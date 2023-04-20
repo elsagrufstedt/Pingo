@@ -1,38 +1,38 @@
 body {
-	background: #f8f8f8;
-	font-family:helvetica 'Courier New', Courier, monospace;
+    background: #ffffff;
+    font-family: helvetica "Courier New", Courier, monospace;
 }
 
 
 
 .title {
-	color: black;
-	padding: 30px 10px;
-	text-align: center;
+    color: black;
+    padding: 30px 10px;
+    text-align: center;
 }
 
 .bingo-card {
-	background: whitesmoke;
-	padding: 10px;
-	display: grid;
-	grid-gap: 3px;
-	grid-template-rows: repeat(5, 110px);
-	grid-template-columns: repeat(5, 1fr);
-}		
+    background: whitesmoke;
+    padding: 10px;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-rows: repeat(5, 110px);
+    grid-template-columns: repeat(5, 1fr);
+}
 
-.box{
+.box {
     border: solid black 1px;
     text-align: center;
     vertical-align: middle;
-	cursor: pointer;
+    cursor: pointer;
 }
 
-.green{
+.green {
     background-color: green;
 }
 
-#hem{
-	width: 50px;
-	position: absolute;
-	padding-top: 10px;
+#hem {
+    width: 50px;
+    position: absolute;
+    padding-top: 10px;
 }
