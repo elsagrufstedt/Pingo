@@ -15,7 +15,7 @@ pip install bottle
 ```
 3. Navigera till projektet och kör följande kommando:
 ```
-python bottle_app.py
+python3 bottle_app.py
 ```
 4. Öppna en webbläsare och gå till http://localhost:8080
 
