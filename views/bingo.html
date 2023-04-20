@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pingo</title>
+  <link rel="stylesheet" href="/static/bingo.css">
+</head>
+<body>
+  <div class="main-content">
+
+    <a href="/"><img src="/static/arrow.svg" id="hem" alt="hemknapp"></a> 
+    <header class="title">{{category}}</header>
+    <div class="bingo-card">
+      % for challenge in data: 
+        <div class="box">
+          {{challenge}}
+        </div>
+      % end 
+  </div>
+
+</body>
+<script src="/static/script.js"></script>
+</html>
