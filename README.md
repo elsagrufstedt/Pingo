@@ -9,15 +9,15 @@ Detta är en Python-webbapplikation som använder ramverket Bottle
 ## Installation
 1. Klona repostorien eller ladda ner ZIP-filen från https://github.com/elsagrufstedt/Pingo
 2. Öppna terminalen i er textredigerare/lokalt på er maskin
-2. Installera Bottle med följande kommando:
+3. Installera Bottle med följande kommando:
 ```
 pip install bottle
 ```
-3. Navigera till projektet och kör följande kommando:
+4. Navigera till projektet och kör följande kommando:
 ```
 python3 bottle_app.py
 ```
-4. Öppna en webbläsare och gå till http://localhost:8080
+5. Öppna en webbläsare och gå till http://localhost:8080
 
 ## Användning
 * Vid start av Webbserver blir användaren introducerad till två alternativ, Spela eller registrera konto
