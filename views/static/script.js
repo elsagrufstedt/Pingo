@@ -36,7 +36,7 @@ function game_win() {
     const greenCount = combination.filter(num => bingo_boxes[num].classList.contains('green')).length;
     if (greenCount === 5) { //Kollar om alla fem boxar i en vinnande kombination är klickade
       const bingo_win = document.getElementById('bingo_win');
-      bingo_win.classList.add('Show_win');//Visar BINGO!- elementet
+      bingo_win.setAttribute('id', 'Show_win');//Visar BINGO!- elementet
       bingo_boxes.forEach(bingo_box => {
         bingo_box.removeEventListener('click', game_win); //Gör det omöjligt att klicka i fler rutor
       });
