@@ -10,7 +10,12 @@
 <body>
   <div class="main-content">
 
-    <a href="/"><img src="/static/arrow.svg" id="hem" alt="hemknapp"></a> 
+    <!---<a href="/"><img src="/static/arrow.svg" id="hem" alt="hemknapp"></a>-->
+
+    <div class="timer">
+      <p id="countdown">10:00</p>
+    </div>
+
     <header class="title">{{category}}</header>
     <div class="bingo-card">
       % for challenge in data: 
