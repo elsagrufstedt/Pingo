@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/categories.css">
+    <link rel="stylesheet" href="./static/categories.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container my-5">
-      <div class="p-5 text-center bg-body-tertiary rounded-3">
-        <svg class="bi mt-4 mb-3" style="color: var(--bs-indigo);" width="100" height="100"><use xlink:href="#bootstrap"/></svg>
-        <h1 class="text-body-emphasis">Kategorier</h1>
-        <p class="col-lg-8 mx-auto fs-5 text-muted">
-        Välj en kategori som passar in med kvällen!        </p>
+      <div class="p-5 text-center rounded-3">
+        <svg class="bi mt-4 mb-3" width="100" height="10"><use xlink:href="#bootstrap"/></svg>
+        <h1 class="cat">Kategorier</h1>
+        <p class="cattext">Välj en kategori som passar in med kvällen!</p>
         <div class="d-inline-flex gap-2 mb-5" id="catcont">
             % for game in data:
             <a class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" id="cat" href="/bingo/{{game['category']}}">{{game["category"]}}</a>
@@ -23,6 +22,9 @@
             <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"/></svg>
           </button>
         </div>
+        <div class="pingologga">
+          <img src="static/images/PiNGO logga/Pingovit.png"/>
+      </div>
       </div>
     </div>
      
