@@ -37,8 +37,9 @@ function game_win() {
     if (greenCount === 5) { //Kollar om alla fem boxar i en vinnande kombination är klickade
       const bingo_win = document.getElementById('bingo_win');
       bingo_win.setAttribute('id', 'Show_win');//Visar BINGO!- elementet
+
       bingo_boxes.forEach(bingo_box => {
-        bingo_box.removeEventListener('click', game_win); //Gör det omöjligt att klicka i fler rutor
+        bingo_box.removeEventListener('click', game_win); //(inte färdig)Gör det omöjligt att klicka i fler rutor
       });
     }
   });
