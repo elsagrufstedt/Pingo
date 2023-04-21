@@ -1,0 +1,17 @@
+#cat{
+    width: auto;
+    background-color: rgba(16, 184, 86, 0.719);
+}
+
+@media screen  and (max-width:600px) {
+    #catcont{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #cat{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}
