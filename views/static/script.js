@@ -11,19 +11,37 @@ bingo_boxes.forEach(bingo_box => {
   });
 });
 
-const starting_minutes=10;
-let time = starting_minutes * 60;
+var start_timer = null;
 
-const countdown_el = document.getElementById('countdown');
+var start = document.getElementById("start");
+var reset = document.getElementById("reset");
 
-setInterval(update_countdown, 1000)
+var hour = document.getElementById("hour");
+var min = document.getElementById("minute");
+var sec = document.getElementById("second");
 
-function update_countdown(){
-  const minutes = Math.floor(time/60);
-  let seconds = time % 60;
-
-  seconds = seconds < 10 ? '0' + seconds : seconds;
-
-  countdown_el.innerHTML = `${minutes}: ${seconds}`;
-  time--;
+function timer(){
+  if(hour.value == 0 && min.value == 0 && sec.value == 0){
+    hour.value = 0;
+    min.value = 0;
+    sec.value = 0;
+  } else if(sec.value != 0){
+    sec.value --;
+  } else if(min.value != 0 && sec.value == 0){
+    sec.value = 59;
+    min.value --;
+  } else if(hour.value != 0 && min.value == 0){
+    min.value = 60;
+    hour.value --;
+  }
+  return
 }
+
+start.addEventListener("click", function(){
+  function start_game(){
+    start_timer = setInterval(function(){
+      timer();
+    }, 1000)
+  }
+  start_game()
+})
