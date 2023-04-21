@@ -45,7 +45,7 @@ body {
     border: 5px solid #85ed36;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
 
@@ -58,15 +58,15 @@ body {
 }
 
 #hour_label {
-    grid-area: 1 / 2 / 1 / 3;
+    grid-area: 1 / 1 / 1 / 2;
 }
 
 #minute_label {
-    grid-area: 1 / 3 / 1 / 4;
+    grid-area: 1 / 2 / 1 / 3;
 }
 
 #sec_label {
-    grid-area: 1 / 4 / 1 / 5;
+    grid-area: 1 / 3 / 1 / 4;
 }
 
 .time {
@@ -81,7 +81,7 @@ body {
 }
 
 #hour {
-    grid-area: 2 / 2 / 2 / 3;
+    grid-area: 2 / 1 / 2 / 2;
 }
 
 .semicolon {
@@ -93,19 +93,19 @@ body {
 }
 
 #p1 {
-    grid-area: 2 / 2 / 2 / 4;
+    grid-area: 2 / 1 / 2 / 3;
 }
 
 #minute {
-    grid-area: 2 / 3 / 2 / 4;
+    grid-area: 2 / 2 / 2 / 3;
 }
 
 #p2 {
-    grid-area: 2 / 3 / 2 / 5;
+    grid-area: 2 / 1 / 2 / 3;
 }
 
 #sec {
-    grid-area: 2 / 4 / 2 / 5;
+    grid-area: 2 / 2 / 2 / 4;
 }
 .btn {
     align-self: center;
@@ -118,5 +118,5 @@ body {
 }
 
 #start {
-    grid-area: 3 / 2 / 3 / 4;
+    grid-area: 3 / 2 / 3 / 2;
 }

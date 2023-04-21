@@ -44,4 +44,5 @@ start.addEventListener("click", function(){
     }, 1000)
   }
   start_game()
+  start.disabled = true;
 })
