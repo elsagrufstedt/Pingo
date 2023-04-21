@@ -3,8 +3,6 @@ body {
 	font-family:helvetica 'Courier New', Courier, monospace;
 }
 
-
-
 .title {
 	color: black;
 	padding: 30px 10px;
@@ -36,3 +34,16 @@ body {
 	position: absolute;
 	padding-top: 10px;
 }
+
+/*#bingo_win {
+	display: none;
+  }*/
+  
+#Show_win {
+	display: block;
+	padding: 01.3rem;
+	font-size: 40pt;
+}
+  
+
+
