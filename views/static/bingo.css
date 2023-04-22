@@ -3,8 +3,6 @@ body {
     font-family: helvetica "Courier New", Courier, monospace;
 }
 
-
-
 .title {
     color: black;
     padding: 30px 10px;
@@ -101,12 +99,17 @@ body {
 }
 
 #p2 {
-    grid-area: 2 / 1 / 2 / 3;
+    grid-area: 2 / 2 / 2 / 4;
 }
 
 #sec {
-    grid-area: 2 / 2 / 2 / 4;
+    grid-area: 2 / 3 / 2 / 4;
 }
+
+#start {
+    grid-area: 3 / 2 / 3 / 2;
+}
+
 .btn {
     align-self: center;
     
@@ -115,8 +118,4 @@ body {
 
     font-size: 30px;
     justify-self: center;
-}
-
-#start {
-    grid-area: 3 / 2 / 3 / 2;
 }
