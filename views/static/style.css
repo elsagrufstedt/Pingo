@@ -1,13 +1,26 @@
+body{
+    background-color: rgb(48, 05, 49);
+
+}
+
+p{
+    color: white;
+}
 
 h1 {
     font-size: 15px;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+#spela{
+    background-color: rgba(255, 255, 255, 0.194);
+    border: none;
 }
+
+#spela:hover{
+    background-color: rgba(255, 255, 255, 0.329) ;
+}
+
+
 
 .box {
     color: black;
@@ -29,7 +42,7 @@ h1 {
 }
 
 a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
