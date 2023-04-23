@@ -35,4 +35,12 @@ a {
 .pingologga img {
     width: auto;
     height: 150px;
+    animation: animate 2s infinite ease alternate;
+
+
 }
+@keyframes animate {
+    to {
+      transform: translateY(10px);
+    }
+  }

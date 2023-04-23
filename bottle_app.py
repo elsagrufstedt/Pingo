@@ -45,11 +45,11 @@ def bingo(category):
         if item['category'] == category:
             return template('views/bingo', data=item['challenges'], category=category)
 
-@route('/login', method=["GET"])
+@route('/register', method=["GET"])
 def login():
-    return template('views/login')
+    return template('views/register')
 
-@route("/login", method=["POST"])
+@route("/register", method=["POST"])
 def create_user():
     request.method =="POST"
     email = getattr(request.forms, ("email"))
