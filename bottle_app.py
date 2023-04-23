@@ -1,4 +1,4 @@
-from bottle import run, route, template, TEMPLATE_PATH, static_file 
+from bottle import run, route, template, TEMPLATE_PATH, static_file, request, redirect
 import os
 import json
 
@@ -15,6 +15,17 @@ def read_categories():
         with open('views/static/categories.json', 'w') as f:
             f.write(json.dumps([]))
             return []
+        
+def read_login():
+    try:
+        with open('views/static/login.json', 'r',  encoding='utf-8') as f:
+            data = json.load(f)
+            return data
+    except FileNotFoundError:
+        with open('views/static/login.json', 'w') as f:
+            f.write(json.dumps([]))
+            return []
+
 
 
 @route("/")
@@ -34,9 +45,29 @@ def bingo(category):
         if item['category'] == category:
             return template('views/bingo', data=item['challenges'], category=category)
 
-@route('/login')
+@route('/login', method=["GET"])
 def login():
     return template('views/login')
+
+@route("/login", method=["POST"])
+def create_user():
+    request.method =="POST"
+    email = getattr(request.forms, ("email"))
+    password = getattr(request.forms, ("password"))
+    
+    new_user = read_login()
+
+    new_user.append({
+        "email": email,
+        "password": password,
+    })
+
+    with open('views/static/login.json', 'w', encoding='utf-8') as f:
+        json.dump(new_user, f, indent=4)
+
+    redirect("/")
+        
+
 
 @route('/static/<filename:path>')
 def send_static(filename):
