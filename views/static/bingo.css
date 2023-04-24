@@ -31,7 +31,7 @@ body {
 }
 
 .green {
-  background-color: green;
+    background-color: green;
 }
 
 #hem {
@@ -39,3 +39,16 @@ body {
   position: absolute;
   padding-top: 10px;
 }
+
+#bingo_win {
+    display: none;
+}
+
+#Show_win {
+    display: block;
+	text-align: center;
+    padding: 01.3rem;
+    font-size: 60pt;
+	color:deeppink ;
+}
+
