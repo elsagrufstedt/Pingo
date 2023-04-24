@@ -1,10 +1,12 @@
 [
     {
         "email": "maxi.arne@hotmail.com",
-        "password": "weewaa"
+        "password": "weewaa",
+        "id": 1
     },
     {
-        "email": "hyejhej@hgej.se",
-        "password": "hej123"
+        "email": "hej123@hej.se",
+        "password": "",
+        "id": 2
     }
 ]

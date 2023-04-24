@@ -27,6 +27,20 @@ def read_login():
             return []
 
 
+def create_id(user):
+    """
+    Returns an integer representing the current highest id + 1
+    
+    Returns
+        int : the current highest id + 1
+    """
+    highest_id = 1
+    for use in user:
+        if use["id"] >= highest_id:
+            highest_id = use["id"] + 1
+
+    return highest_id
+
 
 @route("/")
 def index():
@@ -56,10 +70,11 @@ def create_user():
     password = getattr(request.forms, ("password"))
     
     new_user = read_login()
-
+    id = create_id(new_user)
     new_user.append({
         "email": email,
         "password": password,
+        "id" : id
     })
 
     with open('views/static/login.json', 'w', encoding='utf-8') as f:
