@@ -37,10 +37,12 @@ body {
 
 #timer {
     height: 200px;
-    width: 700px;
+    width: 95%;
     background-color: #e5c1ff;
     margin: 0 auto;
-    border: 5px solid #85ed36;
+    border-radius: 30px;
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -102,7 +104,7 @@ body {
     grid-area: 2 / 2 / 2 / 4;
 }
 
-#sec {
+#second {
     grid-area: 2 / 3 / 2 / 4;
 }
 
@@ -112,8 +114,12 @@ body {
 
 .btn {
     align-self: center;
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
     
-    width: 100px;
+    width: 150px;
     height: 40px;
 
     font-size: 30px;
