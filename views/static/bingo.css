@@ -3,8 +3,6 @@ body {
     font-family: helvetica "Courier New", Courier, monospace;
 }
 
-
-
 .title {
     color: black;
     padding: 30px 10px;
@@ -28,7 +26,7 @@ body {
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(3, 178, 3);
 }
 
 #hem {
@@ -36,3 +34,16 @@ body {
     position: absolute;
     padding-top: 10px;
 }
+
+#bingo_win {
+    display: none;
+}
+
+#Show_win {
+    display: block;
+	text-align: center;
+    padding: 01.3rem;
+    font-size: 60pt;
+	color:deeppink ;
+}
+
