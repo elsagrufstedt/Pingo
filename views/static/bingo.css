@@ -1,33 +1,33 @@
 html {
-  -ms-touch-action: manipulation;
+    -ms-touch-action: manipulation;
 
-  touch-action: manipulation;
+    touch-action: manipulation;
 }
 body {
-  background: #ffffff;
-  font-family: helvetica "Courier New", Courier, monospace;
+    background: #ffffff;
+    font-family: helvetica "Courier New", Courier, monospace;
 }
 
 .title {
-  color: black;
-  padding: 30px 10px;
-  text-align: center;
+    color: black;
+    padding: 30px 10px;
+    text-align: center;
 }
 
 .bingo-card {
-  background: whitesmoke;
-  padding: 10px;
-  display: grid;
-  grid-gap: 3px;
-  grid-template-rows: repeat(5, 110px);
-  grid-template-columns: repeat(5, 1fr);
+    background: whitesmoke;
+    padding: 10px;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-rows: repeat(5, 110px);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .box {
-  border: solid black 1px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
+    border: solid black 1px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 .green {
@@ -35,9 +35,9 @@ body {
 }
 
 #hem {
-  width: 50px;
-  position: absolute;
-  padding-top: 10px;
+    width: 50px;
+    position: absolute;
+    padding-top: 10px;
 }
 
 #timer {
@@ -47,14 +47,14 @@ body {
     margin: 0 auto;
     border-radius: 30px;
 
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
 
-.label{
+.label {
     margin: 0;
 
     justify-self: center;
@@ -123,7 +123,7 @@ body {
     color: #ffffff;
     border: none;
     border-radius: 30px;
-    
+
     width: 150px;
     height: 40px;
 
@@ -136,9 +136,8 @@ body {
 
 #Show_win {
     visibility: visible;
-	text-align: center;
+    text-align: center;
     padding: 01.3rem;
     font-size: 60pt;
-	color:deeppink ;
+    color: deeppink;
 }
-

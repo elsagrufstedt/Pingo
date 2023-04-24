@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(81, 0, 255);
+}
+
+.pingologga img {
+    width: auto;
+    height: 150px;
+    animation: animate infinite ease-in alternate 2s;
+}
+
+@keyframes animate {
+    to {
+        transform: translateY(10px);
+    }
+}
