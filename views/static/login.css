@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(5, 9, 49) !important;
+    color: rgb(216, 213, 213) !important;
+}
+
+.pingologga img {
+    margin: auto;
+    height: 150px;
+    animation: animate infinite ease-in alternate 2s;
+}
+
+@keyframes animate {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+#form {
+    background-color: rgba(100, 100, 100, 0.706);
+}
+
+button {
+    background-color: rgb(238, 9, 169) !important;
+    color: white !important;
+}
