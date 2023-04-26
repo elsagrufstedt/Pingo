@@ -26,13 +26,12 @@ def categories():
         c = conn.cursor()
 
         # Query the categories from the database
-        c.execute('''SELECT category, challenges FROM categories''')
+        c.execute('''SELECT category_name FROM Categories''')
         data = c.fetchall()
         categories = []
     for row in data:
         category = {
-            'category': row[0],
-            'challenges': json.loads(row[1])
+            'category': row[0]
         }
         categories.append(category)
 
@@ -40,13 +39,21 @@ def categories():
 
 @route('/bingo/<category>')
 def bingo(category):
-    categories = read_categories()
-    challenges = []
-    for item in categories:
-        if item['category'] == category:
-            challenges = item['challenges']
-            break
+    # Connect to database
+    conn = sqlite3.connect('pingo.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+
+    # Retrieve challenges for the selected category
+    c.execute('''SELECT challenge_name FROM Challenges
+                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+    challenges = [row['challenge_name'] for row in c.fetchall()]
+
+    # Close database connection
+    conn.close()
+
     return template('views/bingo', data=challenges, category=category)
+
 
 
 @route("/register", method=["GET"])
@@ -54,8 +61,7 @@ def register():
     return template('views/register')
 
 @route("/register", method=["POST"])
-def create_user():
-    request.method == "POST"
+def register_user():
     email = getattr(request.forms, ("email"))
     password = getattr(request.forms, ("password"))
 
@@ -72,10 +78,10 @@ def create_user():
 
     redirect("/")
         
-
 @route('/static/<filename:path>')
 def send_static(filename):
-    return static_file(filename, root='./views/static')
+ return static_file(filename, root='./views/static')
+
 
 
 run(host='127.0.0.1', port=8080, reloader=True, debug=True)
