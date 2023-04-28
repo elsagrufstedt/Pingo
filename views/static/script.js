@@ -46,6 +46,9 @@ start.addEventListener("click", function(){
   }
   start_game()
   start.disabled = true;
+  document.getElementById("hour").disabled = true;
+  document.getElementById("minute").disabled = true;
+  document.getElementById("second").disabled = true;
 })
 
 //Alla vinnande kombinationer
