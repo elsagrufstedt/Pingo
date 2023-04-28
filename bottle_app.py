@@ -1,10 +1,11 @@
-from bottle import run, route, template, TEMPLATE_PATH, static_file 
+from bottle import run, route, template, TEMPLATE_PATH, static_file
 import os
 import json
 
 base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
 TEMPLATE_PATH.insert(0, views_path)
+
 
 def read_categories():
     try:
@@ -22,10 +23,12 @@ def index():
     '''visar index.html'''
     return template("index")
 
+
 @route('/categories')
 def categories():
     data = read_categories()
     return template('views/categories', data=data)
+
 
 @route('/bingo/<category>')
 def bingo(category):
@@ -34,9 +37,11 @@ def bingo(category):
         if item['category'] == category:
             return template('views/bingo', data=item['challenges'], category=category)
 
+
 @route('/login')
 def login():
     return template('views/login')
+
 
 @route('/static/<filename:path>')
 def send_static(filename):
