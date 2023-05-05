@@ -48,4 +48,9 @@ def send_static(filename):
     return static_file(filename, root='./views/static')
 
 
+@route('/profile')
+def profile():
+    return template('views/profile')
+
+
 run(host='127.0.0.1', port=8080, reloader=True, debug=True)

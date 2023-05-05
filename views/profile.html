@@ -6,7 +6,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="static/login.css" rel="stylesheet" />
+        <link href="static/profile.css" rel="stylesheet" />
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -22,17 +22,26 @@
                         <a href="/">
                             <div class="pingologga">
                                 <img
-                                    src="static/images/PiNGO logga/Pingorosa.png"
+                                    src="static/images/PiNGO logga/Pingovit.png"
                                 />
                             </div>
                         </a>
                     </h1>
                     <p class="col-lg-10 fs-4">
-                        Redigera profil.
+                        Redigera profil
                     </p>
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
                     <form class="p-4 p-md-5 rounded-3 body-tertiary" id="form">
+                        <div class="form-floating mb-3">
+                            <input
+                                type="användarnamn"
+                                class="form-control"
+                                id="floatingInput"
+                                placeholder="användarnamn"
+                            />
+                            <label for="floatingInput">Användarnamn</label>
+                        </div>
                         <div class="form-floating mb-3">
                             <input
                                 type="email"
@@ -40,7 +49,7 @@
                                 id="floatingInput"
                                 placeholder="name@example.com"
                             />
-                            <label for="floatingInput">Ändra e-postadress</label>
+                            <label for="floatingInput">E-postadress</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input
@@ -49,7 +58,16 @@
                                 id="floatingPassword"
                                 placeholder="Password"
                             />
-                            <label for="floatingPassword">Ändra lösenord</label>
+                            <label for="floatingPassword">Nuvarande lösenord</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="floatingPassword"
+                                placeholder="Password"
+                            />
+                            <label for="floatingPassword">Nytt lösenord</label>
                         </div>
                         <button
                             class="w-100 btn btn-lg"
