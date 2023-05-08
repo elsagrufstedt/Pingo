@@ -66,11 +66,21 @@ a {
     height: 30px;
 }
 
+
+
 input{
     height: 100px;
     width: 100px;
+    margin: 2px;
 }
 
+
+
 .add_cont {
-    background-color: antiquewhite;
+    background-color: white;
+}
+
+#add_cat{
+    background-color: #052631;
+    margin: 10px;
 }
