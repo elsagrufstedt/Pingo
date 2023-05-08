@@ -55,32 +55,38 @@ a {
     }
   }
 
-  .bingo-board {
-  width: auto;
-  height: ;
-}
-
-
 
 #category {
     height: 30px;
+    margin: 10px;
 }
 
+.add_title{
+    letter-spacing: 10px;
+}
 
-
-input{
+input {
     height: 100px;
     width: 100px;
-    margin: 2px;
-}
-
-
-
-.add_cont {
-    background-color: white;
+    margin: 100px;
+    background-color: rgb(65, 35, 57);
+    color: white;
+    border-color: #00f7ff;
 }
 
 #add_cat{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    align-content: center;
     background-color: #052631;
-    margin: 10px;
+}
+
+.add_body{
+    color: white;
+    background-color:#300531;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
 }
