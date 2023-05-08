@@ -30,7 +30,6 @@ def categories():
     return template('views/categories', data=categories)
 
 
-
 @route('/bingo/<category>')
 def bingo(category):
     conn = sqlite3.connect('pingo.db')
