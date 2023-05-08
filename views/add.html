@@ -5,12 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="static/reset.css">
+  <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-  <h1>Add Category</h1>
+  <h1 class="add_title">Skapa nytt bingo spel!</h1>
+  <div class="cont">
   <form action="/add" method="POST" accept-charset="UTF-8">
-    <label for="category">Category Name:</label>
+    <label for="category">Kategori namn:</label>
     <input type="text" id="category" name="category" required><br><br>
+   
       <table class="bingo-board">
         <tbody>
           <tr>
@@ -52,5 +56,8 @@
       </table>
       <button type="submit">Submit</button>
     </form>
+
+    </div>  
+   
 </body>
 </html>

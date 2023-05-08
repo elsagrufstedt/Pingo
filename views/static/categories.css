@@ -14,6 +14,11 @@ body {
   background-color: rgb(48, 05, 49);
 }
 
+#add {
+  background-color: dodgerblue;
+}
+
+
 #cat {
   width: auto;
   background-color: rgba(255, 255, 255, 0.194);

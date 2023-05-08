@@ -1,4 +1,4 @@
-from bottle import run, route, template, TEMPLATE_PATH, static_file
+from bottle import run, route, template, TEMPLATE_PATH, static_file, request, redirect
 import os
 import sqlite3
 import hashlib
@@ -54,14 +54,14 @@ def add():
 def add_new():
     conn = sqlite3.connect('pingo.db')
     c = conn.cursor()
-    category_name = request.forms.get('category')
+    category_name = getattr(request.forms, 'category')
     c.execute("INSERT INTO Categories (category_name) VALUES (?)",
               (category_name,))
     category_id = c.lastrowid
 
     challenges = []
     for i in range(1, 26):
-        challenge_name = request.forms.get(f'challenge_{i}')
+        challenge_name = getattr(request.forms, f'challenge_{i}')
         challenges.append(challenge_name)
 
     for challenge_name in challenges:
