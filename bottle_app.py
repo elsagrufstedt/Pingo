@@ -3,6 +3,7 @@ import os
 import sqlite3
 import hashlib
 
+
 base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
 TEMPLATE_PATH.insert(0, views_path)
@@ -80,10 +81,8 @@ def register():
 def register_user():
     email = getattr(request.forms, ("email"))
     password = getattr(request.forms, ("password"))
-
     hash_obj = hashlib.sha256(password.encode())
     password_hash = hash_obj.hexdigest()
-
     conn = sqlite3.connect('pingo.db')
     c = conn.cursor()
 
