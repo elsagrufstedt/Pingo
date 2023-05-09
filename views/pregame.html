@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css" >
+
+    <title>Pregame</title>
+</head>
+<body class="pregame">
+    <header>
+        <div class="pingologga"> 
+            <!---Länka denna till startsidan-->
+            <img src="/static/images/PiNGO logga/Pingovit.png"/>
+        </div>
+        <div id="timer">
+            <p id="hour_label" class="label">timmar</p>
+            <p id="minute_label" class="label">minuter</p>
+            <p id="second_label" class="label">sekunder</p>
+      
+            <input id="hour" type="number" max="24" min="0" value="0" class="time">
+            <p id="p1" class="semicolon">:</p>
+            <input id="minute" type="number" max="59" min="0" value="0" class="time">
+            <p id="p2" class="semicolon">:</p>
+            <input id="second" type="number" max="59" min="0" value="0" class="time">
+            <button id="start" class="btn">STARTA</button>
+          </div>
+    </header>
+</body>
+
+<script src="/static/script.js"></script>
+
+</html>

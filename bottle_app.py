@@ -112,4 +112,8 @@ def profile():
     return template('views/profile')
 
 
+@route('/start/')
+def pregame():
+    return template('views/pregame')
+
 run(host='127.0.0.1', port=8080, reloader=True, debug=True)

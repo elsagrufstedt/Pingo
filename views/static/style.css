@@ -184,11 +184,11 @@ a {
     padding-top: 10px;
 }
 
-/*css för timern på bingo.html */
+/*css för timern */
 #timer {
     height: 200px;
     width: 95%;
-    background-color: #e5c1ff;
+    background-color: #552f67;
     margin: 0 auto;
     border-radius: 30px;
 
@@ -288,4 +288,20 @@ a {
     padding: 01.3rem;
     font-size: 60pt;
     color: deeppink;
+}
+
+.pregame{
+    background-color: rgb(5, 49, 49);
+}
+
+.pregame .pingologga img {
+    width: auto;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pregame p{
+    color: black;
 }
