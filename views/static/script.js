@@ -2,15 +2,17 @@ const bingo_boxes = document.querySelectorAll('.box');
 
 // Kodrad som räknar 
 bingo_boxes.forEach(bingo_box => {
-  bingo_box.addEventListener('click', function() {
-    if (this.classList.contains('green')) {
-      this.classList.remove('green');
-    } else {
-      this.classList.add('green');
-    }
-    game_win();
-  });
-});
+  bingo_box.addEventListener('click', box_check)
+    
+function box_check(){
+  if (this.classList.contains('green')) {
+    this.classList.remove('green');
+  } else {
+    this.classList.add('green');
+  }
+  game_win();
+};
+
 
 var start_timer = null;
 
@@ -70,16 +72,22 @@ const winning_combinations = [
 
 //Funktion som kollar om en vinnande kombination har gjorts
 function game_win() {
+  let isGameWon = false;
   winning_combinations.forEach((combination) => {
     const greenCount = combination.filter(num => bingo_boxes[num].classList.contains('green')).length;
-    if (greenCount === 5) { //Kollar om alla fem boxar i en vinnande kombination är klickade
+    if (greenCount === 5) {
+      isGameWon = true;
       const bingo_win = document.getElementById('bingo_win');
-      bingo_win.setAttribute('id', 'Show_win');//Visar BINGO!- elementet
-
-      bingo_boxes.forEach(bingo_box => {
-        bingo_box.removeEventListener('click', game_win); //(inte färdig)Gör det omöjligt att klicka i fler rutor
-      });
+      bingo_win.setAttribute('id', 'Show_win');
     }
   });
+  return isGameWon;
 }
 
+function freeze(){
+    bingo_boxes.removeEventListener('click', box_check); 
+    if (game_win() === true){ 
+      Object.freeze(bingo_boxes);
+    }
+  }    
+})
