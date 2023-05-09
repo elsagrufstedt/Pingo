@@ -105,11 +105,9 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-    width: auto;
-    height: 50px;
   }
   
-  .profilbild img {
+  .categories .profilbild img {
     width: auto;
     height: 25px;
     border-radius: 50%;
