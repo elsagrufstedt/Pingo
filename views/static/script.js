@@ -1,5 +1,6 @@
 const bingo_boxes = document.querySelectorAll('.box');
 
+
 // Kodrad som räknar 
 bingo_boxes.forEach(bingo_box => {
   bingo_box.addEventListener('click', function() {
@@ -67,7 +68,7 @@ const winning_combinations = [
       [4, 8, 12, 16, 20]
 ];
 
-
+//
 //Funktion som kollar om en vinnande kombination har gjorts
 function game_win() {
   winning_combinations.forEach((combination) => {
