@@ -176,10 +176,11 @@ a {
 .box {
     border: solid black 1px;
     text-align: center;
-    vertical-align: middle;
     cursor: pointer;
     color: rgb(31, 0, 22);
     background-color: white;
+    padding-top: 40px;
+
 }
 
 .green {
@@ -259,6 +260,7 @@ a {
     font-size: 50px;
     width: 70px;
     height: 50px;
+    color: white;
 }
 
 #hour {
