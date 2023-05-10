@@ -149,18 +149,27 @@ a {
 
   /* css för bingobrädet på bingo.html */
 .title {
-    color: black;
     padding: 30px 10px;
     text-align: center;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color:rgb(48, 0, 31);
+}
+
+.bingo_content{
+    background-color:rgb(31, 0, 22);
 }
 
 .bingo-card {
-    background: whitesmoke;
+    background-color:rgb(48, 0, 31);
     padding: 10px;
     display: grid;
     grid-gap: 3px;
     grid-template-rows: repeat(5, 110px);
     grid-template-columns: repeat(5, 1fr);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
 }
 
 .box {
@@ -168,10 +177,12 @@ a {
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
+    color: rgb(31, 0, 22);
+    background-color: white;
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(31, 0, 22);
 }
 
 #tillbaka {
@@ -180,12 +191,33 @@ a {
     padding-top: 10px;
 }
 
-/*css för timern på bingo.html */
+/* css för vinstmeddelande */
+#bingo_win {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+/* denna fuckade jag upp efter att ha komprimerat alla css-filer - kom ihåg att fixa!!!!! */
+#Show_win {
+    visibility: visible;
+    text-align: center;
+    padding: 01.3rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+}
 #timer {
-    height: 200px;
+    height: 190px;
     width: 95%;
-    background-color: #e5c1ff;
-    margin: 0 auto;
+    background-color: rgb(48, 0, 31);
+    margin: 10px auto;
     border-radius: 30px;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -193,6 +225,8 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+
+    color: rgb(255, 245, 245);
 }
 
 .label {
@@ -270,30 +304,4 @@ a {
 
     font-size: 30px;
     justify-self: center;
-}
-
-/* css för vinstmeddelande */
-#bingo_win {
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-
-}
-
-/* denna fuckade jag upp efter att ha komprimerat alla css-filer - kom ihåg att fixa!!!!! */
-#Show_win {
-    visibility: visible;
-    text-align: center;
-    padding: 01.3rem;
-    font-size: 60pt;
-    color: yellow;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: deeppink;
-    border-radius: 40px;
-    
 }
