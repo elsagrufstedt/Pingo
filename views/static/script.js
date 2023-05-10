@@ -79,7 +79,7 @@ function game_win() {
     if (greenCount === 5) {
       isGameWon = true;
       const bingo_win = document.getElementById('bingo_win');
-      bingo_win.setAttribute('id', 'Show_win');
+      bingo_win.setAttribute('id', 'Show_win'); //problem med attributet bingo_win!!
     }
   });
   return isGameWon;
