@@ -44,6 +44,8 @@ h1 {
 a {
     color: white;
     text-decoration: none;
+    text-align: center;
+    
 }
 
 .index .pingologga img {
@@ -298,10 +300,8 @@ a {
     color: #ffffff;
     border: none;
     border-radius: 30px;
-
-    width: 150px;
-    height: 40px;
-
     font-size: 30px;
     justify-self: center;
+    display: inline-block;
+    box-sizing: border-box;
 }
