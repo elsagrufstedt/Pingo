@@ -80,7 +80,6 @@ a {
         display: flex;
         flex-direction: column;
     }
-<<<<<<< Updated upstream
 }
 
 .categories {
@@ -88,15 +87,6 @@ a {
 }
 
 #cat {
-=======
-  }
-  
-  .categories {
-    background-color: #300531;
-  }
-  
-  #cat {
->>>>>>> Stashed changes
     width: auto;
     background-color: rgba(255, 255, 255, 0.194);
     color: rgb(255, 255, 255);
