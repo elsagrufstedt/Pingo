@@ -168,6 +168,34 @@ a {
     color: white !important;
 }
 
+/*css för register.html*/
+.register {
+    background-color: rgb(0, 72, 82) !important;
+    color: rgb(216, 213, 213) !important;
+}
+
+.register .pingologga img {
+    margin: auto;
+    height: 150px;
+    animation: animate infinite ease-in alternate 2s;
+}
+
+@keyframes animate {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+#form2 {
+    background-color: rgba(100, 100, 100, 0.706) !important;
+}
+
+.register button {
+    background-color: rgb(0, 52, 59) !important;
+    color: white !important;
+}
+
+
 /* css för bingobrädet på bingo.html */
 .title {
     padding: 30px 10px;
