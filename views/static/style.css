@@ -245,6 +245,32 @@ a {
     padding-top: 10px;
 }
 
+/* css för add.html */
+.add_body {
+    color: white;
+    background-color: #00a791;
+}
+
+#add_cat {
+    background-color: #016055;
+    color: white;
+}
+
+.add_body .pingologga img {
+    margin: auto;
+    height: 50px;
+    animation: animate infinite ease-in alternate 2s;
+}
+
+.bingo-board {
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
 /* css för vinstmeddelande */
 #bingo_win {
     visibility: hidden;
