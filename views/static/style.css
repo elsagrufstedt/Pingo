@@ -248,18 +248,32 @@ a {
 /* css för add.html */
 .add_body {
     color: white;
-    background-color: #00a791;
+    background-color: #6b0377;
 }
 
 #add_cat {
-    background-color: #016055;
+    background-color: #e600ff;
     color: white;
+    margin-top: auto;
 }
 
 .add_body .pingologga img {
     margin: auto;
     height: 50px;
     animation: animate infinite ease-in alternate 2s;
+}
+
+.add_title {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+}
+
+.cont {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
 }
 
 .bingo-board {
