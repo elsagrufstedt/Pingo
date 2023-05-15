@@ -7,6 +7,11 @@ html {
 .index {
     /* Denna kod är länkad till index.html */
     background-color: #052631;
+    color: white;
+}
+
+.custom-button {
+    width: 200px;
 }
 
 h1 {
@@ -194,7 +199,6 @@ a {
     background-color: rgb(0, 52, 59) !important;
     color: white !important;
 }
-
 
 /* css för bingobrädet på bingo.html */
 .title {
