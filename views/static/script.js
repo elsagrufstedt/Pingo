@@ -5,20 +5,20 @@ const bingo_boxes = document.querySelectorAll('.box');
 bingo_boxes.forEach(bingo_box => {
   bingo_box.addEventListener('click', box_check)
     
-function box_check(){
-  if (this.classList.contains('green')) {
-    this.classList.remove('green');
-  } else {
-    this.classList.add('green');
-  }
-  game_win();
-};
+  function box_check(){
+    if (this.classList.contains('green')) {
+      this.classList.remove('green');
+    } else {
+      this.classList.add('green');
+    }
+    game_win();
+  };
+});
 
 
 var start_timer = null;
 
 var start = document.getElementById("start");
-var reset = document.getElementById("reset");
 
 var hour = document.getElementById("hour");
 var min = document.getElementById("minute");
@@ -31,22 +31,26 @@ function timer(){
     sec.value = 0;
   } else if(sec.value != 0){
     sec.value --;
-  } else if(min.value != 0 && sec.value == 0){
+  } else if(sec.value == 0 && min.value != 0){
     sec.value = 59;
     min.value --;
   } else if(hour.value != 0 && min.value == 0){
-    min.value = 60;
+    min.value = 59;
     hour.value --;
+  } else if(hour.value == 0 && min.value == 0 && sec.value == 0) {
+    clearInterval(start_timer)
   }
   return
 }
 
+function start_game(){
+  start_timer = setInterval(function(){
+    timer();
+  }, 1000)
+}
+
 start.addEventListener("click", function(){
-  function start_game(){
-    start_timer = setInterval(function(){
-      timer();
-    }, 1000)
-  }
+  console.log("Startar spelet")
   start_game()
   start.disabled = true;
   document.getElementById("hour").disabled = true;
@@ -91,4 +95,3 @@ function freeze(){
       Object.freeze(bingo_boxes);
     }
   }    
-})
