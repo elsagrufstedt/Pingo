@@ -27,9 +27,10 @@
                     </h1>
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
-                    <form class="p-4 p-md-5 rounded-3 body-tertiary" id="form">
+                    <form class="p-4 p-md-5 rounded-3 body-tertiary" id="form" method="POST" action="/login">
                         <div class="form-floating mb-3">
                             <input
+                                name="email"
                                 type="email"
                                 class="form-control"
                                 id="floatingInput"
@@ -39,6 +40,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input
+                                name="password"
                                 type="password"
                                 class="form-control"
                                 id="floatingPassword"

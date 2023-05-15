@@ -245,6 +245,16 @@ a {
     padding-top: 10px;
 }
 
+#delete{
+    width: 50px;
+    marg
+}
+
+#delete:hover{
+    border: red solid;
+    background-color: red;
+}
+
 /* css för add.html */
 .add_body {
     color: white;

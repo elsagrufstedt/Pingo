@@ -24,7 +24,8 @@ def categories():
     categories = []
     for row in data:
         category = {
-            'category': row[0]
+            'category': row[0],
+            'remove_link': f'/remove-category/{row[0]}'
         }
         categories.append(category)
 
@@ -72,6 +73,21 @@ def add_new():
     redirect("/categories")
 
 
+@route('/remove-category/<category>')
+def remove_category(category):
+    conn = sqlite3.connect('pingo.db')
+    c = conn.cursor()
+    c.execute('''DELETE FROM Challenges
+                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+    
+    c.execute('''DELETE FROM Categories WHERE category_name = ?''', (category,))
+    conn.commit()
+    conn.close()
+
+    redirect("/categories")
+
+
+
 @route("/register", method="GET")
 def register():
     return template('views/register')
@@ -96,10 +112,28 @@ def register_user():
     conn.commit()
     redirect("/")
 
-
-@route('/login')
+@route("/login", method="GET")
 def login():
     return template('views/login')
+
+@route('/login', method='POST')
+def do_login():
+    email = getattr(request.forms,'email')
+    password = getattr(request.forms,'password')
+
+    conn = sqlite3.connect('pingo.db')
+    c = conn.cursor()
+    c.execute("SELECT email, password FROM Users WHERE email=?", (email,))
+    user = c.fetchone()
+
+    if not user:
+        return "Invalid email or password"
+    
+    if user[1] != hashlib.sha256(password.encode()).hexdigest():
+        return "Invalid email or password"
+
+    redirect('/')
+
 
 
 @route('/static/<filename:path>')
