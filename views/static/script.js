@@ -3,15 +3,17 @@ const bingo_boxes = document.querySelectorAll('.box');
 
 // Kodrad som räknar 
 bingo_boxes.forEach(bingo_box => {
-  bingo_box.addEventListener('click', box_check)
-    
+  bingo_box.addEventListener('click', box_check);
+//Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
   function box_check(){
-    if (this.classList.contains('green')) {
-      this.classList.remove('green');
-    } else {
-      this.classList.add('green');
-    }
-    game_win();
+    if (start_timer) {
+      if (this.classList.contains('green')) {
+        this.classList.remove('green');
+      } else {
+        this.classList.add('green');
+      }
+      game_win(); //anropar funktionen som säger bingo när man har fem i rad
+    } 
   };
 });
 
