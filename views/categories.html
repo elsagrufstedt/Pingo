@@ -12,7 +12,7 @@
 <body class="categories">
     <div class="container my-5">
       <div class="profilbild">
-        <a href="/profile"><img src="static/whiteprofile.png"></a>
+        <a href="/profile"><img src="static/images/whiteprofile.png"/></a>
       </div>
       <div class="p-5 text-center rounded-3">
         <svg class="bi mt-4 mb-3" width="100" height="10"><use xlink:href="#bootstrap"/></svg>
@@ -21,10 +21,15 @@
         <div class="d-inline-flex gap-2 mb-5" id="catcont">
             % for game in data:
             <a class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill" id="cat" href="/bingo/{{game['category']}}">{{game["category"]}}</a>
+              <a href="/remove-category/{{game['category']}}">
+                <img src="static/images/exit.png" alt="radera knapp" id="delete"  onclick="return confirm('Är du säker på att du vill ta bort brädet?')"/>     
+              </a>
+
             % end
-            <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"/></svg>
-          </button>
-          <a class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill" id="add" href="/add">Lägg till bräde!</a>
+
+
+
+          <a class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill " id="cat" href="/add">Lägg till bräde!</a>
         </div>
         <div class="pingologga">
           <a href="/"><img src="static/images/PiNGO logga/Pingovit.png"/></a>
