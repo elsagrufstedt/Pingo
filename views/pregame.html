@@ -27,6 +27,15 @@
             <button id="start" class="btn">STARTA</button>
           </div>
     </header>
+    <main>
+        <div class="pre_bingo_board">
+            % for challenge in data: 
+              <div class="pre_box">
+                {{challenge}}
+              </div>
+            % end 
+          </div>
+    </main>
 </body>
 
 <script src="/static/script.js"></script>

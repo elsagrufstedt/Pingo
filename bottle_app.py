@@ -112,8 +112,16 @@ def profile():
     return template('views/profile')
 
 
-@route('/start/')
-def pregame():
-    return template('views/pregame')
+@route('/start/<category>')
+def pregame(category):
+    conn = sqlite3.connect('pingo.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    c.execute('''SELECT challenge_name FROM Challenges
+                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+    challenges = [row['challenge_name'] for row in c.fetchall()]
+
+    conn.close()
+    return template('views/pregame',  data=challenges, category=category)
 
 run(host='127.0.0.1', port=8080, reloader=True, debug=True)
