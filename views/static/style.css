@@ -327,11 +327,9 @@ a {
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-
     color: rgb(255, 245, 245);
+
+    justify-content: center;
 }
 
 .label {
@@ -364,6 +362,12 @@ a {
     width: 70px;
     height: 50px;
     color: white;
+}
+
+.start form{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
 #hour {
@@ -410,11 +414,11 @@ a {
     box-sizing: border-box;
 }
 
-.pregame {
+.start {
     background-color: rgb(5, 49, 49);
 }
 
-.pregame .pingologga img {
+.start .pingologga img {
     width: auto;
     height: 50px;
     position: absolute;
@@ -422,7 +426,7 @@ a {
     left: 0;
 }
 
-.pregame p {
+.start p {
     color: black;
 }
 

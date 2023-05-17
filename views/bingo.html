@@ -10,7 +10,19 @@
   <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body class="bingo_content">
+<body class="bingo_content" onload="start_game({{hour}}, {{minute}}, {{second}})">
+  <header>
+    <div id="timer">
+      <p id="hour_label" class="label">timmar</p>
+      <p id="minute_label" class="label">minuter</p>
+      <p id="second_label" class="label">sekunder</p>
+
+      <input id="hour" type="number" max="24" min="0" value="{{hour}}" class="time">
+      <p id="p1" class="semicolon">:</p>
+      <input id="minute" type="number" max="59" min="0" value="{{minute}}" class="time"
+      <p id="p2" class="semicolon">:</p>
+      <input id="second" type="number" max="59" min="0" value="{{second}}" class="time">
+  </header>
   <div class="main-content">
 
     <a href="/categories"><img src="/static/images/arrow.svg" id="tillbaka" alt="tillbakaknapp"></a>

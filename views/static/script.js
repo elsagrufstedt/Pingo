@@ -26,6 +26,8 @@ var hour = document.getElementById("hour");
 var min = document.getElementById("minute");
 var sec = document.getElementById("second");
 
+this.submit();
+
 function timer(){
   if(hour.value == 0 && min.value == 0 && sec.value == 0){
     hour.value = 0;
