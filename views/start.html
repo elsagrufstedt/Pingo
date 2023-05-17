@@ -24,14 +24,15 @@
             <input id="minute" type="number" max="59" min="0" value="0" class="time">
             <p id="p2" class="semicolon">:</p>
             <input id="second" type="number" max="59" min="0" value="0" class="time">
-            <button id="start" class="btn">STARTA</button>
-          </div>
+            <a href="/bingo/{{category}}"><button type="button" id="start" class="btn">Spela</button></a>
+        </div>
     </header>
     <main>
         <div class="pre_bingo_board">
             % for challenge in data: 
               <div class="pre_box">
                 {{challenge}}
+                <img src="static/images/exit.png" alt="radera knapp" id="delete" onclick="return confirm('Är du säker på att du vill ta bort brädet?')">
               </div>
             % end 
           </div>

@@ -113,7 +113,7 @@ def profile():
 
 
 @route('/start/<category>')
-def pregame(category):
+def start(category):
     conn = sqlite3.connect('pingo.db')
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
@@ -122,6 +122,6 @@ def pregame(category):
     challenges = [row['challenge_name'] for row in c.fetchall()]
 
     conn.close()
-    return template('views/pregame',  data=challenges, category=category)
+    return template('views/start', data=challenges, category=category)
 
 run(host='127.0.0.1', port=8080, reloader=True, debug=True)

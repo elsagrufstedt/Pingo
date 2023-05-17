@@ -20,7 +20,7 @@
         <p class="cattext">Välj en kategori som passar in med kvällen!</p>
         <div class="d-inline-flex gap-2 mb-5" id="catcont">
             % for game in data:
-            <a class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill" id="cat" href="/bingo/{{game['category']}}">{{game["category"]}}</a>
+            <a class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill" id="cat" href="/start/{{game['category']}}">{{game["category"]}}</a>
             % end
             <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"/></svg>
           </button>
