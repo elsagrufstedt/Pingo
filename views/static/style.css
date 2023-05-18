@@ -147,11 +147,11 @@ a {
 }
 
 /*css för radera bingo-knappen*/
-#delete{
+#delete {
     width: 50px;
 }
 
-#delete:hover{
+#delete:hover {
     border: red solid;
     background-color: red;
 }
@@ -214,7 +214,7 @@ a {
 .title {
     padding: 10px;
     text-align: center;
-    font-size: 50px;
+    font-size: 45px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     color: white;
@@ -222,7 +222,10 @@ a {
 }
 
 .bingo_content {
-    background-color: rgb(31, 0, 22);
+    background-color: rgb(192, 45, 150);
+    padding: 150px;
+    display: center;
+    justify-content: center;
 }
 
 .bingo-card {
@@ -230,7 +233,7 @@ a {
     padding: 10px;
     display: grid;
     grid-gap: 3px;
-    grid-template-rows: repeat(5, 110px);
+    grid-template-rows: repeat(5, 90px);
     grid-template-columns: repeat(5, 1fr);
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
@@ -253,8 +256,8 @@ a {
     width: 50px;
     position: absolute;
     padding-top: 10px;
+    background-color: #cd54da;
 }
-
 
 /* css för add.html */
 .add_body {
@@ -316,13 +319,14 @@ a {
     transform: translate(-50%, -50%);
 }
 #timer {
-    height: 180px;
-    width: 40%;
+    height: 150px;
+    width: 90%;
     background-color: rgb(48, 0, 31);
     margin: 10px auto;
-    border-radius: 30px;
+    border-radius: 10px;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -330,6 +334,7 @@ a {
 
     color: rgb(255, 245, 245);
 }
+
 
 .label {
     margin: 0;
@@ -357,8 +362,8 @@ a {
 
     border: none;
     background-color: #ffffff00;
-    font-size: 40px;
-    width: 70px;
+    font-size: 20px;
+    width: 40px;
     height: 50px;
     color: white;
 }
@@ -397,8 +402,8 @@ a {
 
 .btn {
     align-self: center;
-    background-color: black;
-    color: #ffffff;
+    background-color: rgb(248, 248, 248);
+    color: #000000;
     border: none;
     border-radius: 30px;
     font-size: 30px;
