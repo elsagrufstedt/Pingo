@@ -251,9 +251,9 @@ a {
   
   .green {
     background-color: rgb(31, 0, 22);
-  }
-  
-  #tillbaka {
+}
+
+#avsluta {
     width: 50px;
     position: absolute;
     padding-top: 10px;
