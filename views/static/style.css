@@ -12,6 +12,7 @@ html {
 
 .custom-button {
     width: 200px;
+    color: white;
 }
 
 h1 {
@@ -334,7 +335,6 @@ a {
 
     color: rgb(255, 245, 245);
 }
-
 
 .label {
     margin: 0;
