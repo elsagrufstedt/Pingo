@@ -211,54 +211,87 @@ a {
     color: white !important;
 }
 
-/* css för bingobrädet på bingo.html */
+/* CSS för bingobrädet på bingo.html */
+
 .title {
     padding: 10px;
     text-align: center;
     font-size: 45px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     color: white;
-    background-color: rgb(48, 0, 31);
-}
-
-.bingo_content {
-    background-color: rgb(192, 45, 150);
+  }
+  
+  .bingo_content {
+    background-color: #c02d96;
     padding: 150px;
-    display: center;
+    display: flex;
     justify-content: center;
-}
-
-.bingo-card {
+    align-items: center;
+  }
+  
+  .bingo-card {
     background-color: rgb(48, 0, 31);
     padding: 10px;
     display: grid;
     grid-gap: 3px;
-    grid-template-rows: repeat(5, 90px);
-    grid-template-columns: repeat(5, 1fr);
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-}
-
-.box {
+    grid-template-rows: repeat(5, minmax(90px, 1fr));
+    grid-template-columns: repeat(5, minmax(90px, 1fr));
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+  
+  .box {
     border: solid black 1px;
     text-align: center;
     cursor: pointer;
     color: rgb(31, 0, 22);
     background-color: white;
     padding-top: 40px;
-}
-
-.green {
+    font-size: 20px;
+  }
+  
+  .green {
     background-color: rgb(31, 0, 22);
-}
-
-#tillbaka {
+  }
+  
+  #tillbaka {
     width: 50px;
     position: absolute;
     padding-top: 10px;
     background-color: #cd54da;
-}
+  }
+  
+  @media (max-width: 767px) {
+    .bingo_content {
+      padding: 100px;
+    }
+  
+    .bingo-card {
+      grid-template-rows: repeat(5, minmax(70px, 1fr));
+      grid-template-columns: repeat(5, minmax(70px, 1fr));
+    }
+  
+    .box {
+      padding-top: 25px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .bingo_content {
+      padding: 50px;
+    }
+  
+    .bingo-card {
+      grid-template-rows: repeat(5, minmax(50px, 1fr));
+      grid-template-columns: repeat(5, minmax(50px, 1fr));
+    }
+  
+    .box {
+      padding-top: 15px;
+      font-size: 12px;
+    }
+  }
+  
 
 /* css för add.html */
 .add_body {
