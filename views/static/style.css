@@ -216,7 +216,7 @@ a {
 .title {
     padding: 10px;
     text-align: center;
-    font-size: 45px;
+    font-size: 40px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     color: white;
@@ -224,7 +224,7 @@ a {
 
 .bingo_content {
     background-color: #ff00aa;
-    padding: 150px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -256,10 +256,9 @@ a {
 }
 
 #avsluta {
-    width: 35px;
+    width: 30px;
     position: absolute;
     padding-top: 10px;
-    background-color: transparent;
 }
 
 @media (max-width: 767px) {
@@ -275,6 +274,14 @@ a {
     .box {
         padding-top: 25px;
         font-size: 14px;
+    }
+
+    #avsluta {
+        width: 30px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        padding-top: 10px;
     }
 }
 
@@ -356,7 +363,6 @@ a {
 
 #timer {
     height: 150px;
-    width: 90%;
     background-color: rgba(108, 4, 72, 0.36);
     margin: 5px auto;
     border-radius: 10px;
@@ -364,38 +370,28 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-
     color: rgb(255, 245, 245);
-}
-
-.time-inputs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.time-inputs input, 
-.time-inputs p {
-    margin: 5px;
+    max-width: 500px;
 }
 
 @media (max-width: 768px) {
-    .time-inputs {
-      flex-direction: column;
+    #timer {
+        width: 99%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        font-size: 10px;
     }
-  
-    .time-inputs input,
-    .time-inputs p {
-      margin: 5px 0;
+
+    .label {
+        font-size: 12px;
     }
-  }
+}
 
 .label {
-    margin: 0;
-
     justify-self: center;
     align-self: center;
-    font-size: 25px;
+    font-size: 16px;
+    margin: 5px;
 }
 
 #hour_label {
@@ -460,7 +456,7 @@ a {
     color: #ffffff;
     border: none;
     border-radius: 30px;
-    font-size: 25px;
+    font-size: 20px;
     justify-self: center;
     display: inline-block;
     box-sizing: border-box;
