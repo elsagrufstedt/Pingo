@@ -21,11 +21,11 @@
                 <p id="hour_label" class="label">timmar</p>
                 <p id="minute_label" class="label">minuter</p>
                 <p id="second_label" class="label">sekunder</p>
-                <input id="hour" type="number" max="24" min="0" value="0" class="time">
+                <input name="hour" id="hour" type="number" max="24" min="0" value="0" class="time">
                 <p id="p1" class="semicolon">:</p>
-                <input id="minute" type="number" max="59" min="0" value="0" class="time">
+                <input name="minute" id="minute" type="number" max="59" min="0" value="0" class="time">
                 <p id="p2" class="semicolon">:</p>
-                <input id="second" type="number" max="59" min="0" value="0" class="time">
+                <input name="second" id="second" type="number" max="59" min="0" value="0" class="time">
                 <input type="submit">
             </form>
         </div>
@@ -37,7 +37,7 @@
             <div class="pre_box">
                 {{challenge}}
                 <img src="static/images/exit.png" alt="radera knapp" id="delete"
-                    onclick="return confirm('Är du säker på att du vill ta bort brädet?')">
+                    onclick="return confirm('Är du säker på att du vill ta bort brickan?')">
             </div>
             % end
         </div>
