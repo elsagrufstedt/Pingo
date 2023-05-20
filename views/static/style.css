@@ -460,3 +460,34 @@ a {
     box-sizing: border-box;
     margin: 5px;
 }
+
+/* kod länkad till profile.css */
+.profile {
+    background-color: rgb(5, 49, 47) !important;
+    color: rgb(216, 213, 213) !important;
+}
+
+.profile .pingologga img {
+    width: auto;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 50px;
+}
+
+@keyframes animate {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+.profile #form {
+    background-color: rgba(100, 100, 100, 0.706);
+}
+
+.profile button {
+    background-color: rgb(8, 193, 193) !important;
+    color: white !important;
+}
