@@ -392,13 +392,6 @@ a {
     color: white;
 }
 
-.semicolon {
-    justify-self: center;
-    align-self: center;
-    font-size: 30px;
-    margin: 0;
-  }
-  
 @media (max-width: 768px) {
     #timer {
         width: 100%;
