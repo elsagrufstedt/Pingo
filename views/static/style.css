@@ -223,7 +223,7 @@ a {
 }
 
 .bingo_content {
-    background-color: #ff00aa;
+    background-color: #12887a;
     padding: 150px;
     display: flex;
     justify-content: center;
@@ -374,29 +374,9 @@ a {
     max-width: 500px;
 }
 
-.label {
-    justify-self: center;
-    align-self: center;
-    font-size: 16px;
-    margin: 5px;
-}
-
-.time {
-    justify-self: center;
-    align-self: center;
-    border: none;
-    background-color: #ffffff00;
-    font-size: 20px;
-    width: 40px;
-    height: 50px;
-    color: white;
-}
-
 @media (max-width: 768px) {
     #timer {
         width: 100%;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 1fr);
         font-size: 10px;
     }
 
