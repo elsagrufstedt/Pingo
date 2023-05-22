@@ -45,9 +45,17 @@ function timer(){
   return
 }
 
+function game_loss() {
+  if (hour.value == 0 && min.value == 0 && sec.value == 0) {
+    const lossMessage = document.getElementById("loss_message");
+    lossMessage.textContent = "Åhnej tiden tog slut! Du har förlorat :(";
+  }
+}
+
 function start_game(){
   start_timer = setInterval(function(){
     timer();
+    game_loss();
   }, 1000)
 }
 
