@@ -372,6 +372,7 @@ a {
 }
 
 .bingo-board td {
+    border-radius: 10px;
     flex-basis: 20%;
     max-width: 20%;
     box-sizing: border-box;
