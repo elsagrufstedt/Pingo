@@ -242,6 +242,7 @@ a {
 }
 
 .box {
+    display: grid;
     border: solid rgb(255, 255, 255) 1px;
     text-align: center;
     cursor: pointer;
@@ -270,6 +271,7 @@ a {
     backface-visibility: hidden;
     text-align: center;
     transform: rotateY(180deg);
+    background-color: rgb(85, 41, 71);
 }
 
 .green {
