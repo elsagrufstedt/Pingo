@@ -92,7 +92,7 @@ function game_win() {
 }
 
 function freeze(){
-    bingo_boxes.removeEventListener('click', box_check); 
+    bingo_boxes.removeEventListener('click', box_check()); 
     if (game_win() === true){ 
       Object.freeze(bingo_boxes);
     }
