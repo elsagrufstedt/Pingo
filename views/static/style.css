@@ -216,20 +216,20 @@ a {
 .title {
     padding: 10px;
     text-align: center;
-    font-size: 45px;
+    font-size: 40px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     color: white;
 }
 
 .bingo_content {
-    background-color: #c02d96;
+    background-color: #12887a;
     padding: 150px;
     
 }
 
 .bingo-card {
-    background-color: rgb(48, 0, 31);
+    background-color: #0526315f;
     padding: 10px;
     display: grid;
     grid-gap: 3px;
@@ -242,11 +242,11 @@ a {
 }
 
 .box {
-    border: solid black 1px;
+    border: solid rgb(255, 255, 255) 1px;
     text-align: center;
     cursor: pointer;
-    color: rgb(31, 0, 22);
-    background-color: white;
+    color: rgb(253, 253, 253);
+    background-color: rgba(85, 41, 71, 0.229);
     padding-top: 40px;
     font-size: 20px;
 
@@ -277,10 +277,9 @@ a {
 }
 
 #avsluta {
-    width: 50px;
+    width: 30px;
     position: absolute;
     padding-top: 10px;
-    background-color: #cd54da;
 }
 
 @media (max-width: 767px) {
@@ -295,13 +294,21 @@ a {
 
     .box {
         padding-top: 25px;
-        font-size: 14px;
+        font-size: 10px;
+    }
+
+    #avsluta {
+        width: 30px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        padding-top: 10px;
     }
 }
 
 @media (max-width: 575px) {
     .bingo_content {
-        padding: 50px;
+        padding: 20px;
     }
 
     .bingo-card {
@@ -377,25 +384,33 @@ a {
 
 #timer {
     height: 150px;
-    width: 90%;
-    background-color: rgb(48, 0, 31);
-    margin: 10px auto;
+    background-color: rgba(108, 4, 72, 0.36);
+    margin: 5px auto;
     border-radius: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 40px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-
     color: rgb(255, 245, 245);
+    max-width: 500px;
+}
+
+@media (max-width: 768px) {
+    #timer {
+        width: 100%;
+        font-size: 10px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
 }
 
 .label {
-    margin: 0;
-
     justify-self: center;
     align-self: center;
-    font-size: 25px;
+    font-size: 16px;
+    margin: 5px;
 }
 
 #hour_label {
@@ -456,13 +471,13 @@ a {
 
 .btn {
     align-self: center;
-    background-color: rgb(139, 54, 150);
+    background-color: rgba(54, 140, 150, 0.345);
     color: #ffffff;
     border: none;
     border-radius: 30px;
-    font-size: 30px;
+    font-size: 20px;
     justify-self: center;
     display: inline-block;
     box-sizing: border-box;
+    margin: 5px;
 }
-
