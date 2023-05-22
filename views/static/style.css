@@ -229,7 +229,7 @@ a {
 .bingo-card {
     background-color: #0526315f;
     display: grid;
-    width: 75%;
+    max-width: 75%;
     margin: 0 auto;
     place-self: center;
     grid-gap: 3px;
@@ -288,7 +288,7 @@ a {
 @media (max-width: 767px) {
 
     .bingo-card {
-        grid-template-rows: repeat(5, minmax(70px, 1fr));
+        grid-template-rows: repeat(5, minmax(100px, 1fr));
         grid-template-columns: repeat(5, minmax(70px, 1fr));
     }
 
@@ -317,12 +317,14 @@ a {
     }
 
     .bingo-card {
-        grid-template-rows: repeat(5, minmax(60px, 2fr));
-        grid-template-columns: repeat(5, minmax(60px, 2fr));
+        width: 100%;
+        height: 100%;
+        place-content: center;
+        grid-template-rows: repeat(5, minmax(72px, 5fr));
+        grid-template-columns: repeat(5, minmax(70px, 5fr));
     }
 
     .box {
-        padding-top: 15px;
         font-size: 12px;
     }
 }
@@ -456,15 +458,15 @@ input[type="text"] {
     margin: 5px;
 }
 
-#hour_label {
+#hour {
     grid-area: 1 / 1 / 1 / 2;
 }
 
-#minute_label {
+#minute{
     grid-area: 1 / 2 / 1 / 3;
 }
 
-#sec_label {
+#second {
     grid-area: 1 / 3 / 1 / 4;
 }
 
