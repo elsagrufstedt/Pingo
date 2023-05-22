@@ -224,21 +224,21 @@ a {
 
 .bingo_content {
     background-color: #12887a;
-    padding: 150px;
-    
 }
 
 .bingo-card {
     background-color: #0526315f;
-    padding: 10px;
     display: grid;
+    width: 75%;
+    margin: 0 auto;
+    place-self: center;
     grid-gap: 3px;
     grid-template-rows: repeat(5, minmax(90px, 1fr));
     grid-template-columns: repeat(5, minmax(90px, 1fr));
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     
-        width: 100%;
+
 }
 
 .box {
@@ -286,9 +286,6 @@ a {
 }
 
 @media (max-width: 767px) {
-    .bingo_content {
-        padding: 100px;
-    }
 
     .bingo-card {
         grid-template-rows: repeat(5, minmax(70px, 1fr));
