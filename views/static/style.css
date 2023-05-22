@@ -336,10 +336,50 @@ a {
     border-collapse: collapse;
     border-radius: 10px;
     overflow: hidden;
-    margin: 20px;
+    margin: 10px;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 500px;
 }
+
+.bingo-board td {
+    flex-basis: 20%;
+    max-width: 20%;
+    box-sizing: border-box;
+    padding: 2px;
+
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .box {
+    border: solid rgb(255, 255, 255) 1px;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(253, 253, 253);
+    background-color: rgba(85, 41, 71, 0.229);
+    padding-top: 40%;
+    font-size: 20px;
+  }
+  
+  @media (max-width: 767px) {
+    .box {
+      padding-top: 25%;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .box {
+      padding-top: 15%;
+      font-size: 12px;
+    }
+  }
+
 
 /* css för vinstmeddelande */
 #bingo_win {
