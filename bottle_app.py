@@ -174,7 +174,7 @@ def start(category):
     return template('views/start', data=challenges, category=category)
 
 
-@route('/starting/<category>', method='GET')
+@route('/starting/<category>', method='POST')
 def starting_game(category):
     conn = sqlite3.connect('pingo.db')
     conn.row_factory = sqlite3.Row
