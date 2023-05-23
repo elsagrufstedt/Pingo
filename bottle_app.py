@@ -35,7 +35,8 @@ def categories():
     for row in data:
         category = {
             'category': row[0],
-            'remove_link': f'/remove-category/{row[0]}'
+            'remove_link': f'/remove-category/{row[0]}',
+            'start_link': f'/starting/{row[0]}'
         }
         categories.append(category)
 
@@ -101,7 +102,6 @@ def remove_category(category):
     redirect("/categories")
 
 
-
 @route("/register", method="GET")
 def register():
     return template('views/register')
@@ -126,6 +126,7 @@ def register_user():
     conn.commit()
     redirect("/")
 
+
 @route("/login", method="GET")
 def login():
     return template('views/login')
@@ -147,7 +148,6 @@ def do_login():
         return "Invalid email or password"
 
     redirect('/')
-
 
 
 @route('/static/<filename:path>')
@@ -173,9 +173,17 @@ def start(category):
 
     return template('views/start', data=challenges, category=category)
 
-@route('/starting', method='POST')
-def starting_game():
-    category = get_category_from_database()
+
+@route('/starting/<category>', method='GET')
+def starting_game(category):
+    conn = sqlite3.connect('pingo.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    c.execute('''SELECT challenge_name FROM Challenges
+                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+
+    challenges = c.fetchall()
+    conn.close()
 
     hour = request.forms.get('hour')
     minute = request.forms.get('minute')
