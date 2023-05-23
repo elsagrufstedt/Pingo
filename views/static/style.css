@@ -22,7 +22,12 @@ h1 {
 #spela {
     background-color: rgba(255, 255, 255, 0.194);
     border: none;
-    box-shadow: 0 0 3px blue;
+}
+
+#spela_spela {
+    background-color: rgba(255, 255, 255, 0.194);
+    border: none;
+    box-shadow: 0 0 6px white;
 }
 
 #spela:hover {
