@@ -1,13 +1,37 @@
 from bottle import run, route, template, TEMPLATE_PATH, static_file, request, redirect
+from aiohttp import web
+import socketio
+import asyncio
 import os
 import sqlite3
 import hashlib
 
 
+sio = socketio.AsyncServer()
+'''Skapar en ny async socket io server'''
+app = web.Application()
+'''Skapar en ny Aiohttp webb applikation'''
+sio.attach(app)
+'''Kopplar ihop socket.io servern till webb applikationen'''
+
 base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
 TEMPLATE_PATH.insert(0, views_path)
 
+'''Socket.io koden'''
+async def index(request):
+    with open("index.html") as f:
+        return web.Response(text=f.read(), content_type="text/html")
+
+@sio.on("message")
+async def print_message(sid, message):
+    print("Socket ID: ", sid)
+    print(message)
+
+app.router.add_get("/", index)
+
+if __name__ == "__main__":
+    web.run_app(app)
 
 @route("/")
 def index():
