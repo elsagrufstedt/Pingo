@@ -1,5 +1,5 @@
 const bingo_boxes = document.querySelectorAll('.box');
-
+let start_timer = null;
 
 // Kodrad som räknar 
 bingo_boxes.forEach(bingo_box => {
@@ -17,48 +17,47 @@ bingo_boxes.forEach(bingo_box => {
   };
 });
 
+var start = document.getElementById("start");
+
+var hour = document.getElementById("hour");
+var min = document.getElementById("minute");
+var sec = document.getElementById("second");
+
+function timer() {
+  if (hour.value == 0 && min.value == 0 && sec.value == 0) {
+    hour.value = 0;
+    min.value = 0;
+    sec.value = 0;
+  } else if (sec.value != 0) {
+    sec.value--;
+  } else if (sec.value == 0 && min.value != 0) {
+    sec.value = 59;
+    min.value--;
+  } else if (hour.value != 0 && min.value == 0) {
+    min.value = 59;
+    hour.value--;
+  } else if (hour.value == 0 && min.value == 0 && sec.value == 0) {
+    clearInterval(start_timer)
+  }
+  return
+}
+
+function start_game() {
+  start_timer = setInterval(function () {
+    timer();
+  }, 1000)
+}
+
+start.addEventListener("click", function () {
+  console.log("Startar spelet")
+  start_game()
+  start.disabled = true;
+  hour.disabled = true;
+  min.disabled = true;
+  sec.disabled = true;
+});
 document.addEventListener("DOMContentLoaded", function () {
-  var start_timer = null;
-
-  var start = document.getElementById("start");
-
-  var hour = document.getElementById("hour");
-  var min = document.getElementById("minute");
-  var sec = document.getElementById("second");
-
-  function timer() {
-    if (hour.value == 0 && min.value == 0 && sec.value == 0) {
-      hour.value = 0;
-      min.value = 0;
-      sec.value = 0;
-    } else if (sec.value != 0) {
-      sec.value--;
-    } else if (sec.value == 0 && min.value != 0) {
-      sec.value = 59;
-      min.value--;
-    } else if (hour.value != 0 && min.value == 0) {
-      min.value = 59;
-      hour.value--;
-    } else if (hour.value == 0 && min.value == 0 && sec.value == 0) {
-      clearInterval(start_timer)
-    }
-    return
-  }
-
-  function start_game() {
-    start_timer = setInterval(function () {
-      timer();
-    }, 1000)
-  }
-
-  start.addEventListener("click", function () {
-    console.log("Startar spelet")
-    start_game()
-    start.disabled = true;
-    hour.disabled = true;
-    min.disabled = true;
-    sec.disabled = true;
-  });
+  start_game
 });
 
 //Alla vinnande kombinationer
