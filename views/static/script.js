@@ -1,6 +1,22 @@
 const bingo_boxes = document.querySelectorAll('.box');
 let start_timer = null;
 
+//Alla vinnande kombinationer
+const winning_combinations = [
+  [0, 1, 2, 3, 4],
+  [5, 6, 7, 8, 9],
+  [10, 11, 12, 13, 14],
+  [15, 16, 17, 18, 19],
+  [20, 21, 22, 23, 24],
+  [0, 5, 10, 15, 20],
+  [1, 6, 11, 16, 21],
+  [2, 7, 12, 17, 22],
+  [3, 8, 13, 18, 23],
+  [4, 9, 14, 19, 24],
+  [0, 6, 12, 18, 24],
+  [4, 8, 12, 16, 20]
+];
+
 // Kodrad som räknar 
 bingo_boxes.forEach(bingo_box => {
   bingo_box.addEventListener('click', box_check);
@@ -61,22 +77,6 @@ start.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   start_game
 });
-
-//Alla vinnande kombinationer
-const winning_combinations = [
-  [0, 1, 2, 3, 4],
-  [5, 6, 7, 8, 9],
-  [10, 11, 12, 13, 14],
-  [15, 16, 17, 18, 19],
-  [20, 21, 22, 23, 24],
-  [0, 5, 10, 15, 20],
-  [1, 6, 11, 16, 21],
-  [2, 7, 12, 17, 22],
-  [3, 8, 13, 18, 23],
-  [4, 9, 14, 19, 24],
-  [0, 6, 12, 18, 24],
-  [4, 8, 12, 16, 20]
-];
 
 //
 //Funktion som kollar om en vinnande kombination har gjorts
