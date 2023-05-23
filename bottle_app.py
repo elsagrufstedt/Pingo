@@ -6,7 +6,6 @@ import os
 import sqlite3
 import hashlib
 
-
 sio = socketio.AsyncServer()
 '''Skapar en ny async socket io server'''
 app = web.Application()
