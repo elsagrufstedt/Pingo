@@ -56,6 +56,8 @@ start.addEventListener("click", function () {
   min.disabled = true;
   sec.disabled = true;
 });
+
+
 document.addEventListener("DOMContentLoaded", function () {
   start_game
 });
@@ -91,9 +93,9 @@ function game_win() {
   return isGameWon;
 }
 
-function freeze() {
-  bingo_boxes.removeEventListener('click', box_check);
-  if (game_win() === true) {
-    Object.freeze(bingo_boxes);
-  }
-}    
+function freeze(){
+    bingo_boxes.removeEventListener('click', box_check()); 
+    if (game_win() === true){ 
+      Object.freeze(bingo_boxes);
+    }
+  }    
