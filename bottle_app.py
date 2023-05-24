@@ -1,44 +1,22 @@
-from bottle import run, route, template, TEMPLATE_PATH, static_file, request, redirect
-from aiohttp import web
-import socketio
-import asyncio
+from bottle import run, route, template, TEMPLATE_PATH, static_file, request, redirect, Bottle, response
 import os
 import sqlite3
 import hashlib
 
-sio = socketio.AsyncServer()
-'''Skapar en ny async socket io server'''
-app = web.Application()
-'''Skapar en ny Aiohttp webb applikation'''
-sio.attach(app)
-'''Kopplar ihop socket.io servern till webb applikationen'''
+app = Bottle()
 
 base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
 TEMPLATE_PATH.insert(0, views_path)
 
-'''Socket.io koden'''
-async def index(request):
-    with open("index.html") as f:
-        return web.Response(text=f.read(), content_type="text/html")
-
-@sio.on("message")
-async def print_message(sid, message):
-    print("Socket ID: ", sid)
-    print(message)
-
-app.router.add_get("/", index)
-
-if __name__ == "__main__":
-    web.run_app(app)
-
-@route("/")
+@app.route("/")
 def index():
     '''visar index.html'''
+    print("hi")
     return template("index")
 
 
-@route('/categories')
+@app.route('/categories')
 def categories():
     conn = sqlite3.connect('pingo.db')
     c = conn.cursor()
@@ -55,7 +33,7 @@ def categories():
     return template('views/categories', data=categories)
 
 
-@route('/bingo/<category>')
+@app.route('/bingo/<category>')
 def bingo(category):
     conn = sqlite3.connect('pingo.db')
     conn.row_factory = sqlite3.Row
@@ -69,12 +47,12 @@ def bingo(category):
     return template('views/bingo', data=challenges, category=category)
 
 
-@route('/add', method="GET")
+@app.route('/add', method="GET")
 def add():
     return template("views/add")
 
 
-@route('/add', method="POST")
+@app.route('/add', method="POST")
 def add_new():
     conn = sqlite3.connect('pingo.db')
     c = conn.cursor()
@@ -96,7 +74,7 @@ def add_new():
     redirect("/categories")
 
 
-@route('/remove-category/<category>')
+@app.route('/remove-category/<category>')
 def remove_category(category):
     conn = sqlite3.connect('pingo.db')
     c = conn.cursor()
@@ -111,12 +89,12 @@ def remove_category(category):
 
 
 
-@route("/register", method="GET")
+@app.route("/register", method="GET")
 def register():
     return template('views/register')
 
 
-@route("/register", method="POST")
+@app.route("/register", method="POST")
 def register_user():
     email = getattr(request.forms, ("email"))
     password = getattr(request.forms, ("password"))
@@ -135,11 +113,11 @@ def register_user():
     conn.commit()
     redirect("/")
 
-@route("/login", method="GET")
+@app.route("/login", method="GET")
 def login():
     return template('views/login')
 
-@route('/login', method='POST')
+@app.route('/login', method='POST')
 def do_login():
     email = getattr(request.forms,'email')
     password = getattr(request.forms,'password')
@@ -159,14 +137,14 @@ def do_login():
 
 
 
-@route('/static/<filename:path>')
+@app.route('/static/<filename:path>')
 def send_static(filename):
     return static_file(filename, root='./views/static')
 
 
-@route('/profile')
+@app.route('/profile')
 def profile():
     return template('views/profile')
 
 
-run(host='127.0.0.1', port=8080, reloader=True, debug=True)
+run(app=app, host='127.0.0.1', port=8080, reloader=True, debug=True)
