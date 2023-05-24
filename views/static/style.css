@@ -327,21 +327,32 @@ a {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(o,o,o,o,5);
+    background-color: #2e00435d;
 }
 
 .loss_modal {
-    background-color: #fefefe;
+    background-color: #000000c8;
+    box-shadow: 0 0 15px #ae00ff;
+    text-align: center;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 35px;
+    color: white;
     margin: 20% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 1px solid black;
+    width: 60%;
+    border-radius: 30px;
 }
 
 .close_btn {
-    margin-top: 10px;
-    padding: 5px;
-    
+    margin-top: 15px;
+    padding: 10px;
+    justify-items: center;
+    color: #5700a9;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.889);
+    border: 1px solid black;
 }
 
 @media (max-width: 575px) {

@@ -47,7 +47,7 @@ function game_loss() {
     const lossMessage = document.getElementById("loss_message");
     const lossmodalContainer = document.getElementById("loss_modal_container");
     
-    lossMessage.textContent = "Åhnej tiden tog slut! Du har förlorat.";
+    lossMessage.textContent = "Åhnej! Tiden tog slut, du har förlorat.";
     lossmodalContainer.style.display = "block"
 
     freeze();
