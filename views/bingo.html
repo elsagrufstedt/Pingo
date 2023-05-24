@@ -28,9 +28,13 @@
       <input id="second" type="number" max="59" min="0" value="0" class="time">
       <button id="start" class="btn">STARTA</button>
     </div>
-
+    <div id="loss_modal_container" class="loss_modal_container">
+      <div id="loss_modal" class="loss_modal">
+        <p id="loss_message"></p>
+        <button id="close_loss_modal" class="close_btn">Stäng</button>
+      </div>
+    </div>
     <header class="title">{{category}}</header>
-  <div id="loss_message"></div>
     <div class="bingo-card">
       % for challenge in data: 
         <div class="box">

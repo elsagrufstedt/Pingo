@@ -45,10 +45,20 @@ function timer() {
 function game_loss() {
   if (hour.value == 0 && min.value == 0 && sec.value == 0) {
     const lossMessage = document.getElementById("loss_message");
-    lossMessage.textContent = "Åhnej tiden tog slut! Du har förlorat :(";
+    const lossmodalContainer = document.getElementById("loss_modal_container");
+    
+    lossMessage.textContent = "Åhnej tiden tog slut! Du har förlorat.";
+    lossmodalContainer.style.display = "block"
+
     freeze();
   }
 }
+
+document.getElementById("close_loss_modal").addEventListener("click", function () {
+  const lossmodalContainer = document.getElementById("loss_modal_container");
+  lossmodalContainer.style.display = "none"; // Göm modalen
+});
+
 
 function start_game() {
   start_timer = setInterval(function () {
