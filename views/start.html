@@ -13,26 +13,25 @@
 <body class="start">
     <header>
         <div class="pingologga">
-            <!---Länka denna till startsidan-->
-            <img src="/static/images/PiNGO logga/Pingovit.png" />
+            <a href="/"><img src="/static/images/PiNGO logga/Pingovit.png" /></a>
         </div>
         <div id="timer">
-            <form action="/starting/{{category}}" method="post">
+            <form action="/starting/{{category}}" method="post" class="timer" id="set_timer">
+                <p id="timer_label" class="label">Hur lång blir Pingokvällen?</p>
                 <p id="hour_label" class="label">timmar</p>
                 <p id="minute_label" class="label">minuter</p>
                 <p id="second_label" class="label">sekunder</p>
-                <input name="hour" id="hour" type="number" max="24" min="0" value="0" class="time">
+                <input name="hour" id="set_hour" type="number" max="24" min="0" value="0" class="time">
                 <p id="p1" class="semicolon">:</p>
-                <input name="minute" id="minute" type="number" max="59" min="0" value="0" class="time">
+                <input name="minute" id="set_minute" type="number" max="59" min="0" value="0" class="time">
                 <p id="p2" class="semicolon">:</p>
-                <input name="second" id="second" type="number" max="59" min="0" value="0" class="time">
-                <input type="submit">
+                <input name="second" id="set_second" type="number" max="59" min="0" value="0" class="time">
+                <input type="submit" id="startbtn" class="btn" value="Spela!">
             </form>
         </div>
-        <!---<a href="/starting/{{category}}"><button type="button" id="start" class="btn">Spela</button></a>-->
     </header>
     <main>
-        <div class="pre_bingo_board">
+        <div class="pre_bingo_card">
             % for challenge in data:
             <div class="pre_box">
                 {{challenge}}
