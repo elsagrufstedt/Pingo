@@ -469,14 +469,14 @@ input[type="text"] {
 }
 
 /* css för vinstmeddelande */
-#bingo_win {
+#pingo_win {
     visibility: hidden;
     position: absolute;
     top: 0;
 }
 
 /* denna fuckade jag upp efter att ha komprimerat alla css-filer - kom ihåg att fixa!!!!! */
-#Show_win {
+#show_win {
     visibility: visible;
     text-align: center;
     padding: 01.3rem;
