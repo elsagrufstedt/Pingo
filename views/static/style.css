@@ -81,7 +81,7 @@ a {
         flex-direction: column;
     }
 
-    #cat {
+    .cat {
         display: flex;
         flex-direction: column;
     }
@@ -91,7 +91,7 @@ a {
     background-color: rgb(48, 05, 49);
 }
 
-#cat {
+.cat {
     width: auto;
     background-color: rgba(255, 255, 255, 0.194);
     color: rgb(255, 255, 255);
@@ -109,11 +109,11 @@ a {
         sans-serif;
 }
 
-#cat:hover {
+.cat:hover {
     background-color: rgba(255, 255, 255, 0.329);
 }
 
-.cat {
+.cath1 {
     letter-spacing: 10px;
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -147,11 +147,11 @@ a {
 }
 
 /*css för radera bingo-knappen*/
-#delete{
+.delete{
     width: 50px;
 }
 
-#delete:hover{
+.delete:hover{
     border: red solid;
     background-color: red;
 }
