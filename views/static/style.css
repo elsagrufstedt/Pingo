@@ -150,6 +150,9 @@ a {
     margin: 10px;
     top: 0;
     right: 0;
+    object-position: right top;;
+
+
 }
 
 /*css för radera bingo-knappen*/
@@ -390,6 +393,13 @@ a {
     background-color: #e600ff;
     color: white;
     margin-top: auto;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    justify-self: center;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 5px;
 }
 
 .add_body .pingologga img {
