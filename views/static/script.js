@@ -93,15 +93,26 @@ const winning_combinations = [
 ];
 
 // Funktion som kollar om en vinnande kombination har gjorts
+let completedRows = [];
+
 function game_win() {
   winning_combinations.forEach((combination) => {
     const greenCount = combination.filter(num => bingo_boxes[num].classList.contains('green')).length;
-    if (greenCount === 5) {
+    if (greenCount === 5 && !completedRows.includes(combination)) {
+      completedRows.push(combination);
+
       const bingo_win = document.getElementById('bingo_win');
       bingo_win.id = 'Show_win';
+
+      const displayTime = 3000;
+
+      setTimeout(() => {
+        bingo_win.id = 'bingo_win';
+      }, displayTime); 
     }
   });
 }
+
 //funktion som tar bort eventlistener så att det inte längre går att klicka
 function freeze() {
   bingo_boxes.forEach(bingo_box => {
