@@ -527,7 +527,7 @@ input[type="text"] {
     grid-area: 1 / 1 / 4 / 4;
     display: grid; 
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows:20px 16px 90px 10px;
+    grid-template-rows:30px 16px 90px 10px;
 }
 
 .label {
