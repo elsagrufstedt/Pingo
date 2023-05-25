@@ -666,6 +666,7 @@ input[type="text"] {
     color: black;
     border: solid black;
     display: grid;
+    grid-template-rows: repeat(3, 1fr);
     border: solid rgb(255, 255, 255) 1px;
     text-align: center;
     text-shadow: 0 0 6px #e600ff;
@@ -678,4 +679,12 @@ input[type="text"] {
 
     transform-style: preserve-3d;
     transition: all 1s ease;
+}
+
+.pre_box img{
+    grid-area: 1 / 2 / 1 / 3;
+}
+
+.pre_box challenge{
+    grid-area: 1 / 1 / 3 / 1;
 }
