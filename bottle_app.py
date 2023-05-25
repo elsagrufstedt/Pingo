@@ -8,6 +8,16 @@ base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
 TEMPLATE_PATH.insert(0, views_path)
 
+def get_category_from_database():
+    '''Ska hämta kategorierna från databasen'''
+    conn = sqlite3.connect('pingo.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    c.execute("SELECT category_name FROM Categories")
+    categories = [row['category_name'] for row in c.fetchall()]
+    conn.close()
+
+    return categories
 
 @route("/")
 def index():
@@ -25,7 +35,8 @@ def categories():
     for row in data:
         category = {
             'category': row[0],
-            'remove_link': f'/remove-category/{row[0]}'
+            'remove_link': f'/remove-category/{row[0]}',
+            'start_link': f'/starting/{row[0]}'
         }
         categories.append(category)
 
@@ -43,7 +54,11 @@ def bingo(category):
 
     conn.close()
 
-    return template('views/bingo', data=challenges, category=category)
+    hour = request.query.get('hour')
+    minute = request.query.get('minute')
+    second = request.query.get('second')
+
+    return template('views/bingo', data=challenges, category=category, hour=hour, minute=minute, second=second)
 
 
 @route('/add', method="GET")
@@ -87,7 +102,6 @@ def remove_category(category):
     redirect("/categories")
 
 
-
 @route("/register", method="GET")
 def register():
     return template('views/register')
@@ -112,6 +126,7 @@ def register_user():
     conn.commit()
     redirect("/")
 
+
 @route("/login", method="GET")
 def login():
     return template('views/login')
@@ -135,7 +150,6 @@ def do_login():
     redirect('/')
 
 
-
 @route('/static/<filename:path>')
 def send_static(filename):
     return static_file(filename, root='./views/static')
@@ -144,6 +158,38 @@ def send_static(filename):
 @route('/profile')
 def profile():
     return template('views/profile')
+
+
+@route('/start/<category>')
+def start(category):
+    conn = sqlite3.connect('pingo.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    c.execute('''SELECT challenge_name FROM Challenges
+                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+    challenges = [row['challenge_name'] for row in c.fetchall()]
+
+    conn.close()
+
+    return template('views/start', data=challenges, category=category)
+
+
+@route('/starting/<category>', method='POST')
+def starting_game(category):
+    conn = sqlite3.connect('pingo.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    c.execute('''SELECT challenge_name FROM Challenges
+                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+
+    challenges = c.fetchall()
+    conn.close()
+
+    hour = request.forms.get('hour')
+    minute = request.forms.get('minute')
+    second = request.forms.get('second')
+
+    redirect('/bingo/{}?hour={}&minute={}&second={}'.format(category, hour, minute, second))
 
 
 run(host='127.0.0.1', port=8080, reloader=True, debug=True)

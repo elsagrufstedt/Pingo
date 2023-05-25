@@ -11,7 +11,15 @@
   <link rel="stylesheet" href="/static/reset.css">
 </head>
 
-<body class="bingo_content">
+<body class="bingo_content" onload="start_game({hour}, {minute}, {second})">
+  <header>
+    <div class="timer" id="counting_timer">
+      <input id="hour" type="number" max="24" min="0" value="{{hour}}" class="time">
+      <p id="bingo_p1" class="semicolon">:</p>
+      <input id="minute" type="number" max="59" min="0" value="{{minute}}" class="time">
+      <p id="bingo_p2" class="semicolon">:</p>
+      <input id="second" type="number" max="59" min="0" value="{{second}}" class="time">
+  </header>
   <div class="main-content">
 
     <a href="/"><img src="/static/images/arrowwhite.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
@@ -35,7 +43,7 @@
       </div>
     </div>
     <header class="title">{{category}}</header>
-    <div class="bingo-card">
+    <div class="bingo_card">
       % for challenge in data: 
         <div class="box">
           <div class="front">
@@ -51,7 +59,8 @@
   <div id="bingo_win">
     <img src="/static/images/PiNGO logga/Pingo.png" id="pingo_win"/>
   </div>
+  <script src="/static/script.js"></script>
 </body>
-<script src="/static/script.js"></script>
+
 
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>Pregame</title>
+</head>
+
+<body class="start">
+    <header>
+        <div class="pingologga">
+            <a href="/"><img src="/static/images/PiNGO logga/Pingovit.png" /></a>
+        </div>
+        <div id="timer">
+            <form action="/starting/{{category}}" method="post" class="timer" id="set_timer">
+                <p id="timer_label" class="label">Hur lång blir Pingokvällen?</p>
+                <p id="hour_label" class="label">timmar</p>
+                <p id="minute_label" class="label">minuter</p>
+                <p id="second_label" class="label">sekunder</p>
+                <input name="hour" id="set_hour" type="number" max="24" min="0" value="0" class="time">
+                <p id="p1" class="semicolon">:</p>
+                <input name="minute" id="set_minute" type="number" max="59" min="0" value="0" class="time">
+                <p id="p2" class="semicolon">:</p>
+                <input name="second" id="set_second" type="number" max="59" min="0" value="0" class="time">
+                <input type="submit" id="startbtn" class="btn" value="Spela!">
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="pre_bingo_card">
+            % for challenge in data:
+            <div class="pre_box">
+                {{challenge}}
+                <img src="/static/images/exit.png" alt="radera knapp" id="delete"
+                    onclick="return confirm('Är du säker på att du vill ta bort brickan?')">
+            </div>
+            % end
+        </div>
+    </main>
+</body>
+
+<script src="/static/script.js"></script>
+
+</html>
