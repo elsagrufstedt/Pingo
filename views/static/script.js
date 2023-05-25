@@ -101,9 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Funktion som kollar om en vinnande kombination har gjorts
-let completedRows = [];
-
 function game_win() {
+  let completedRows = [];
   winning_combinations.forEach((combination) => {
     const greenCount = combination.filter(num => bingo_boxes[num].classList.contains('green')).length;
     if (greenCount === 5 && !completedRows.includes(combination)) {
