@@ -294,6 +294,9 @@ a {
     width: 30px;
     position: absolute;
     padding-top: 10px;
+    object-position: left top;
+    margin-left: 10px;
+
 }
 
 @media (max-width: 767px) {
@@ -529,6 +532,10 @@ input[type="text"] {
 
 #timer_label {
     grid-area: 1 / 1 / 1 / 4;
+    text-shadow: 0 0 6px #e600ff;
+    color: rgb(253, 253, 253);
+    background-color: rgba(85, 41, 71, 0.229);
+
 }
 
 #hour_label {

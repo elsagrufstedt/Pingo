@@ -13,16 +13,16 @@
 
 <body class="bingo_content" onload="start_game({hour}, {minute}, {second})">
   <header>
+    <a href="/"><img src="/static/images/arrowwhite.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
     <div class="timer" id="counting_timer">
       <input id="hour" type="number" max="24" min="0" value="{{hour}}" class="time">
       <p id="bingo_p1" class="semicolon">:</p>
       <input id="minute" type="number" max="59" min="0" value="{{minute}}" class="time">
       <p id="bingo_p2" class="semicolon">:</p>
       <input id="second" type="number" max="59" min="0" value="{{second}}" class="time">
-  </header>
+      
+    </header>
   <div class="main-content">
-
-    <a href="/"><img src="/static/images/arrowwhite.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
 
     <div id="loss_modal_container" class="loss_modal_container">
       <div id="loss_modal" class="loss_modal">
