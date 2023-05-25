@@ -17,9 +17,7 @@ const winning_combinations = [
   [4, 8, 12, 16, 20]
 ];
 let isTimerEnded = false; //för att kontrollera om timern har slutat
-
-bingo_boxes.forEach(bingo_box => {
-  bingo_box.addEventListener('click', box_check);
+let completedRows = [];
     //Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
   function box_check()  {
     if (start_timer && !isTimerEnded) {
@@ -31,6 +29,9 @@ bingo_boxes.forEach(bingo_box => {
       game_win(); //anropar funktionen som säger bingo när man har fem i rad
     }
   };
+
+bingo_boxes.forEach(bingo_box => {
+  bingo_box.addEventListener('click', box_check);
 });
 
 var start = document.getElementById("start");
@@ -102,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Funktion som kollar om en vinnande kombination har gjorts
 function game_win() {
-  let completedRows = [];
   winning_combinations.forEach((combination) => {
     const greenCount = combination.filter(num => bingo_boxes[num].classList.contains('green')).length;
     if (greenCount === 5 && !completedRows.includes(combination)) {
