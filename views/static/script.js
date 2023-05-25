@@ -33,8 +33,6 @@ bingo_boxes.forEach(bingo_box => {
   };
 });
 
-var start_timer = null;
-
 var start = document.getElementById("start");
 
 var hour = document.getElementById("hour");
