@@ -135,3 +135,25 @@ function showCharacterCount(input, characterCountId) {
   const characterCountElement = document.getElementById(characterCountId);
   characterCountElement.textContent = remaining.toString();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  var modal = document.getElementById("info_modal");
+  var btn = document.getElementById("info_btn");
+  var closeBtn = document.getElementsByClassName("close_info")[0];
+
+  btn.addEventListener("click", function() {
+    modal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+

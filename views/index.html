@@ -11,11 +11,18 @@
             integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="./static/style.css" />
+        <link rel="stylesheet" href="/static/style.css">
         <title>Pingo</title>
     </head>
     <div class="container">
         <body class="index">
+            <button id="info_btn">Modalknapp</button>
+            <div id="info_modal" class="info_modal">
+                <div class="info_content">
+                    <p>Här står det du behöver veta</p>
+                    <button class="close_info">Stäng</button>
+                </div>
+            </div>
             <div class="px-4 py-5 my-5 text-center">
                 <div class="pingologga">
                     <img src="/static/images/PiNGO logga/Pingo.png" />
@@ -61,6 +68,7 @@
                 integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
                 crossorigin="anonymous"
             ></script>
+            <script src="/static/script.js"></script>
         </body>
     </div>
 </html>
