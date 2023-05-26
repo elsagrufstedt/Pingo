@@ -141,13 +141,18 @@ def do_login():
     c.execute("SELECT email, password FROM Users WHERE email=?", (email,))
     user = c.fetchone()
 
-    if not user:
-        return "Invalid email or password"
+    if not user or user[1] != hashlib.sha256(password.encode()).hexdigest():
+        error_message = "Fel e-post eller lösenord"
+        return template ('login.html', error=error_message)
+    
+    redirect ('/dashboard')
+
+    @route ('/login', method='GET')
     
     if user[1] != hashlib.sha256(password.encode()).hexdigest():
-        return "Invalid email or password"
+        return "<script>alert('Invalid email or password');</script>"
 
-    redirect('/')
+    redirect('/login')
 
 
 @route('/static/<filename:path>')
