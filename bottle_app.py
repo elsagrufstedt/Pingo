@@ -113,13 +113,16 @@ def register_user():
     password = getattr(request.forms, ("password"))
     hash_obj = hashlib.sha256(password.encode())
     password_hash = hash_obj.hexdigest()
+
     conn = sqlite3.connect('pingo.db')
     c = conn.cursor()
 
     c.execute('''SELECT email FROM Users WHERE email = ?''', (email,))
     email_exist = c.fetchone()
+
     if email_exist:
-        return "Email adressen finns redan"
+         return "<script>alert('Email address already exists'); window.location.href='/register';</script>"
+
 
     c.execute('''INSERT INTO Users (email, password) VALUES (?, ?)''',
               (email, password_hash))
@@ -142,19 +145,10 @@ def do_login():
     user = c.fetchone()
 
     if not user or user[1] != hashlib.sha256(password.encode()).hexdigest():
-        error_message = "Fel e-post eller lösenord"
-        return template ('login.html', error=error_message)
+        return "<script>alert('Invalid email or password'); window.location.href='/login';</script>"
     
-    redirect ('/dashboard')
-
-    @route ('/login', method='GET')
-    
-    if user[1] != hashlib.sha256(password.encode()).hexdigest():
-        return "<script>alert('Invalid email or password');</script>"
-
     redirect('/login')
-
-
+     
 @route('/static/<filename:path>')
 def send_static(filename):
     return static_file(filename, root='./views/static')
