@@ -163,6 +163,7 @@ a {
 #delete:hover {
     border: red solid;
     background-color: red;
+    border-radius: 50%;
 }
 
 /*css för login.html*/
