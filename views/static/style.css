@@ -533,7 +533,8 @@ input[type="text"] {
     grid-area: 1 / 1 / 4 / 4;
     display: grid; 
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows:30px 16px 90px 10px;
+    grid-template-rows: 50px 16px 90px 10px;
+    margin-bottom: 0%;
 }
 
 .label {
@@ -551,19 +552,28 @@ input[type="text"] {
     text-shadow: 0 0 6px #e600ff;
     color: rgb(253, 253, 253);
     background-color: rgba(85, 41, 71, 0.229);
+    font-size: 20px;
+    text-align: center;
+    animation: heartBeat 2s;
 
 }
 
 #hour_label {
     grid-area: 2 / 1 / 2 / 2;
+    padding: 0%;
+    margin: 0%;
 }
 
 #minute_label {
     grid-area: 2 / 2 / 2 / 3;
+    padding: 0%;
+    margin: 0%;
 }
 
 #second_label {
     grid-area: 2 / 3 / 2 / 4;
+    padding: 0%;
+    margin: 0%;
 }
 
 #set_hour {
@@ -578,6 +588,16 @@ input[type="text"] {
 #set_second {
     grid-area: 3 / 3 / 3 / 4;
 }
+
+#timer {
+    grid-area: 1 / 1 / span 4 / span 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    margin: 0 auto;
+  }
 
 #timer input[type="number"], #counting_timer input[type="number"] {
     height: 100%;
@@ -624,11 +644,11 @@ input[type="text"] {
 
 #startbtn {
     grid-area: 4 / 2 / 4 / 2;
-    background-color: #123f4e85;
-    text-shadow: 0 0 6px #e600ffc1;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #052631;
     height: 30px;
     width: 100px;
+    box-shadow: 0 0 6px #e600ff;
 }
 
 .btn {
@@ -681,13 +701,14 @@ input[type="text"] {
     background-color: #0526315f;
     display: grid;
     max-width: 75%;
-    margin: 0 auto;
+    margin: 0;
     place-self: center;
     grid-gap: 3px;
     grid-template-rows: repeat(5, minmax(90px, 1fr));
     grid-template-columns: repeat(5, minmax(90px, 1fr));
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
+    margin-top: 40px;
 }
 
 .pre_box {
@@ -696,7 +717,7 @@ input[type="text"] {
     display: grid;
     grid-template-rows: 40% 1fr;
     grid-template-columns: 1fr 30px 1fr;
-    border: solid rgb(255, 255, 255) 1px;
+    border: solid #e600ff6a 1px;
     text-align: center;
     text-shadow: 0 0 6px #e600ff;
     cursor: pointer;

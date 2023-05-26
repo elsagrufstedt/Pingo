@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-
-    <title>Pregame</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Starta spel</title>
 </head>
 
 <body class="start">
@@ -17,11 +17,11 @@
         </div>
         <div id="timer">
             <form action="/starting/{{category}}" method="post" class="timer" id="set_timer">
-                <p id="timer_label" class="label">Sätt en tidsbegränsning och starta pingokvällen!</p>
+                <p id="timer_label" class="label">Tidsbegränsa pingokvällen!</p>
                 <p id="hour_label" class="label">timmar</p>
                 <p id="minute_label" class="label">minuter</p>
                 <p id="second_label" class="label">sekunder</p>
-                <input name="hour" id="set_hour" type="number" max="24" min="0" value="0" class="time">
+                <input name="hour" id="set_hour" type="number" max="24" min="0" value="8" class="time">
                 <p id="p1" class="semicolon">:</p>
                 <input name="minute" id="set_minute" type="number" max="59" min="0" value="0" class="time">
                 <p id="p2" class="semicolon">:</p>

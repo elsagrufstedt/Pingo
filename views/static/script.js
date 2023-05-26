@@ -115,7 +115,9 @@ function game_win() {
 
       setTimeout(() => {
         bingo_win.id = 'bingo_win';
-      }, displayTime); 
+      }, displayTime);
+      
+      clearInterval(start_timer);
     }
   });
 }

@@ -15,11 +15,11 @@
   <header>
     <a href="/"><img src="/static/images/arrowwhite.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
     <div class="timer" id="counting_timer">
-      <input id="hour" type="number" max="24" min="0" value="{{hour}}" class="time">
+      <input id="hour" type="number" max="24" min="0" value="{{hour}}" class="time" readonly>
       <p id="bingo_p1" class="semicolon">:</p>
-      <input id="minute" type="number" max="59" min="0" value="{{minute}}" class="time">
+      <input id="minute" type="number" max="59" min="0" value="{{minute}}" class="time" readonly>
       <p id="bingo_p2" class="semicolon">:</p>
-      <input id="second" type="number" max="59" min="0" value="{{second}}" class="time">
+      <input id="second" type="number" max="59" min="0" value="{{second}}" class="time" readonly>
       
     </header>
   <div class="main-content">
