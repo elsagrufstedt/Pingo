@@ -134,10 +134,4 @@ function showCharacterCount(input, characterCountId) {
 
   const characterCountElement = document.getElementById(characterCountId);
   characterCountElement.textContent = remaining.toString();
-
-  if (remaining < 0) {
-    characterCountElement.classList.add('exceeded');
-  } else {
-    characterCountElement.classList.remove('exceeded');
-  }
 }
