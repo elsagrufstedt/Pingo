@@ -67,6 +67,7 @@ a {
     color: white;
     text-decoration: none;
     text-align: center;
+    display: flex;
 }
 
 .index .pingologga img {
@@ -151,18 +152,18 @@ a {
     top: 0;
     right: 0;
     object-position: right top;;
-
-
 }
 
 /*css för radera bingo-knappen*/
 #delete {
-    width: 50px;
+    width: 30px;
+    place-self: center;
 }
 
 #delete:hover {
     border: red solid;
     background-color: red;
+    border-radius: 50%;
 }
 
 /*css för login.html*/
