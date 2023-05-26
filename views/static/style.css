@@ -468,6 +468,12 @@ input[type="text"] {
     }
 }
 
+.character_count{
+    color: rgb(187, 187, 187);
+    padding-left: 75px;
+    font-size: 10px;
+}
+
 /* css för vinstmeddelande */
 #bingo_win {
     visibility: hidden;

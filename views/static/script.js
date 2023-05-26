@@ -126,3 +126,18 @@ function freeze() {
     bingo_box.removeEventListener('click', box_check);
   });
 }
+
+function showCharacterCount(input, characterCountId) {
+  const maxLength = input.maxLength;
+  const currentLength = input.value.length;
+  const remaining = maxLength - currentLength;
+
+  const characterCountElement = document.getElementById(characterCountId);
+  characterCountElement.textContent = remaining.toString();
+
+  if (remaining < 0) {
+    characterCountElement.classList.add('exceeded');
+  } else {
+    characterCountElement.classList.remove('exceeded');
+  }
+}
