@@ -127,7 +127,6 @@ function freeze() {
   bingo_boxes.forEach(bingo_box => {
     bingo_box.removeEventListener('click', box_check);
   });
-<<<<<<< HEAD
 }
 
 function showCharacterCount(input, characterCountId) {
