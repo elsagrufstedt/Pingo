@@ -121,7 +121,7 @@ def register_user():
     email_exist = c.fetchone()
 
     if email_exist:
-         return "<script>alert('Email address already exists'); window.location.href='/register';</script>"
+         return "<script>alert('Epost-adressen är redan registrerad på den här sidan'); window.location.href='/register';</script>"
 
 
     c.execute('''INSERT INTO Users (email, password) VALUES (?, ?)''',
