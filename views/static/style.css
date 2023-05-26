@@ -30,7 +30,7 @@ h1 {
     box-shadow: 0 0 6px white;
 }
 
-#spela:hover {
+#spela:hover, #spela_spela:hover {
     background-color: rgba(255, 255, 255, 0.329);
 }
 
@@ -154,6 +154,10 @@ a {
     object-position: right top;;
 }
 
+.profilbild img:hover {
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
 /*css för radera bingo-knappen*/
 #delete {
     width: 30px;
@@ -252,8 +256,6 @@ a {
     grid-template-columns: repeat(5, minmax(90px, 1fr));
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
-    
-
 }
 
 .box {
@@ -702,7 +704,7 @@ input[type="text"] {
     background-color: #0526315f;
     display: grid;
     max-width: 75%;
-    margin: 0;
+    margin: 0 auto;
     place-self: center;
     grid-gap: 3px;
     grid-template-rows: repeat(5, minmax(90px, 1fr));
