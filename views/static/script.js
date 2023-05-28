@@ -108,12 +108,12 @@ function game_loss() {
 
     freeze();
   }
-}
-
+  
 document.getElementById("close_loss_modal").addEventListener("click", function() {
   const lossmodalContainer = document.getElementById("loss_modal_container");
   lossmodalContainer.style.display = "none"; // Göm modalen
 });
+}
 
 
 function start_game() {
