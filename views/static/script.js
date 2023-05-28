@@ -154,6 +154,7 @@ function game_win() {
       }, displayTime);
 
       clearInterval(start_timer);
+      freeze();
     }
   });
 }
