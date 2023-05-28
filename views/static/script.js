@@ -1,7 +1,7 @@
 const bingo_boxes = document.querySelectorAll('.box');
 let start_timer = null;
 
-//Alla vinnande kombinationer
+// Alla vinnande kombinationer
 const winning_combinations = [
   [0, 1, 2, 3, 4],
   [5, 6, 7, 8, 9],
@@ -16,19 +16,19 @@ const winning_combinations = [
   [0, 6, 12, 18, 24],
   [4, 8, 12, 16, 20]
 ];
-let isTimerEnded = false; //för att kontrollera om timern har slutat
+let isTimerEnded = false; // för att kontrollera om timern har slutat
 let completedRows = [];
-    //Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
-  function box_check()  {
-    if (start_timer && !isTimerEnded) {
-      if (this.classList.contains('green')) {
-        this.classList.remove('green');
-      } else {
-        this.classList.add('green');
-      }
-      game_win(); //anropar funktionen som säger bingo när man har fem i rad
+// Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
+function box_check() {
+  if (start_timer && !isTimerEnded) {
+    if (this.classList.contains('green')) {
+      this.classList.remove('green');
+    } else {
+      this.classList.add('green');
     }
-  };
+    game_win(); // anropar funktionen som säger bingo när man har fem i rad
+  }
+}
 
 bingo_boxes.forEach(bingo_box => {
   bingo_box.addEventListener('click', box_check);
@@ -57,11 +57,11 @@ function timer() {
     min.value = 59;
     hour.value--;
   } else if (hour.value == 0 && min.value == 0 && sec.value == 0) {
-    clearInterval(start_timer)
+    clearInterval(start_timer);
   }
 }
 
-//shufflefunktion
+// shufflefunktion
 var preBoxes = document.querySelectorAll('.pre_box');
 var preBoxArray = [];
 
@@ -97,44 +97,44 @@ shuffleButton.addEventListener('click', function() {
 });
 
 
-//funktion som skickar förlustmeddelandet
+// funktion som skickar förlustmeddelandet
 function game_loss() {
   if (hour.value == 0 && min.value == 0 && sec.value == 0) {
     const lossMessage = document.getElementById("loss_message");
     const lossmodalContainer = document.getElementById("loss_modal_container");
-    
+
     lossMessage.textContent = "GAME OVER";
-    lossmodalContainer.style.display = "block"
+    lossmodalContainer.style.display = "block";
 
     freeze();
   }
 }
 
-document.getElementById("close_loss_modal").addEventListener("click", function () {
+document.getElementById("close_loss_modal").addEventListener("click", function() {
   const lossmodalContainer = document.getElementById("loss_modal_container");
   lossmodalContainer.style.display = "none"; // Göm modalen
 });
 
 
 function start_game() {
-  start_timer = setInterval(function () {
+  start_timer = setInterval(function() {
     timer();
     game_loss();
   }, 1000);
 }
 
-start.addEventListener("click", function () {
+start.addEventListener("click", function() {
   console.log("Startar spelet")
-  start_game()
+  start_game();
   start.disabled = true;
   hour.disabled = true;
   min.disabled = true;
   sec.disabled = true;
-});;
+});
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  start_game
+document.addEventListener("DOMContentLoaded", function() {
+  start_game();
 });
 
 // Funktion som kollar om en vinnande kombination har gjorts
@@ -152,13 +152,13 @@ function game_win() {
       setTimeout(() => {
         bingo_win.id = 'bingo_win';
       }, displayTime);
-      
+
       clearInterval(start_timer);
     }
   });
 }
 
-//funktion som tar bort eventlistener så att det inte längre går att klicka
+// funktion som tar bort eventlistener så att det inte längre går att klicka
 function freeze() {
   bingo_boxes.forEach(bingo_box => {
     bingo_box.removeEventListener('click', box_check);
@@ -193,5 +193,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
-
