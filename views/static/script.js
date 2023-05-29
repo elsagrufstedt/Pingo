@@ -6,6 +6,21 @@ function confettiFY() {
   jsConfetti.addConfetti();
 }
 
+let game_mode = '';
+
+function setGameMode(mode) {
+  game_mode = mode;
+}
+
+var firstbingoButton = document.getElementById('firstbingo_button');
+firstbingoButton.addEventListener('click', function() {
+  setGameMode('firstbingo');
+});
+
+var fullhouseButton = document.getElementById('fullhouse_button');
+fullhouseButton.addEventListener('click', function() {
+  setGameMode('fullhouse');
+});
 
 // Alla vinnande kombinationer
 const winning_combinations = [
@@ -164,13 +179,14 @@ function game_win() {
         bingo_win.id = 'bingo_win';
       }, displayTime);
 
-      clearInterval(start_timer);
-
-      freeze();
-
-
       confettiFY();
 
+      if (game_mode === 'firstbingo') {
+      clearInterval(start_timer);
+      freeze();
+      }
+      else if (game_mode === 'fullhouse') {
+      }
     }
   });
 }
