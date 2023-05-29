@@ -71,9 +71,6 @@ def categories():
 
 @route('/bingo/<category>')
 def bingo(category):
-    if 'email' not in request.environ.get('beaker.session'):
-        redirect('/login')
-
     conn = connect_database()
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
