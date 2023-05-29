@@ -162,6 +162,7 @@ function game_win() {
       clearInterval(start_timer);
 
       confettiFY();
+
     }
   });
 }
@@ -195,4 +196,6 @@ function hideConfirmationModal() {
 function deleteChallenge() {
   // Delete logic here
   hideConfirmationModal();
+
 }
+
