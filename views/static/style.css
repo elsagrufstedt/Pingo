@@ -758,8 +758,9 @@ input[type="text"] {
     grid-area: 2 / 1 / 2 / 4;
 }
 
-/*css för hjälpmodalen*/
-.info_modal {
+
+
+loss_modal_container {
     display: none;
     position: fixed;
     z-index: 1;
@@ -768,27 +769,16 @@ input[type="text"] {
     width: 100%;
     height: 100%;
     overflow: auto;
+    background-color: #2e00435d;
 }
 
-.info_content {
-    background-color: crimson;
-    margin: 15% auto;
-    padding: 10px;
-    width: 80%;
-    max-width: 600px;
+.modal-content {
+    background-color: #050931;
+    box-shadow: 0 0 15px #e600ff;
 }
 
-.close_info {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+.modal-footer{
+    border-top: #050931;
 }
 
-.close_info:hover,
-.close_info:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+
