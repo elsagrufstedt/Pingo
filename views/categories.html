@@ -26,6 +26,11 @@
               </a>
 
             % end
+            % for game in premade_categories:
+            <a class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill" id="cat" href="/start/{{game['category']}}">{{game["category"]}}</a>     
+              </a>
+
+            % end
 
 
 

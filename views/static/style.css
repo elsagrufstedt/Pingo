@@ -30,7 +30,7 @@ h1 {
     box-shadow: 0 0 6px white;
 }
 
-#spela:hover {
+#spela:hover, #spela_spela:hover {
     background-color: rgba(255, 255, 255, 0.329);
 }
 
@@ -154,6 +154,10 @@ a {
     object-position: right top;;
 }
 
+.profilbild img:hover {
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
 /*css för radera bingo-knappen*/
 #delete {
     width: 30px;
@@ -221,16 +225,17 @@ a {
     color: white !important;
 }
 
+
 /* CSS för bingobrädet på bingo.html */
 
 .title {
     padding: 10px;
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
-    color: white;
-
+    color: #e600ff;
+    text-shadow: 0 0 6px #e600ff;
     width: 75%;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -238,7 +243,7 @@ a {
 }
 
 .bingo_content {
-    background-color: #6b0377;
+    background-color: #050931;
 }
 
 .bingo_card {
@@ -252,22 +257,16 @@ a {
     grid-template-columns: repeat(5, minmax(90px, 1fr));
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
-    
-
 }
 
 .box {
+    border: solid rgb(230, 0, 255) 1px;
+    background-color: rgba(85, 41, 71, 0.229);
     border-radius: 4px;
     display: grid;
-    border: solid rgb(255, 255, 255) 1px;
-    text-align: center;
-    text-shadow: 0 0 6px #ffffff;
     cursor: pointer;
-    color: rgb(253, 253, 253);
-    padding-top: 40px;
+    padding-top: 40%;
     font-size: 20px;
-
-
     transform-style: preserve-3d;
     transition: all 1s ease;
 }
@@ -278,6 +277,8 @@ a {
     height: 100%;
     backface-visibility: hidden;
     text-align: center;
+    color: rgb(253, 253, 253);
+    text-shadow: 0 0 6px #ffffff;
 }
 
 .back {
@@ -287,7 +288,9 @@ a {
     backface-visibility: hidden;
     text-align: center;
     transform: rotateY(180deg);
-    background-color: rgb(85, 41, 71);
+    background-color: #050931;
+    color: #e600ff70;
+    text-shadow: 0 0 3px black;
 }
 
 .green {
@@ -343,7 +346,7 @@ a {
 
 .loss_modal {
     background-color: #000000c8;
-    box-shadow: 0 0 15px #ae00ff;
+    box-shadow: 0 0 15px #32d3ff;
     text-align: center;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
@@ -360,7 +363,7 @@ a {
     margin-top: 15px;
     padding: 10px;
     justify-items: center;
-    color: #5700a9;
+    color: #289aba;
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.889);
     border: 1px solid black;
@@ -445,16 +448,6 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-.box {
-    border: solid rgb(255, 255, 255) 1px;
-    text-align: center;
-    cursor: pointer;
-    color: rgb(253, 253, 253);
-    background-color: rgba(85, 41, 71, 0.229);
-    padding-top: 40%;
-    font-size: 20px;
-}
-
 @media (max-width: 767px) {
     .box {
         padding-top: 25%;
@@ -495,7 +488,7 @@ input[type="text"] {
 
 .timer {
     height: 150px;
-    background-color: rgba(85, 41, 71, 0.229);
+    background-color: #0526315f;
     margin: 20px auto;
     border-radius: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -536,6 +529,7 @@ input[type="text"] {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 50px 16px 90px 10px;
     margin-bottom: 0%;
+    width: 100%;
 }
 
 .label {
@@ -596,7 +590,7 @@ input[type="text"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: max-content;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -607,6 +601,16 @@ input[type="text"] {
     box-sizing: border-box;
     text-align: center;
   }
+
+#counting_timer {
+    background-color: #050931;
+}
+
+@media (max-width: 768px) {
+    #counting_timer input[type="number"] {
+    font-size: 35px;
+}
+}
 
 .time {
     justify-self: center;
@@ -669,17 +673,27 @@ input[type="text"] {
     grid-area: 4 / 2 / 4 / 2;
 }
 
-.btn {
-    align-self: center;
-    background-color: rgba(255, 255, 255, 0.651);
-    color: #ffffff;
-    border: none;
-    border-radius: 30px;
-    font-size: 20px;
-    justify-self: center;
-    display: inline-block;
-    box-sizing: border-box;
-    margin: 5px;
+#shuffle_button{
+    margin-right: auto;
+    display: flex;
+}
+
+.btn_text {
+    display: none;
+    place-self: center;
+}
+
+@media (min-width: 768px) {
+    .btn_text {
+      display: inline-block;
+    }
+}
+
+#shuffle_image {
+    width: 25px;
+    height: auto;
+    place-self: center;
+    padding: 5px;
 }
 
 .start {
@@ -702,7 +716,7 @@ input[type="text"] {
     background-color: #0526315f;
     display: grid;
     max-width: 75%;
-    margin: 0;
+    margin: 0 auto;
     place-self: center;
     grid-gap: 3px;
     grid-template-rows: repeat(5, minmax(90px, 1fr));
@@ -732,7 +746,7 @@ input[type="text"] {
     transition: all 1s ease;
 }
 
-#delete_challenge{
+#delete_challenge, #delete_challenge_image{
     width: 30px;
     height: auto;
     grid-area: 1 / 2 / 2/ 2;

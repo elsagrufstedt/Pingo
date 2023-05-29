@@ -1,5 +1,11 @@
 const bingo_boxes = document.querySelectorAll('.box');
 let start_timer = null;
+const jsConfetti = new JSConfetti();
+
+function confettiFY() {
+  jsConfetti.addConfetti();
+}
+
 
 // Alla vinnande kombinationer
 const winning_combinations = [
@@ -48,12 +54,13 @@ function timer() {
     hour.value = 0;
     min.value = 0;
     sec.value = 0;
-  } else if (sec.value != 0) {
+  } else if (sec.value > 0) {
     sec.value--;
-  } else if (sec.value == 0 && min.value != 0) {
+  } else if (sec.value == 0 && min.value > 0) {
     sec.value = 59;
     min.value--;
-  } else if (hour.value != 0 && min.value == 0) {
+  } else if (hour.value > 0 && min.value == 0) {
+    sec.value = 59;
     min.value = 59;
     hour.value--;
   } else if (hour.value == 0 && min.value == 0 && sec.value == 0) {
@@ -135,6 +142,10 @@ start.addEventListener("click", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   start_game();
+})
+document.addEventListener("DOMContentLoaded", function () {
+  start_game()
+
 });
 
 // Funktion som kollar om en vinnande kombination har gjorts
@@ -154,7 +165,12 @@ function game_win() {
       }, displayTime);
 
       clearInterval(start_timer);
+
       freeze();
+
+
+      confettiFY();
+
     }
   });
 }

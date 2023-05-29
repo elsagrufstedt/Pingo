@@ -9,6 +9,8 @@
   <title>Pingo</title>
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/reset.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
 </head>
 
 <body class="bingo_content" onload="start_game({hour}, {minute}, {second})">
@@ -38,7 +40,7 @@
           {{challenge}}
           </div>
           <div class="back">
-            
+          {{challenge}}
           </div>
         </div>
       % end 
@@ -47,6 +49,7 @@
   <div id="bingo_win">
     <img src="/static/images/PiNGO logga/Pingo.png" id="pingo_win"/>
   </div>
+  
   <script src="/static/script.js"></script>
   <script src="/static/RSucces.js"></script>
 </body>

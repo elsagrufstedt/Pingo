@@ -9,9 +9,10 @@ Detta är en Python-webbapplikation som använder ramverket Bottle
 ## Installation
 1. Klona repostorien eller ladda ner ZIP-filen från https://github.com/elsagrufstedt/Pingo
 2. Öppna terminalen i er textredigerare/lokalt på er maskin
-3. Installera Bottle med följande kommando:
+3. Installera Bottle och Beaker med följande kommando:
 ```
 pip install bottle
+pip install Beaker
 ```
 4. Navigera till projektet och kör följande kommando:
 ```
