@@ -26,6 +26,13 @@
               </a>
 
             % end
+            % for game in premade_categories:
+            <a class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill" id="cat" href="/start/{{game['category']}}">{{game["category"]}}</a>
+              <a href="/remove-category/{{game['category']}}">
+                <img src="static/images/white_exit.png" alt="radera knapp" id="delete"  onclick="return confirm('Är du säker på att du vill ta bort brädet?')"/>     
+              </a>
+
+            % end
 
 
 

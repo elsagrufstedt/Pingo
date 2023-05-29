@@ -1,55 +1,82 @@
-from bottle import run, route, template, TEMPLATE_PATH, static_file, request, redirect
+from bottle import (
+    run, route, template, TEMPLATE_PATH, static_file,
+    request, redirect, default_app
+)
 import os
 import sqlite3
 import hashlib
-
+from beaker.middleware import SessionMiddleware
 
 base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
 TEMPLATE_PATH.insert(0, views_path)
 
-def get_category_from_database():
-    '''Ska hämta kategorierna från databasen'''
-    conn = sqlite3.connect('pingo.db')
-    conn.row_factory = sqlite3.Row
-    c = conn.cursor()
-    c.execute("SELECT category_name FROM Categories")
-    categories = [row['category_name'] for row in c.fetchall()]
-    conn.close()
+session_opts = {
+    'session.type': 'file',
+    'session.cookie_expires': 300,
+    'session.data_dir': './data',
+    'session.auto': True
+}
 
-    return categories
+application = default_app()
+app = SessionMiddleware(application, session_opts)
+
+def connect_database():
+    return sqlite3.connect('pingo.db')
+
+def authenticate(email, password):
+    with connect_database() as conn:
+        c = conn.cursor()
+        c.execute("SELECT password FROM Users WHERE email=?", (email,))
+        result = c.fetchone()
+        if result:
+            stored_password = result[0]
+            hash_obj = hashlib.sha256(password.encode())
+            password_hash = hash_obj.hexdigest()
+            if password_hash == stored_password:
+                return True
+    return False
+
 
 @route("/")
 def index():
-    '''visar index.html'''
-    return template("index")
-
+    session = request.environ.get('beaker.session')
+    if 'email' in session:
+        email = session['email']
+        return template("index_log", email=email)
+    else:
+        return template("index")
 
 @route('/categories')
 def categories():
-    conn = sqlite3.connect('pingo.db')
-    c = conn.cursor()
-    c.execute('''SELECT category_name FROM Categories''')
-    data = c.fetchall()
-    categories = []
-    for row in data:
-        category = {
-            'category': row[0],
-            'remove_link': f'/remove-category/{row[0]}',
-            'start_link': f'/starting/{row[0]}'
-        }
-        categories.append(category)
+    with connect_database() as conn:
+        c = conn.cursor()
 
-    return template('views/categories', data=categories)
+        c.execute('''SELECT category_name FROM Categories WHERE user_id = (
+                     SELECT id FROM Users WHERE email=?) AND is_premade = 0''',
+                  (request.environ.get('beaker.session').get('email'),))
+        data = c.fetchall()
+        categories = [{'category': row[0]} for row in data]
+
+        c.execute("SELECT category_name FROM Categories WHERE is_premade = 1")
+        premade_data = c.fetchall()
+        premade_categories = [{'category': row[0]} for row in premade_data]
+
+    return template('views/categories', data=categories, premade_categories=premade_categories)
 
 
 @route('/bingo/<category>')
 def bingo(category):
-    conn = sqlite3.connect('pingo.db')
+    if 'email' not in request.environ.get('beaker.session'):
+        redirect('/login')
+
+    conn = connect_database()
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
+
     c.execute('''SELECT challenge_name FROM Challenges
-                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+                 WHERE category_id = (
+                 SELECT id FROM Categories WHERE category_name = ?)''', (category,))
     challenges = [row['challenge_name'] for row in c.fetchall()]
 
     conn.close()
@@ -57,107 +84,47 @@ def bingo(category):
     hour = request.query.get('hour')
     minute = request.query.get('minute')
     second = request.query.get('second')
-
     return template('views/bingo', data=challenges, category=category, hour=hour, minute=minute, second=second)
 
-
-@route('/add', method="GET")
-def add():
-    return template("views/add")
-
-
-@route('/add', method="POST")
-def add_new():
-    conn = sqlite3.connect('pingo.db')
-    c = conn.cursor()
-    category_name = getattr(request.forms, 'category')
-    c.execute("INSERT INTO Categories (category_name) VALUES (?)",
-              (category_name,))
-    category_id = c.lastrowid
-
-    challenges = []
-    for i in range(1, 26):
-        challenge_name = getattr(request.forms, f'challenge_{i}')
-        challenges.append(challenge_name)
-
-    for challenge_name in challenges:
-        c.execute("INSERT INTO Challenges (category_id, challenge_name) VALUES (?,?)",
-                  (category_id, challenge_name))
-    conn.commit()
-    conn.close()
-    redirect("/categories")
-
-
-@route('/remove-category/<category>')
-def remove_category(category):
-    conn = sqlite3.connect('pingo.db')
-    c = conn.cursor()
-    c.execute('''DELETE FROM Challenges
-                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
-    
-    c.execute('''DELETE FROM Categories WHERE category_name = ?''', (category,))
-    conn.commit()
-    conn.close()
-
-    redirect("/categories")
-
-
-@route("/register", method="GET")
+@route("/register", method=["GET"])
 def register():
     return template('views/register')
 
-
-@route("/register", method="POST")
+@route("/register", method=["POST"])
 def register_user():
-    email = getattr(request.forms, ("email"))
-    password = getattr(request.forms, ("password"))
-    hash_obj = hashlib.sha256(password.encode())
-    password_hash = hash_obj.hexdigest()
-
-    conn = sqlite3.connect('pingo.db')
-    c = conn.cursor()
-
-    c.execute('''SELECT email FROM Users WHERE email = ?''', (email,))
-    email_exist = c.fetchone()
-
-    if email_exist:
-         return "<script>alert('Epost-adressen är redan registrerad på den här sidan'); window.location.href='/register';</script>"
-
-
-    c.execute('''INSERT INTO Users (email, password) VALUES (?, ?)''',
-              (email, password_hash))
-    conn.commit()
-    redirect("/")
-
-
-@route("/login", method="GET")
-def login():
-    return template('views/login')
-
-@route('/login', method='POST')
-def do_login():
     email = getattr(request.forms,'email')
     password = getattr(request.forms,'password')
 
-    conn = sqlite3.connect('pingo.db')
-    c = conn.cursor()
-    c.execute("SELECT email, password FROM Users WHERE email=?", (email,))
-    user = c.fetchone()
+    hash_obj = hashlib.sha256(password.encode())
+    password_hash = hash_obj.hexdigest()
 
-    if not user or user[1] != hashlib.sha256(password.encode()).hexdigest():
-        return "<script>alert('Invalid email or password'); window.location.href='/login';</script>"
-    
-    redirect('/login')
-     
-@route('/static/<filename:path>')
-def send_static(filename):
-    return static_file(filename, root='./views/static')
+    with connect_database() as conn:
+        c = conn.cursor()
+        c.execute('''INSERT INTO Users (email, password) VALUES (?, ?)''',
+                  (email, password_hash))
 
+    session = request.environ.get('beaker.session')
+    session['email'] = email
+    session.save()
 
-@route('/profile')
-def profile():
-    return template('views/profile')
+    redirect("/")
 
+@route("/login", method=["GET"])
+def login():
+    return template('views/login')
+
+@route("/login", method=["POST"])
+def login_user():
+    email = getattr(request.forms,'email')
+    password = getattr(request.forms,'password')
+
+    if authenticate(email, password):
+        session = request.environ.get('beaker.session')
+        session['email'] = email
+        session.save()
+        redirect("/")
+    else:
+        return "Invalid credentials"
 
 @route('/start/<category>')
 def start(category):
@@ -167,9 +134,7 @@ def start(category):
     c.execute('''SELECT challenge_name FROM Challenges
                  WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
     challenges = [row['challenge_name'] for row in c.fetchall()]
-
     conn.close()
-
     return template('views/start', data=challenges, category=category)
 
 
@@ -180,15 +145,68 @@ def starting_game(category):
     c = conn.cursor()
     c.execute('''SELECT challenge_name FROM Challenges
                  WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
-
-    challenges = c.fetchall()
+    challenges = [row['challenge_name'] for row in c.fetchall()]
     conn.close()
-
-    hour = request.forms.get('hour')
-    minute = request.forms.get('minute')
-    second = request.forms.get('second')
-
+    hour = getattr(request.forms, 'hour')
+    minute = getattr(request.forms, 'minute')
+    second = getattr(request.forms, 'second')
     redirect('/bingo/{}?hour={}&minute={}&second={}'.format(category, hour, minute, second))
 
+#Gör inget just nu
+@route('/profile')
+def profile():
+    return template('views/profile')
 
-run(host='127.0.0.1', port=8080, reloader=True, debug=True)
+@route('/logout')
+def logout():
+    session = request.environ.get('beaker.session')
+    session.delete()
+    redirect('/')
+
+@route('/add', method="GET")
+def add():
+    if 'email' not in request.environ.get('beaker.session'):
+        redirect('/login')
+
+    return template("views/add")
+
+@route('/add', method="POST")
+def add_new():
+    if 'email' not in request.environ.get('beaker.session'):
+        redirect('/login')
+
+    conn = connect_database()
+    c = conn.cursor()
+    category_name = getattr(request.forms,'category')
+    user_email = request.environ.get('beaker.session')['email']
+    c.execute("INSERT INTO Categories (category_name, user_id) VALUES (?, (SELECT id FROM Users WHERE email=?))",
+              (category_name, user_email))
+    category_id = c.lastrowid
+    challenges = [getattr(request.forms,f'challenge_{i}') for i in range(1, 26)]
+    c.executemany("INSERT INTO Challenges (category_id, challenge_name) VALUES (?, ?)",
+                  ((category_id, challenge_name) for challenge_name in challenges))
+    conn.commit()
+    conn.close()
+    redirect("/categories")
+
+@route('/remove', method='POST')
+def remove_category():
+    if 'email' not in request.environ.get('beaker.session'):
+        redirect('/login')
+
+    category_name = getattr(request.forms,'category_name')
+
+    conn = connect_database()
+    c = conn.cursor()
+
+    c.execute("DELETE FROM Categories WHERE category_name=? AND user_id=(SELECT id FROM Users WHERE email=?)",
+              (category_name, request.environ.get('beaker.session')['email']))
+    conn.commit()
+    conn.close()
+    redirect('/categories')
+
+@route('/static/<filename:path>')
+def send_static(filename):
+    return static_file(filename, root='./views/static')
+
+run(app=app, host='127.0.0.1', port=8080, reloader=True, debug=True)
