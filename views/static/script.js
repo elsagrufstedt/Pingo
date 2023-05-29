@@ -142,7 +142,7 @@ start.addEventListener("click", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   start_game();
-
+})
 document.addEventListener("DOMContentLoaded", function () {
   start_game()
 
