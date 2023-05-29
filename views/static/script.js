@@ -1,5 +1,11 @@
 const bingo_boxes = document.querySelectorAll('.box');
 let start_timer = null;
+const jsConfetti = new JSConfetti();
+
+function confettiFY() {
+  jsConfetti.addConfetti();
+}
+
 
 //Alla vinnande kombinationer
 const winning_combinations = [
@@ -17,9 +23,7 @@ const winning_combinations = [
   [4, 8, 12, 16, 20]
 ];
 let isTimerEnded = false; //för att kontrollera om timern har slutat
-
-bingo_boxes.forEach(bingo_box => {
-  bingo_box.addEventListener('click', box_check);
+let completedRows = [];
     //Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
   function box_check()  {
     if (start_timer && !isTimerEnded) {
@@ -31,6 +35,9 @@ bingo_boxes.forEach(bingo_box => {
       game_win(); //anropar funktionen som säger bingo när man har fem i rad
     }
   };
+
+bingo_boxes.forEach(bingo_box => {
+  bingo_box.addEventListener('click', box_check);
 });
 
 var start = document.getElementById("start");
@@ -60,13 +67,49 @@ function timer() {
   }
 }
 
+//shufflefunktion
+var preBoxes = document.querySelectorAll('.pre_box');
+var preBoxArray = [];
+
+for (var i = 0; i < preBoxes.length; i++) {
+  preBoxArray.push(preBoxes[i]);
+}
+
+function shuffle(array) {
+  var currentIndex = array.length;
+  var temporaryValue;
+  var randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+}
+
+var shuffleButton = document.getElementById('shuffle_button');
+shuffleButton.addEventListener('click', function() {
+  shuffle(preBoxArray);
+
+  var preBingoCard = document.querySelector('.pre_bingo_card');
+  preBingoCard.innerHTML = '';
+
+  for (var i = 0; i < preBoxArray.length; i++) {
+    preBingoCard.appendChild(preBoxArray[i]);
+  }
+});
+
+
 //funktion som skickar förlustmeddelandet
 function game_loss() {
   if (hour.value == 0 && min.value == 0 && sec.value == 0) {
     const lossMessage = document.getElementById("loss_message");
     const lossmodalContainer = document.getElementById("loss_modal_container");
     
-    lossMessage.textContent = "Åhnej! Tiden tog slut, du har förlorat.";
+    lossMessage.textContent = "GAME OVER";
     lossmodalContainer.style.display = "block"
 
     freeze();
@@ -97,22 +140,59 @@ start.addEventListener("click", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  start_game
+  start_game()
 });
 
 // Funktion som kollar om en vinnande kombination har gjorts
 function game_win() {
   winning_combinations.forEach((combination) => {
     const greenCount = combination.filter(num => bingo_boxes[num].classList.contains('green')).length;
-    if (greenCount === 5) {
+    if (greenCount === 5 && !completedRows.includes(combination)) {
+      completedRows.push(combination);
+
       const bingo_win = document.getElementById('bingo_win');
       bingo_win.id = 'Show_win';
+
+      const displayTime = 3000;
+
+      setTimeout(() => {
+        bingo_win.id = 'bingo_win';
+      }, displayTime);
+      
+      clearInterval(start_timer);
+
+      confettiFY();
     }
   });
 }
+
 //funktion som tar bort eventlistener så att det inte längre går att klicka
 function freeze() {
   bingo_boxes.forEach(bingo_box => {
     bingo_box.removeEventListener('click', box_check);
   });
+}
+
+function showCharacterCount(input, characterCountId) {
+  const maxLength = input.maxLength;
+  const currentLength = input.value.length;
+  const remaining = maxLength - currentLength;
+
+  const characterCountElement = document.getElementById(characterCountId);
+  characterCountElement.textContent = remaining.toString();
+}
+
+function showConfirmationModal() {
+  var modal = document.getElementById('confirmationModal');
+  modal.style.display = 'block';
+}
+
+function hideConfirmationModal() {
+  var modal = document.getElementById('confirmationModal');
+  modal.style.display = 'none';
+}
+
+function deleteChallenge() {
+  // Delete logic here
+  hideConfirmationModal();
 }
