@@ -175,22 +175,21 @@ function showCharacterCount(input, characterCountId) {
   characterCountElement.textContent = remaining.toString();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  var modal = document.getElementById("info_modal");
-  var btn = document.getElementById("info_btn");
-  var closeBtn = document.getElementsByClassName("close_info")[0];
+//funktion för modal
+const modal = document.querySelector(".modal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
 
-  btn.addEventListener("click", function() {
-    modal.style.display = "block";
-  });
+function toggleModal() {
+  modal.classList.toggle("show-modal");
+}
 
-  closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
+function windowOnClick(event) {
+  if (event.target === modal) {
+    toggleModal();
+  }
+}
 
-  window.addEventListener("click", function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  });
-});
+trigger.addEventListener("click", toggleModal); // Add this line
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);

@@ -744,37 +744,48 @@ input[type="text"] {
     grid-area: 2 / 1 / 2 / 4;
 }
 
-/*css för hjälpmodalen*/
-.info_modal {
-    display: none;
+
+.modal {
     position: fixed;
-    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.info_content {
-    background-color: crimson;
-    margin: 15% auto;
-    padding: 10px;
-    width: 80%;
-    max-width: 600px;
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
 }
 
-.close_info {
-    color: #aaa;
+.close-button {
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
     cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
 }
 
-.close_info:hover,
-.close_info:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
