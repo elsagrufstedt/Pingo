@@ -42,10 +42,14 @@ def authenticate(email, password):
 def index():
     session = request.environ.get('beaker.session')
     if 'email' in session:
-        email = session['email']
-        return template("index_log", email=email)
-    else:
-        return template("index")
+        conn = connect_database()
+        c = conn.cursor()
+        c.execute("SELECT username FROM Users WHERE email=?", (session['email'],))
+        result = c.fetchone()
+        if result:
+            username = result[0]
+            return template("index_log", username=username)
+    return template("index")
 
 @route('/categories')
 def categories():
@@ -94,14 +98,14 @@ def register():
 def register_user():
     email = getattr(request.forms,'email')
     password = getattr(request.forms,'password')
-
+    username = getattr(request.forms, 'username')
     hash_obj = hashlib.sha256(password.encode())
     password_hash = hash_obj.hexdigest()
 
     with connect_database() as conn:
         c = conn.cursor()
-        c.execute('''INSERT INTO Users (email, password) VALUES (?, ?)''',
-                  (email, password_hash))
+        c.execute('''INSERT INTO Users (username, email, password) VALUES (?, ?, ?)''',
+                  (username, email, password_hash))
 
     session = request.environ.get('beaker.session')
     session['email'] = email
