@@ -173,3 +173,18 @@ function showCharacterCount(input, characterCountId) {
   const characterCountElement = document.getElementById(characterCountId);
   characterCountElement.textContent = remaining.toString();
 }
+
+function showConfirmationModal() {
+  var modal = document.getElementById('confirmationModal');
+  modal.style.display = 'block';
+}
+
+function hideConfirmationModal() {
+  var modal = document.getElementById('confirmationModal');
+  modal.style.display = 'none';
+}
+
+function deleteChallenge() {
+  // Delete logic here
+  hideConfirmationModal();
+}

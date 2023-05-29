@@ -536,6 +536,7 @@ input[type="text"] {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 50px 16px 90px 10px;
     margin-bottom: 0%;
+    width: 100%;
 }
 
 .label {
@@ -596,7 +597,7 @@ input[type="text"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: max-content;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -669,17 +670,27 @@ input[type="text"] {
     grid-area: 4 / 2 / 4 / 2;
 }
 
-.btn {
-    align-self: center;
-    background-color: rgba(255, 255, 255, 0.651);
-    color: #ffffff;
-    border: none;
-    border-radius: 30px;
-    font-size: 20px;
-    justify-self: center;
-    display: inline-block;
-    box-sizing: border-box;
-    margin: 5px;
+#shuffle_button{
+    margin-right: auto;
+    display: flex;
+}
+
+.btn_text {
+    display: none;
+    place-self: center;
+}
+
+@media (min-width: 768px) {
+    .btn_text {
+      display: inline-block;
+    }
+}
+
+#shuffle_image {
+    width: 25px;
+    height: auto;
+    place-self: center;
+    padding: 5px;
 }
 
 .start {
@@ -732,7 +743,7 @@ input[type="text"] {
     transition: all 1s ease;
 }
 
-#delete_challenge{
+#delete_challenge, #delete_challenge_image{
     width: 30px;
     height: auto;
     grid-area: 1 / 2 / 2/ 2;
