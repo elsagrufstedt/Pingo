@@ -1,5 +1,11 @@
 const bingo_boxes = document.querySelectorAll('.box');
 let start_timer = null;
+const jsConfetti = new JSConfetti();
+
+function confettiFY() {
+  jsConfetti.addConfetti();
+}
+
 
 // Alla vinnande kombinationer
 const winning_combinations = [
@@ -136,6 +142,10 @@ start.addEventListener("click", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   start_game();
+
+document.addEventListener("DOMContentLoaded", function () {
+  start_game()
+
 });
 
 // Funktion som kollar om en vinnande kombination har gjorts
@@ -155,7 +165,12 @@ function game_win() {
       }, displayTime);
 
       clearInterval(start_timer);
+
       freeze();
+
+
+      confettiFY();
+
     }
   });
 }
@@ -176,6 +191,7 @@ function showCharacterCount(input, characterCountId) {
   characterCountElement.textContent = remaining.toString();
 }
 
+
 document.addEventListener("DOMContentLoaded", function() {
   var modal = document.getElementById("info_modal");
   var btn = document.getElementById("info_btn");
@@ -195,3 +211,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+function showConfirmationModal() {
+  var modal = document.getElementById('confirmationModal');
+  modal.style.display = 'block';
+}
+
+function hideConfirmationModal() {
+  var modal = document.getElementById('confirmationModal');
+  modal.style.display = 'none';
+}
+
+function deleteChallenge() {
+  // Delete logic here
+  hideConfirmationModal();
+
+}
