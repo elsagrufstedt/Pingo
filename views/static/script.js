@@ -192,20 +192,15 @@ function showCharacterCount(input, characterCountId) {
 }
 
 //funktion för modal
-const modal = document.querySelector(".modal");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
-
-function toggleModal() {
-  modal.classList.toggle("show-modal");
+function showModal() {
+  var modal = document.getElementById("infoModal");
+  modal.classList.add("show");
+  modal.style.display = "block";
 }
 
-function windowOnClick(event) {
-  if (event.target === modal) {
-    toggleModal();
-  }
+function hideModal() {
+  var modal = document.getElementById("infoModal");
+  modal.classList.remove("show");
+  modal.style.display = "none";
 }
 
-trigger.addEventListener("click", toggleModal); // Add this line
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
