@@ -48,12 +48,13 @@ function timer() {
     hour.value = 0;
     min.value = 0;
     sec.value = 0;
-  } else if (sec.value != 0) {
+  } else if (sec.value > 0) {
     sec.value--;
-  } else if (sec.value == 0 && min.value != 0) {
+  } else if (sec.value == 0 && min.value > 0) {
     sec.value = 59;
     min.value--;
-  } else if (hour.value != 0 && min.value == 0) {
+  } else if (hour.value > 0 && min.value == 0) {
+    sec.value = 59;
     min.value = 59;
     hour.value--;
   } else if (hour.value == 0 && min.value == 0 && sec.value == 0) {
