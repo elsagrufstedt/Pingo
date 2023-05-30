@@ -884,7 +884,7 @@ input[type="text"] {
 
 
 
-loss_modal_container {
+.loss_modal_container {
     display: none;
     position: fixed;
     z-index: 1;
