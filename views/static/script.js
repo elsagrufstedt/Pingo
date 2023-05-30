@@ -34,9 +34,12 @@ function shuffleChallenges() {
 
   boxes.forEach(function(box, index) {
     var challenge = box.querySelector('.front');
-    challenge.textContent = challenges[index];
+    if (!box.classList.contains('frozen')) { 
+      challenge.textContent = challenges[index];
+    }
   });
 }
+
 
 var shuffleButton = document.getElementById('shuffle_button');
 shuffleButton.addEventListener('click', shuffleChallenges);
@@ -51,9 +54,10 @@ let completedRows = [];
       } else {
         this.classList.add('green');
       }
-      game_win(); //anropar funktionen som säger bingo när man har fem i rad
+      this.classList.add('frozen'); // Lägg till "frozen" klassen på den klickade rutan
+    game_win(); //anropar funktionen som säger bingo när man har fem i rad
     }
-  };
+  }
 
 bingo_boxes.forEach(bingo_box => {
   bingo_box.addEventListener('click', box_check);
