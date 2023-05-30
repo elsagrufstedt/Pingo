@@ -191,28 +191,27 @@ function showCharacterCount(input, characterCountId) {
   characterCountElement.textContent = remaining.toString();
 }
 
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
+//Funktion för hjälp modal
+document.addEventListener("DOMContentLoaded", function() { 
+const showModal = () => {
+  const modal = document.getElementById("myModal");
   modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+const hideModal = () => {
+  const modal = document.getElementById("myModal");
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+document.getElementById("openModal").addEventListener("click", showModal);
+
+const closeButton = document.querySelector(".closeButton");
+closeButton.addEventListener("click", hideModal);
+
+window.addEventListener("click", (event) => {
+  const modal = document.getElementById("myModal");
+  if (event.target === modal) {
+    hideModal();
   }
-}
+});
+});

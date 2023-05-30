@@ -13,41 +13,14 @@
 <body class="start">
     <header>
         
-        </head>
-        <body>
+        <button id="openModal">Hur spelar man?</button>
         
-        <button id="openModal">Open Modal</button>
-        
-        <div id="myModal" class="modal">
+        <div id="myModal" class="helpModal">
           <div class="modal-content">
-            <span class="close">&times;</span>
             <p id="modalText">This is the block of text inside the modal.</p>
-          </div>
+            <button type="button" class="closeButton">Stäng</button>
         </div>
-        
-        <script>
-          const showModal = () => {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "block";
-          }
-        
-          const hideModal = () => {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none";
-          }
-        
-          document.getElementById("openModal").addEventListener("click", showModal);
-        
-          const closeBtn = document.querySelector(".close");
-          closeBtn.addEventListener("click", hideModal);
-        
-          window.addEventListener("click", (event) => {
-            const modal = document.getElementById("myModal");
-            if (event.target === modal) {
-              hideModal();
-            }
-          });
-        </script>
+        </div>
 
               <div class="pingologga">
             <a href="/"><img src="/static/images/PiNGO logga/Pingovit.png" /></a>
@@ -94,8 +67,7 @@
               </div>
         </div>
     </main>
+    <script src="/static/script.js"></script>
 </body>
-
-<script src="/static/script.js"></script>
 
 </html>
