@@ -10,6 +10,10 @@ html {
     color: white;
 }
 
+#menu a{
+    place-self: center;
+}
+
 .custom-button {
     width: 200px;
     color: white;
@@ -30,7 +34,8 @@ h1 {
     box-shadow: 0 0 6px white;
 }
 
-#spela:hover, #spela_spela:hover {
+#spela:hover,
+#spela_spela:hover {
     background-color: rgba(255, 255, 255, 0.329);
 }
 
@@ -68,6 +73,7 @@ a {
     text-decoration: none;
     text-align: center;
     display: flex;
+    justify-content: center;
 }
 
 .index .pingologga img {
@@ -104,13 +110,13 @@ a {
     background-color: rgba(255, 255, 255, 0.194);
     color: rgb(255, 255, 255);
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+        sans-serif;
 }
 
 #add {
     width: auto;
-    background-color: rgba(255, 255, 255, 0.194);
-    color: rgb(255, 255, 255);
+    background-color: #004852 !important;
+    color: rgb(216, 213, 213) !important;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
@@ -124,7 +130,7 @@ a {
     letter-spacing: 5px;
     color: white;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+        sans-serif;
     font-size: 35px;
 }
 
@@ -151,7 +157,8 @@ a {
     margin: 10px;
     top: 0;
     right: 0;
-    object-position: right top;;
+    object-position: right top;
+    ;
 }
 
 .profilbild img:hover {
@@ -389,27 +396,26 @@ a {
 
 /* css för add.html */
 .add_body {
-    color: white;
-    background-color: #6b0377;
+    background-color: #004852;
+    color: rgb(216, 213, 213);
 }
 
 #add_cat {
-    background-color: #e600ff;
+    background-color: rgb(0, 39, 52);
     color: white;
-    margin-top: auto;
     border: none;
     border-radius: 30px;
     font-size: 20px;
     justify-self: center;
     display: inline-block;
     box-sizing: border-box;
-    margin: 5px;
+    margin: 20px;
+    box-shadow: 0 0 10px white;
 }
 
 .add_body .pingologga img {
     margin: auto;
     height: 50px;
-    animation: animate infinite ease-in alternate 2s;
 }
 
 .add_title {
@@ -417,28 +423,112 @@ a {
     display: flex;
     justify-content: center;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+    text-shadow: 0 0 20px rgb(0, 39, 52);
+    color: #ffffff;
 }
 
 .cont {
-    margin-top: 70px;
-    display: flex;
-    justify-content: center;
+    margin-top: 50px;
 }
 
-.bingo-board {
-    border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 10px;
+.cont form{
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 500px;
+    flex-direction: column;
+}
+
+#category_name, #label_category_name{
+    max-width: 90%;
+    place-self: center;
+}
+
+@media (max-width:900px) {
+    .bingo-board {
+        width: 90%;
+        display: grid;
+        grid-template-rows: repeat(5, minmax(100px, 1fr));
+        grid-template-columns: repeat(5, minmax(70px, 1fr));
+        place-self: center;
+        margin: 0 auto;
+    }
+
+    .bingo-board td {
+        width: auto;
+        align-items: center;
+        justify-content: center;
+        display: grid;
+        grid-template-rows: 90% 10%;
+    }
+
+    .bingo-board td input[type="text"] {
+        grid-area: 1 / 1 / 2 / 2;
+        height: 100%;
+        box-sizing: border-box;
+        font-size: 15px;
+        padding: 0%;
+    }
+
+    #add_form table {
+        display: flex;
+        margin-top: 10%;
+    }
+
+    .add_box {
+        padding-top: 25px;
+        font-size: 10px;
+    }
+
+    #tr1 {
+        grid-area: 1 / 1 / 2 / 6;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    #tr2 {
+        grid-area: 2 / 1 / 3 / 6;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    #tr3 {
+        grid-area: 3 / 1 / 4 / 6;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    #tr4 {
+        grid-area: 4 / 1 / 5 / 6;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    #tr5 {
+        grid-area: 5 / 1 / 6 / 6;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width:900px) {
+    .bingo-board {
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 90%;
+        place-self: center;
+    }
+
+    #add_form table{
+        display: grid;
+        place-self: center;
+    }
 }
 
 .bingo-board td {
     flex-basis: 20%;
-    max-width: 20%;
     box-sizing: border-box;
     padding: 2px;
 }
@@ -462,10 +552,10 @@ input[type="text"] {
     }
 }
 
-.character_count{
+.character_count {
     color: rgb(187, 187, 187);
-    padding-left: 75px;
     font-size: 10px;
+    justify-self: end;
 }
 
 /* css för vinstmeddelande */
@@ -492,7 +582,7 @@ input[type="text"] {
     margin: 20px auto;
     border-radius: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:#ffffff;
+    color: #ffffff;
     max-width: 500px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -500,15 +590,15 @@ input[type="text"] {
     margin-top: 40px;
 }
 
-#hour{
+#hour {
     grid-area: 1 / 1 / 4 / 1;
 }
 
-#minute{
+#minute {
     grid-area: 1 / 2 / 4 / 2;
 }
 
-#second{
+#second {
     grid-area: 1 / 3 / 4 / 4;
 }
 
@@ -525,7 +615,7 @@ input[type="text"] {
 
 #set_timer {
     grid-area: 1 / 1 / 4 / 4;
-    display: grid; 
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 50px 16px 90px 10px;
     margin-bottom: 0%;
@@ -538,8 +628,8 @@ input[type="text"] {
     font-size: 16px;
     margin: 5px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 }
 
 #timer_label {
@@ -592,15 +682,16 @@ input[type="text"] {
     justify-content: center;
     width: 90%;
     margin: 0 auto;
-  }
+}
 
-#timer input[type="number"], #counting_timer input[type="number"] {
+#timer input[type="number"],
+#counting_timer input[type="number"] {
     height: 100%;
     width: 100%;
     font-size: 50px;
     box-sizing: border-box;
     text-align: center;
-  }
+}
 
 #counting_timer {
     background-color: #050931;
@@ -608,8 +699,8 @@ input[type="text"] {
 
 @media (max-width: 768px) {
     #counting_timer input[type="number"] {
-    font-size: 35px;
-}
+        font-size: 35px;
+    }
 }
 
 .time {
@@ -639,6 +730,7 @@ input[type="text"] {
 #p2 {
     grid-area: 3 / 2 / 3 / 4;
 }
+
 #bingo_p1 {
     grid-area: 1 / 1 / 4 / 3;
 }
@@ -673,7 +765,7 @@ input[type="text"] {
     grid-area: 4 / 2 / 4 / 2;
 }
 
-#shuffle_button{
+#shuffle_button {
     margin-right: auto;
     display: flex;
 }
@@ -685,7 +777,7 @@ input[type="text"] {
 
 @media (min-width: 768px) {
     .btn_text {
-      display: inline-block;
+        display: inline-block;
     }
 }
 
@@ -698,6 +790,13 @@ input[type="text"] {
 
 .start {
     background-color: #082b37;
+}
+
+.start_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .start .pingologga img {
@@ -716,7 +815,6 @@ input[type="text"] {
     background-color: #0526315f;
     display: grid;
     max-width: 75%;
-    margin: 0 auto;
     place-self: center;
     grid-gap: 3px;
     grid-template-rows: repeat(5, minmax(90px, 1fr));
@@ -738,20 +836,38 @@ input[type="text"] {
     cursor: pointer;
     color: rgb(253, 253, 253);
     background-color: rgba(85, 41, 71, 0.229);
-    font-size: 20px;
-    padding-top: 5px;
+    padding-top: 25px;
+    font-size: 15px;
+
 
 
     transform-style: preserve-3d;
     transition: all 1s ease;
 }
 
-#delete_challenge, #delete_challenge_image{
-    width: 30px;
+@media (max-width: 767px) {
+    .pre_bingo-card {
+        grid-template-rows: repeat(5, minmax(100px, 1fr));
+        grid-template-columns: repeat(5, minmax(70px, 1fr));
+    }
+
+    .pre_box {
+        padding: 0%;
+        font-size: 15px;
+    }
+}
+
+#delete_challenge_image {
+    width: 20px;
     height: auto;
+}
+
+#delete_challenge {
     grid-area: 1 / 2 / 2/ 2;
     box-shadow: 0 0 6px #e600ff;
     border-radius: 50%;
+    padding: 0;
+    height: 20px;
 }
 
 #pre_challenge {
