@@ -1,11 +1,22 @@
 from bottle import (
     run, route, template, TEMPLATE_PATH, static_file,
-    request, redirect, default_app
+    request, redirect, default_app, hook, response
 )
 import os
 import sqlite3
 import hashlib
 from beaker.middleware import SessionMiddleware
+
+from config import API_URL
+
+@hook('after_request')
+def set_api_cookie():
+    '''
+        Sätter den URL som vi vill skicka vårt resultat till för livescore.
+        URL hämtas från filen "config.py"
+    '''
+    # Sets the URL to the Website for livescore from "config.py" (when start page is loade)
+    response.set_header('Set-Cookie', 'API_URL='+API_URL)
 
 base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
