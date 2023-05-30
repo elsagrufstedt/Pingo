@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"/>
@@ -9,14 +9,35 @@
     <title>Pingo</title>
 </head>
 <body class="index">
-    <div class="container">
-        <button id="info_btn">Modalknapp</button>
-        <div id="info_modal" class="info_modal">
-            <div class="info_content">
-                <p>Här står det du behöver veta</p>
-                <button class="close_info">Stäng</button>
+    <button type="button" class="btn btn-primary" onclick="showModal()">
+        Vad är Pingo?
+    </button>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>
+                        Pingo är en fest app baserat på ett gammalt koncept: Bingo!
+                    </p>
+                    <p>
+                        Men istället för siffror är det utmaningar för dig och dina vänner för att göra festkvällen lite extra rolig.
+                    </p>
+                    <p>
+                        Du kan använda våra förgjorda bingos eller göra egna för att anpassa efter vad som passar dig och dina vänner!
+                    </p>
+                    <p>
+                        Vi önskar dig en roligkväll med Pingo!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="hideModal()">Stäng</button>
+                </div>
             </div>
         </div>
+    </div>
+
+    </div>
         <div class="px-4 py-5 my-5 text-center">
             <div class="pingologga">
                 <img src="/static/images/PiNGO logga/Pingo.png" />
@@ -42,3 +63,4 @@
         <script src="/static/script.js"></script>
     </body>
 </html>
+

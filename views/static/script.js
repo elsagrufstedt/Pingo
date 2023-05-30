@@ -207,39 +207,16 @@ function showCharacterCount(input, characterCountId) {
   characterCountElement.textContent = remaining.toString();
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
-  var modal = document.getElementById("info_modal");
-  var btn = document.getElementById("info_btn");
-  var closeBtn = document.getElementsByClassName("close_info")[0];
-
-  btn.addEventListener("click", function() {
-    modal.style.display = "block";
-  });
-
-  closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  });
-});
-
-function showConfirmationModal() {
-  var modal = document.getElementById('confirmationModal');
-  modal.style.display = 'block';
+//funktion för modal
+function showModal() {
+  var modal = document.getElementById("infoModal");
+  modal.classList.add("show");
+  modal.style.display = "block";
 }
 
-function hideConfirmationModal() {
-  var modal = document.getElementById('confirmationModal');
-  modal.style.display = 'none';
+function hideModal() {
+  var modal = document.getElementById("infoModal");
+  modal.classList.remove("show");
+  modal.style.display = "none";
 }
 
-function deleteChallenge() {
-  // Delete logic here
-  hideConfirmationModal();
-
-}
