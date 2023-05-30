@@ -19,7 +19,10 @@ const winning_combinations = [
 
 //Shufflefunktion
 
+var shuffleCounter = 0;
+
 function shuffleChallenges() {
+ if (shuffleCounter < 3 ){
   var boxes = document.querySelectorAll('.box');
   var challenges = [];
 
@@ -38,7 +41,10 @@ function shuffleChallenges() {
       challenge.textContent = challenges[index];
     }
   });
+  shuffleCounter++; 
+  }
 }
+
 
 
 var shuffleButton = document.getElementById('shuffle_button');
