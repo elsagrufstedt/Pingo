@@ -821,7 +821,7 @@ input[type="text"] {
     max-width: 100%;
     place-self: center;
     grid-gap: 3px;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(5, minmax(70px, 5fr));
     grid-template-columns: repeat(5, 1fr);
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
@@ -835,14 +835,15 @@ input[type="text"] {
     display: grid;
     grid-template-rows: 25% 1fr;
     grid-template-columns: 1fr 30px 1fr;
-    border: solid #e600ff6a 1px;
+    border: solid #e600ffb3 1px;
+    border-radius: 4px;
     text-align: center;
     text-shadow: 0 0 6px #e600ff;
     cursor: pointer;
     color: rgb(253, 253, 253);
     background-color: rgba(85, 41, 71, 0.229);
     padding-top: 20px;
-    font-size: 15px;
+    font-size: 12px;
 
 
 
@@ -872,11 +873,13 @@ input[type="text"] {
     box-shadow: 0 0 6px #e600ff;
     border-radius: 50%;
     padding: 0;
+    padding-top: 5%;
     height: 20px;
 }
 
 #pre_challenge {
     grid-area: 2 / 1 / 2 / 4;
+    padding-top: 5%;
 }
 
 /*css för hjälpmodalen*/
