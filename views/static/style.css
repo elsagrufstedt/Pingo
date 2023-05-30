@@ -759,8 +759,9 @@ input[type="text"] {
 }
 
 
-
-loss_modal_container {
+.modal-content {
+    background-color: #050931;
+    box-shadow: 0 0 15px #e600ff;
     display: none;
     position: fixed;
     z-index: 1;
@@ -769,16 +770,17 @@ loss_modal_container {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: #2e00435d;
 }
 
-.modal-content {
-    background-color: #050931;
-    box-shadow: 0 0 15px #e600ff;
+.modal-body {
+    padding-left: 5px;
 }
-
-.modal-footer{
+.modal-footer {
     border-top: #050931;
 }
 
 
+.btn btn-primary {
+    margin-left: 10px;
+    margin-top: 5px;
+}
