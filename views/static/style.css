@@ -832,9 +832,6 @@ input[type="text"] {
 .pre_box {
     color: black;
     border: solid black;
-    display: grid;
-    grid-template-rows: 25% 1fr;
-    grid-template-columns: 1fr 30px 1fr;
     border: solid #e600ffb3 1px;
     border-radius: 4px;
     text-align: center;
@@ -863,22 +860,7 @@ input[type="text"] {
     }
 }
 
-#delete_challenge_image {
-    width: 20px;
-    height: auto;
-}
-
-#delete_challenge {
-    grid-area: 1 / 2 / 2/ 2;
-    box-shadow: 0 0 6px #e600ff;
-    border-radius: 50%;
-    padding: 0;
-    padding-top: 5%;
-    height: 20px;
-}
-
 #pre_challenge {
-    grid-area: 2 / 1 / 2 / 4;
     padding-top: 5%;
 }
 

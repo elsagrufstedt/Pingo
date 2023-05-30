@@ -42,20 +42,8 @@
                 % for challenge in data:
                 <div class="pre_box">
                     <div id="pre_challenge">{{challenge}}</div>
-                    <button id="delete_challenge" class="btn" onclick="showConfirmationModal()">
-                        <img src="/static/images/white_exit.png" alt="radera knapp" id="delete_challenge_image" />
-                    </button>
                 </div>
                 % end
-            </div>
-        </div>
-        <div id="confirmationModal" class="modal">
-            <div class="modal-content">
-                <p>Är du säker på att du vill ta bort brickan?</p>
-                <div class="modal-actions">
-                    <button class="btn confirm-btn" onclick="deleteChallenge()">Confirm</button>
-                    <button class="btn cancel-btn" onclick="hideConfirmationModal()">Cancel</button>
-                </div>
             </div>
         </div>
     </main>
