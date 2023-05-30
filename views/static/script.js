@@ -1,5 +1,11 @@
 const bingo_boxes = document.querySelectorAll('.box');
 let start_timer = null;
+const jsConfetti = new JSConfetti();
+
+function confettiFY() {
+  jsConfetti.addConfetti();
+}
+
 
 // Alla vinnande kombinationer
 const winning_combinations = [
@@ -136,6 +142,10 @@ start.addEventListener("click", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   start_game();
+})
+document.addEventListener("DOMContentLoaded", function () {
+  start_game()
+
 });
 
 // Funktion som kollar om en vinnande kombination har gjorts
@@ -155,7 +165,12 @@ function game_win() {
       }, displayTime);
 
       clearInterval(start_timer);
+
       freeze();
+
+
+      confettiFY();
+
     }
   });
 }
@@ -176,22 +191,16 @@ function showCharacterCount(input, characterCountId) {
   characterCountElement.textContent = remaining.toString();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  var modal = document.getElementById("info_modal");
-  var btn = document.getElementById("info_btn");
-  var closeBtn = document.getElementsByClassName("close_info")[0];
+//funktion för modal
+function showModal() {
+  var modal = document.getElementById("infoModal");
+  modal.classList.add("show");
+  modal.style.display = "block";
+}
 
-  btn.addEventListener("click", function() {
-    modal.style.display = "block";
-  });
+function hideModal() {
+  var modal = document.getElementById("infoModal");
+  modal.classList.remove("show");
+  modal.style.display = "none";
+}
 
-  closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  });
-});
