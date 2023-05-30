@@ -16,6 +16,31 @@ const winning_combinations = [
   [0, 6, 12, 18, 24],
   [4, 8, 12, 16, 20]
 ];
+
+//Shufflefunktion
+
+function shuffleChallenges() {
+  var boxes = document.querySelectorAll('.box');
+  var challenges = [];
+
+  boxes.forEach(function(box) {
+    var challenge = box.querySelector('.front');
+    challenges.push(challenge.textContent);
+  });
+
+  challenges.sort(function() {
+    return 0.5 - Math.random();
+  });
+
+  boxes.forEach(function(box, index) {
+    var challenge = box.querySelector('.front');
+    challenge.textContent = challenges[index];
+  });
+}
+
+var shuffleButton = document.getElementById('shuffle_button');
+shuffleButton.addEventListener('click', shuffleChallenges);
+
 let isTimerEnded = false; //för att kontrollera om timern har slutat
 let completedRows = [];
     //Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
@@ -61,42 +86,6 @@ function timer() {
   }
 }
 
-//shufflefunktion
-var preBoxes = document.querySelectorAll('.pre_box');
-var preBoxArray = [];
-
-for (var i = 0; i < preBoxes.length; i++) {
-  preBoxArray.push(preBoxes[i]);
-}
-
-function shuffle(array) {
-  var currentIndex = array.length;
-  var temporaryValue;
-  var randomIndex;
-
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-}
-
-var shuffleButton = document.getElementById('shuffle_button');
-shuffleButton.addEventListener('click', function() {
-  shuffle(preBoxArray);
-
-  var preBingoCard = document.querySelector('.pre_bingo_card');
-  preBingoCard.innerHTML = '';
-
-  for (var i = 0; i < preBoxArray.length; i++) {
-    preBingoCard.appendChild(preBoxArray[i]);
-  }
-});
-
-
 //funktion som skickar förlustmeddelandet
 function game_loss() {
   if (hour.value == 0 && min.value == 0 && sec.value == 0) {
@@ -136,6 +125,7 @@ start.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   start_game
 });
+
 
 // Funktion som kollar om en vinnande kombination har gjorts
 function game_win() {
