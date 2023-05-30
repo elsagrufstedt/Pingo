@@ -12,38 +12,44 @@
 
 <body class="start">
     <header>
-
-        <button type="button" class="btn btn-primary" onclick="showModal()">
-            Hur spelar man?
-        </button>
-    
-        <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <p>
-                            Så hur spelar man Pingo?
-                        </p>
-                        <p>
-                            Till att börja med välj hur ni vill spela: först till att få bingo eller vem som får flest bingorutor när tiden är slut
-                        </p>
-                        <p>
-                            Sen ställ in hur länge ni vill spela med timern
-                        </p>
-                        <p>
-                            Tryck spela och kör igång kvällen
-                        </p>
-                        <p>
-                            Lycka till och ha superkul!
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="hideModal()">Stäng</button>
-                    </div>
-                </div>
-            </div>
+        
+        </head>
+        <body>
+        
+        <button id="openModal">Open Modal</button>
+        
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText">This is the block of text inside the modal.</p>
+          </div>
         </div>
-        <div class="pingologga">
+        
+        <script>
+          const showModal = () => {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+          }
+        
+          const hideModal = () => {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+          }
+        
+          document.getElementById("openModal").addEventListener("click", showModal);
+        
+          const closeBtn = document.querySelector(".close");
+          closeBtn.addEventListener("click", hideModal);
+        
+          window.addEventListener("click", (event) => {
+            const modal = document.getElementById("myModal");
+            if (event.target === modal) {
+              hideModal();
+            }
+          });
+        </script>
+
+              <div class="pingologga">
             <a href="/"><img src="/static/images/PiNGO logga/Pingovit.png" /></a>
         </div>
         <div id="timer">

@@ -9,29 +9,29 @@
     <title>Pingo</title>
 </head>
 <body class="index">
-    <button type="button" class="btn btn-primary" onclick="showModal()">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">
         Vad är Pingo?
     </button>
 
-    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
                     <p>
-                        Pingo är en fest app baserat på ett gammalt koncept: Bingo!
+                        Pingo är en festapp baserat på ett gammalt koncept: Bingo!
                     </p>
                     <p>
                         Men istället för siffror är det utmaningar för dig och dina vänner för att göra festkvällen lite extra rolig.
                     </p>
                     <p>
-                        Du kan använda våra förgjorda bingos eller göra egna för att anpassa efter vad som passar dig och dina vänner!
+                        Du kan använda våra förgjorda bingobräden eller göra egna för att anpassa efter vad som passar dig och dina vänner!
                     </p>
                     <p>
-                        Vi önskar dig en roligkväll med Pingo!
+                        Vi önskar dig en rolig kväll med Pingo!
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="hideModal()">Stäng</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>
                 </div>
             </div>
         </div>
