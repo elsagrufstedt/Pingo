@@ -13,7 +13,7 @@
 
 </head>
 
-<body class="bingo_content" onload="start_game({hour}, {minute}, {second})">
+<body class="bingo_content" onload="start_game({hour}, {minute}, {second}, '{game_mode}')">
   <header>
     <a href="/"><img src="/static/images/arrowwhite.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
     <div class="timer" id="counting_timer">
@@ -22,8 +22,6 @@
       <input id="minute" type="number" max="59" min="0" value="{{minute}}" class="time" readonly>
       <p id="bingo_p2" class="semicolon">:</p>
       <input id="second" type="number" max="59" min="0" value="{{second}}" class="time" readonly>
-      <button id="firstbingo_button">Först till bingo</button>
-      <button id="fullhouse_button">Flest bingo innan tiden tar slut</button>
     </header>
   <div class="main-content">
 

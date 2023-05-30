@@ -16,7 +16,7 @@
             <a href="/"><img src="/static/images/PiNGO logga/Pingovit.png" /></a>
         </div>
         <div id="timer">
-            <form action="/starting/{{category}}" method="post" class="timer" id="set_timer">
+            <form action="/starting/{{category}}" method="POST" class="timer" id="set_timer">
                 <p id="timer_label" class="label">
                     Tidsbegränsa pingokvällen!
                 </p>
@@ -28,13 +28,19 @@
                 <input name="minute" id="set_minute" type="number" max="59" min="0" value="0" class="time" />
                 <p id="p2" class="semicolon">:</p>
                 <input name="second" id="set_second" type="number" max="59" min="0" value="0" class="time" />
+                
+                <p id="game_mode_hl">Välj game mode</p>
+                <input type="radio" id="firstbingo_btn" name="game_mode" value="firstbingo">
+                <label for="firstbingo">Först till bingo</label><br>
+                <input type="radio" id="fullhouse_btn" name="game_mode" value="fullhouse">
+                <label for="fullhouse"></label>Flest bingo innan tiden tar slut</label>
                 <input type="submit" id="startbtn" class="btn" value="SPELA" />
-            </form>
+                </form>
+
             <button id="shuffle_button" class="btn">
                 <span class="btn_text">Shuffla bräde</span>
                 <img src="/static/images/shuffle.png" id="shuffle_image">
             </button>
-            
         </div>
     </header>
     <main>

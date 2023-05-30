@@ -148,10 +148,12 @@ def starting_game(category):
                  WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
     challenges = [row['challenge_name'] for row in c.fetchall()]
     conn.close()
+    game_mode = getattr(request.forms, 'game_mode')
     hour = getattr(request.forms, 'hour')
     minute = getattr(request.forms, 'minute')
     second = getattr(request.forms, 'second')
-    redirect('/bingo/{}?hour={}&minute={}&second={}'.format(category, hour, minute, second))
+    redirect('/bingo/{}?hour={}&minute={}&second={}&game_mode={}'.format(category, hour, minute, second, game_mode))
+
 
 #Gör inget just nu
 @route('/profile')

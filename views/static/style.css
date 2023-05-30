@@ -475,7 +475,6 @@ input[type="text"] {
     top: 0;
 }
 
-/* denna fuckade jag upp efter att ha komprimerat alla css-filer - kom ihåg att fixa!!!!! */
 #Show_win {
     visibility: visible;
     text-align: center;
@@ -760,7 +759,7 @@ input[type="text"] {
 
 
 
-loss_modal_container {
+.loss_modal_container {
     display: none;
     position: fixed;
     z-index: 1;
@@ -781,4 +780,20 @@ loss_modal_container {
     border-top: #050931;
 }
 
+#firstbingo_btn, #fullhouse_btn {
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.194);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 5px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    border-radius: var(--bs-border-radius-pill);
+}
 
+#firstbingo_btn:hover, #fullhouse_btn:hover {
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
+#firstbingo_btn:focus, #fullhouse_btn:focus {
+    background-color: yellow;
+}

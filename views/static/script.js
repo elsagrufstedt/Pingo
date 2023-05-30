@@ -6,22 +6,6 @@ function confettiFY() {
   jsConfetti.addConfetti();
 }
 
-let game_mode = '';
-
-function setGameMode(mode) {
-  game_mode = mode;
-}
-
-var firstbingoButton = document.getElementById('firstbingo_button');
-firstbingoButton.addEventListener('click', function() {
-  setGameMode('firstbingo');
-});
-
-var fullhouseButton = document.getElementById('fullhouse_button');
-fullhouseButton.addEventListener('click', function() {
-  setGameMode('fullhouse');
-});
-
 // Alla vinnande kombinationer
 const winning_combinations = [
   [0, 1, 2, 3, 4],
@@ -55,6 +39,8 @@ bingo_boxes.forEach(bingo_box => {
   bingo_box.addEventListener('click', box_check);
 });
 
+
+
 var start = document.getElementById("start");
 
 var hour = document.getElementById("hour");
@@ -82,6 +68,8 @@ function timer() {
     clearInterval(start_timer);
   }
 }
+
+let game_mode = '';
 
 // shufflefunktion
 var preBoxes = document.querySelectorAll('.pre_box');
@@ -138,11 +126,26 @@ document.getElementById("close_loss_modal").addEventListener("click", function()
 }
 
 
-function start_game() {
+function start_game(hour, second, minute, game_mode) {
   start_timer = setInterval(function() {
     timer();
     game_loss();
   }, 1000);
+
+  var gameModeRadioButton = document.getElementById(game_mode + '_btn');
+  if (gameModeRadioButton) {
+    gameModeRadioButton.checked = true;
+  }
+
+  var startButton = document.getElementById("start");
+  if (startButton) {
+    startButton.disabled = true;
+    hour.disabled = true;
+    minute.disabled = true;
+    second.disabled = true;
+  }
+
+  console.log("Selected game mode:", game_mode);
 }
 
 start.addEventListener("click", function() {
@@ -155,12 +158,8 @@ start.addEventListener("click", function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  start_game();
-})
 document.addEventListener("DOMContentLoaded", function () {
   start_game()
-
 });
 
 // Funktion som kollar om en vinnande kombination har gjorts
@@ -219,4 +218,3 @@ function hideModal() {
   modal.classList.remove("show");
   modal.style.display = "none";
 }
-
