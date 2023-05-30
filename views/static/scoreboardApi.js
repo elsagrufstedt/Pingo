@@ -22,7 +22,5 @@ async function update_scoreboard(id, name, score) {
     console.log(jsonData);
 }
 
-/*
     // Testing the script
-    update_scoreboard(1, "Kalle", 0);
-*/
+    update_scoreboard(1, "Kalle", 5);
