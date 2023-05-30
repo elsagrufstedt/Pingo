@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,132 +8,146 @@
   <title>Document</title>
   <link rel="stylesheet" href="static/reset.css">
   <link rel="stylesheet" href="static/style.css">
-  <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-  crossorigin="anonymous"
-/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
 </head>
-  <body class="add_body">
-    <a href="/">
-      <div class="pingologga">
-          <img
-              src="static/images/PiNGO logga/Pingovit.png"
-          />
-      </div>
+
+<body class="add_body">
+  <a href="/">
+    <div class="pingologga">
+      <img src="static/images/PiNGO logga/Pingovit.png" />
+    </div>
   </a>
-    <h1 class="add_title">Skapa nytt bingo spel!</h1>
-    <div class="cont">
-    <form action="/add" method="POST" accept-charset="UTF-8">
-      <label for="category">Kategori namn:</label>
-      <input type="text" id="category" name="category" required><br><br>
+  <h1 class="add_title">Skapa nytt bingobräde!</h1>
+  <div class="cont">
+    <form action="/add" method="POST" accept-charset="UTF-8" id="add_form">
+      <label for="category" id="label_category_name">Kategorinamn</label>
+      <input type="text" id="category_name" name="category" required>
 
-        <table class="bingo-board">
-          <tbody>
-            <tr>
-              <td><input type="text" name="challenge_1" maxlength="75" required oninput="showCharacterCount(this, 'character_count1')">
-                <span id="character_count1" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_2" maxlength="75" required oninput="showCharacterCount(this, 'character_count2')">
-                <span id="character_count2" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_3" maxlength="75" required oninput="showCharacterCount(this, 'character_count3')">
-                <span id="character_count3" class="character_count">75</span> 
-              </td>
-              <td><input type="text" name="challenge_4" maxlength="75" required oninput="showCharacterCount(this, 'character_count4')">
-                <span id="character_count4" class="character_count">75</span> 
-              </td>
-              <td><input type="text" name="challenge_5" maxlength="75" required oninput="showCharacterCount(this, 'character_count5')">
-                <span id="character_count5" class="character_count">75</span>
-              </td>
-            </tr>
-            <tr>
-              <td><input type="text" name="challenge_6" maxlength="75" required oninput="showCharacterCount(this, 'character_count6')">
-                <span id="character_count6" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_7" maxlength="75" required oninput="showCharacterCount(this, 'character_count7')">
-                <span id="character_count7" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_8" maxlength="75" required oninput="showCharacterCount(this, 'character_count8')">
-                <span id="character_count8" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_9" maxlength="75" required oninput="showCharacterCount(this, 'character_count9')">
-                <span id="character_count9" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_10" maxlength="75" required oninput="showCharacterCount(this, 'character_count10')">
-                <span id="characterCount10" class="character_count">75</span>
-              </td>
-            </tr>
-            <tr>
-              <td><input type="text" name="challenge_11" maxlength="75" required oninput="showCharacterCount(this, 'character_count11')">
-                <span id="character_count11" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_12" maxlength="75" required oninput="showCharacterCount(this, 'character_count12')">
-                <span id="character_count12" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_13" maxlength="75" required oninput="showCharacterCount(this, 'character_count13')">
-                <span id="character_count13" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_14" maxlength="75" required oninput="showCharacterCount(this, 'character_count14')">
-                <span id="character_count14" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_15" maxlength="75" required oninput="showCharacterCount(this, 'character_count15')">
-                <span id="character_count15" class="character_count">75</span>
-              </td>
-            </tr>
-            <tr>
-              <td><input type="text" name="challenge_16" maxlength="75" required oninput="showCharacterCount(this, 'character_count16')">
-                <span id="character_count16" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_17" maxlength="75" required oninput="showCharacterCount(this, 'character_count17')">
-                <span id="character_count17" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_18" maxlength="75" required oninput="showCharacterCount(this, 'character_count18')">
-                <span id="character_count18" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_19" maxlength="75" required oninput="showCharacterCount(this, 'character_count19')">
-                <span id="character_count19" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_20" maxlength="75" required oninput="showCharacterCount(this, 'character_count20')">
-                <span id="character_count20" class="character_count">75</span>
-              </td>
-            </tr>
-            <tr>
-              <td><input type="text" name="challenge_21" maxlength="75" required oninput="showCharacterCount(this, 'character_count21')">
-                <span id="character_count21" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_22" maxlength="75" required oninput="showCharacterCount(this, 'character_count22')">
-                <span id="character_count22" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_23" maxlength="75" required oninput="showCharacterCount(this, 'character_count23')">
-                <span id="character_count23" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_24" maxlength="75" required oninput="showCharacterCount(this, 'character_count24')">
-                <span id="character_count24" class="character_count">75</span>
-              </td>
-              <td><input type="text" name="challenge_25" maxlength="75" required oninput="showCharacterCount(this, 'character_count25')">
-                <span id="character_count25" class="character_count">75</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button
-        type="submit"
-        class="btn tn-primary btn-lg px-4 gap-3"
-        id="add_cat"
-    >
+      <table>
+        <tbody class="bingo-board" id="make_bingo-board">
+          <tr id="tr1">
+            <td><input class="add_box" type="text" name="challenge_1" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count1')">
+              <span id="character_count1" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_2" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count2')">
+              <span id="character_count2" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_3" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count3')">
+              <span id="character_count3" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_4" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count4')">
+              <span id="character_count4" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_5" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count5')">
+              <span id="character_count5" class="character_count">75</span>
+            </td>
+          </tr>
+          <tr id="tr2">
+            <td><input class="add_box" type="text" name="challenge_6" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count6')">
+              <span id="character_count6" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_7" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count7')">
+              <span id="character_count7" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_8" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count8')">
+              <span id="character_count8" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_9" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count9')">
+              <span id="character_count9" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_10" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count10')">
+              <span id="characterCount10" class="character_count">75</span>
+            </td>
+          </tr>
+          <tr id="tr3">
+            <td><input class="add_box" type="text" name="challenge_11" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count11')">
+              <span id="character_count11" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_12" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count12')">
+              <span id="character_count12" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_13" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count13')">
+              <span id="character_count13" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_14" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count14')">
+              <span id="character_count14" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_15" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count15')">
+              <span id="character_count15" class="character_count">75</span>
+            </td>
+          </tr>
+          <tr id="tr4">
+            <td><input class="add_box" type="text" name="challenge_16" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count16')">
+              <span id="character_count16" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_17" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count17')">
+              <span id="character_count17" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_18" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count18')">
+              <span id="character_count18" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_19" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count19')">
+              <span id="character_count19" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_20" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count20')">
+              <span id="character_count20" class="character_count">75</span>
+            </td>
+          </tr>
+          <tr id="tr5">
+            <td><input class="add_box" type="text" name="challenge_21" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count21')">
+              <span id="character_count21" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_22" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count22')">
+              <span id="character_count22" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_23" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count23')">
+              <span id="character_count23" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_24" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count24')">
+              <span id="character_count24" class="character_count">75</span>
+            </td>
+            <td><input class="add_box" type="text" name="challenge_25" maxlength="75" required
+                oninput="showCharacterCount(this, 'character_count25')">
+              <span id="character_count25" class="character_count">75</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="btn tn-primary btn-lg px-4 gap-3" id="add_cat">
         Spara bingo
-    </button>      </form>
+      </button>
+    </form>
 
-    <script src="/static/script.js"></script> 
-  </body>
+    <script src="/static/script.js"></script>
+</body>
 
-  <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"
-        ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </div>
 
 </html>
