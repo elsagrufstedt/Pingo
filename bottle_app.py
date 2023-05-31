@@ -201,7 +201,7 @@ def add_new():
     conn.close()
     redirect("/categories")
 
-@route('/remove', method='POST')
+@route('/remove/<category>', method='POST')
 def remove_category():
     if 'email' not in request.environ.get('beaker.session'):
         redirect('/login')
