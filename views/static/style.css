@@ -304,6 +304,11 @@ a {
     transform: rotateY(180deg);
 }
 
+.frozen {
+    pointer-events: none; 
+  }
+  
+
 #avsluta {
     width: 30px;
     position: absolute;
