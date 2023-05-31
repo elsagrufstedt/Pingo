@@ -16,7 +16,7 @@
 <body class="bingo_content" onload="start_game({hour}, {minute}, {second})">
   <header>
 
-    <a href="/"><img src="/static/images/arrowwhite.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
+    <a href="/"><img src="/static/images/white_exit.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
     <div class="timer" id="counting_timer">
       <input id="hour" type="number" max="24" min="0" value="{{hour}}" class="time" readonly>
       <p id="bingo_p1" class="semicolon">:</p>
@@ -34,7 +34,6 @@
       </div>
     </div>
     <button id="shuffle_button" class="btn">
-      <span class="btn_text">Shuffla bräde</span>
       <img src="/static/images/shuffle.png" id="shuffle_image">
     </button>
     
