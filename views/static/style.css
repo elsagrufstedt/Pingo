@@ -866,7 +866,7 @@ input[type="text"] {
 
 
 
-loss_modal_container {
+.loss_modal_container {
     display: none;
     position: fixed;
     z-index: 1;
@@ -878,6 +878,7 @@ loss_modal_container {
     background-color: #2e00435d;
 }
 
+/* CSS infomodal */
 .modal-content {
     background-color: #050931;
     box-shadow: 0 0 15px #e600ff;
@@ -893,3 +894,49 @@ loss_modal_container {
     place-self: center;
     padding: 0.5px;
 }
+.btn-primary:hover{
+    background-color: rgba(255, 255, 255, 0.329)
+}
+
+/*CSS hjälpmodal*/
+
+#openModal{
+    float: right;
+    background-color: rgba(54, 140, 150, 0.345);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    justify-self: center;
+    box-sizing: border-box;
+    margin: 5px;
+
+}
+
+.helpModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+    background-color: #2e00435d;
+}
+        
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+        
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+         

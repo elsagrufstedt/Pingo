@@ -15,6 +15,7 @@
 
 <body class="bingo_content" onload="start_game({hour}, {minute}, {second})">
   <header>
+
     <a href="/"><img src="/static/images/arrowwhite.png" id="avsluta" alt="avslutaknapp" onclick="return confirm('Är du säker att du vill du avsluta spelet?')"></a>
     <div class="timer" id="counting_timer">
       <input id="hour" type="number" max="24" min="0" value="{{hour}}" class="time" readonly>
