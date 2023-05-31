@@ -165,6 +165,16 @@ a {
     background-color: rgba(255, 255, 255, 0.329);
 }
 
+.profile{
+    max-height: fit-content;
+    max-width: fit-content;
+    margin-top: 30px;
+}
+
+.profile_pic{
+    height: 25px;
+    width: 25px;
+}
 /*css för radera bingo-knappen*/
 #delete {
     width: 30px;
@@ -893,6 +903,12 @@ input[type="text"] {
     border-top: #050931;
 }
 
+#info_modal_btn {   
+    width: 35px;
+    height: auto;
+    place-self: center;
+    padding: 0.5px;
+}
 .btn-primary:hover{
     background-color: rgba(255, 255, 255, 0.329)
 }
