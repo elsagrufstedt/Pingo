@@ -314,6 +314,11 @@ a {
     transform: rotateY(180deg);
 }
 
+.frozen {
+    pointer-events: none; 
+  }
+  
+
 #avsluta {
     width: 30px;
     position: absolute;
@@ -898,21 +903,25 @@ input[type="text"] {
     border-top: #050931;
 }
 
-#info_modal_btn {   
-    width: 35px;
-    height: auto;
-    place-self: center;
-    padding: 0.5px;
-}
 .btn-primary:hover{
     background-color: rgba(255, 255, 255, 0.329)
 }
 
+.btn-primary {
+    background-color: #00000000;
+}
+
 /*CSS hjälpmodal*/
+#info_btn_icon {
+    width: 37px;
+    height: auto;
+    place-self: center;
+    padding: 0.5px;
+}
 
 #openModal{
     float: right;
-    background-color: rgba(54, 140, 150, 0.345);
+    background-color: rgba(54, 140, 150, 0);
     color: #ffffff;
     border: none;
     border-radius: 30px;

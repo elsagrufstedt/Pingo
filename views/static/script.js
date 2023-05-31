@@ -22,19 +22,54 @@ const winning_combinations = [
   [0, 6, 12, 18, 24],
   [4, 8, 12, 16, 20]
 ];
-let isTimerEnded = false; // för att kontrollera om timern har slutat
-let completedRows = [];
-// Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
-function box_check() {
-  if (start_timer && !isTimerEnded) {
-    if (this.classList.contains('green')) {
-      this.classList.remove('green');
-    } else {
-      this.classList.add('green');
+
+//Shufflefunktion
+
+var shuffleCounter = 0;
+
+function shuffleChallenges() {
+ if (shuffleCounter < 3 ){
+  var boxes = document.querySelectorAll('.box');
+  var challenges = [];
+
+  boxes.forEach(function(box) {
+    var challenge = box.querySelector('.front');
+    challenges.push(challenge.textContent);
+  });
+
+  challenges.sort(function() {
+    return 0.5 - Math.random();
+  });
+
+  boxes.forEach(function(box, index) {
+    var challenge = box.querySelector('.front');
+    if (!box.classList.contains('frozen')) { 
+      challenge.textContent = challenges[index];
     }
-    game_win(); // anropar funktionen som säger bingo när man har fem i rad
+  });
+  shuffleCounter++; 
   }
 }
+
+
+
+var shuffleButton = document.getElementById('shuffle_button');
+shuffleButton.addEventListener('click', shuffleChallenges);
+
+let isTimerEnded = false; //för att kontrollera om timern har slutat
+let completedRows = [];
+    //Detta är en funktion som kollar gör att det möjligt att bara klicka i bingorutor när timern är startad
+  function box_check()  {
+    if (start_timer && !isTimerEnded) {
+      if (this.classList.contains('green')) {
+        this.classList.remove('green');
+      } else {
+        this.classList.add('green');
+      }
+      this.classList.add('frozen'); // Lägg till "frozen" klassen på den klickade rutan
+    game_win(); //anropar funktionen som säger bingo när man har fem i rad
+    }
+  }
 
 bingo_boxes.forEach(bingo_box => {
   bingo_box.addEventListener('click', box_check);
@@ -147,6 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
   start_game()
 
 });
+
 
 // Funktion som kollar om en vinnande kombination har gjorts
 function game_win() {
