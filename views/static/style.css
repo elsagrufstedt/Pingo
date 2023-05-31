@@ -887,4 +887,9 @@ loss_modal_container {
     border-top: #050931;
 }
 
-
+#info_modal_btn {   
+    width: 35px;
+    height: auto;
+    place-self: center;
+    padding: 0.5px;
+}
