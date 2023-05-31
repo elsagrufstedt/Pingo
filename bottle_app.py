@@ -201,21 +201,18 @@ def add_new():
     conn.close()
     redirect("/categories")
 
-@route('/remove/<category>', method='POST')
-def remove_category():
-    if 'email' not in request.environ.get('beaker.session'):
-        redirect('/login')
-
-    category_name = getattr(request.forms,'category_name')
-
-    conn = connect_database()
+@route('/remove-category/<category>')
+def remove_category(category):
+    conn = sqlite3.connect('pingo.db')
     c = conn.cursor()
+    c.execute('''DELETE FROM Challenges
+                 WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
 
-    c.execute("DELETE FROM Categories WHERE category_name=? AND user_id=(SELECT id FROM Users WHERE email=?)",
-              (category_name, request.environ.get('beaker.session')['email']))
+    c.execute('''DELETE FROM Categories WHERE category_name = ?''', (category,))
     conn.commit()
     conn.close()
-    redirect('/categories')
+
+    redirect("/categories")
 
 @route('/static/<filename:path>')
 def send_static(filename):
