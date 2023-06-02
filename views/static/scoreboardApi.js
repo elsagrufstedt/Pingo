@@ -14,7 +14,7 @@ function getCookie(cname) {
     return "";
   }
   
-  const API_URL = getCookie("API_URL");
+  const API_URL = "https://antontibblin.se/alumnmiddag/api.php";
   let username = prompt_username();
   let id = generate_id();
   let score = 0;
@@ -25,6 +25,7 @@ function getCookie(cname) {
     const jsonData = await response.json();
     console.log(jsonData);
   }
+  update_scoreboard(); // Update scoreboard when page is loaded
   
   function prompt_username() {
     const username = prompt("Ditt namn tack?");
@@ -46,8 +47,16 @@ function getCookie(cname) {
   
   
   function game_win() {
+    let current_points = 0;
     winning_combinations.forEach((combination) => {
       const greenCount = combination.filter(num => bingo_boxes[num].classList.contains('green')).length;
+
+      // Calculate how many points the user have
+      let p = 0;
+      for (let i = 0; i < winning_combinations.length; i++) {
+          p_temp = "";
+      }
+
       if (greenCount === 5 && !completedRows.includes(combination)) {
         completedRows.push(combination);
         
