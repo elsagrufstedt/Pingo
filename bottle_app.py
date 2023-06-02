@@ -18,9 +18,9 @@ def set_api_cookie():
     # Sets the URL to the Website for livescore from "config.py" (when start page is loade)
     response.set_header('Set-Cookie', 'API_URL='+API_URL)
 
-base_path = os.path.abspath(os.path.dirname(__file__))
-views_path = os.path.join(base_path, 'views')
-TEMPLATE_PATH.insert(0, views_path)
+#base_path = os.path.abspath(os.path.dirname(__file__))
+#views_path = os.path.join(base_path, 'views')
+#TEMPLATE_PATH.insert(0, views_path)
 
 session_opts = {
     'session.type': 'file',
@@ -33,7 +33,7 @@ application = default_app()
 app = SessionMiddleware(application, session_opts)
 
 def connect_database():
-    return sqlite3.connect('pingo.db')
+    return sqlite3.connect('/home/peggydelvret/mysite/pingo.db')
 
 def authenticate(email, password):
     with connect_database() as conn:
@@ -93,10 +93,12 @@ def bingo(category):
 
     conn.close()
 
+    print(challenges)
+
     hour = request.query.get('hour')
     minute = request.query.get('minute')
     second = request.query.get('second')
-    return template('views/bingo', data=challenges, category=category, hour=hour, minute=minute, second=second)
+    return template('/home/peggydelvret/mysite/views/bingo', data=challenges, category=category, hour=hour, minute=minute, second=second)
 
 @route("/register", method=["GET"])
 def register():
@@ -147,7 +149,7 @@ def start(category):
                  WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
     challenges = [row['challenge_name'] for row in c.fetchall()]
     conn.close()
-    return template('views/start', data=challenges, category=category)
+    return template('/home/peggydelvret/mysite/views/start', data=challenges, category=category)
 
 
 @route('/starting/<category>', method='POST')
@@ -219,6 +221,8 @@ def remove_category():
 
 @route('/static/<filename:path>')
 def send_static(filename):
-    return static_file(filename, root='./views/static')
+    return static_file(filename, root='/home/peggydelvret/mysite//views/static')
 
-run(app=app, host='127.0.0.1', port=8080, reloader=True, debug=True)
+application = default_app()
+
+# run(app=app, host='127.0.0.1', port=8080, reloader=True, debug=True)
