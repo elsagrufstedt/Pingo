@@ -12,16 +12,17 @@ from config import API_URL
 @hook('after_request')
 def set_api_cookie():
     '''
-        Sätter den URL som vi vill skicka vårt resultat till för livescore.
-        URL hämtas från filen "config.py"
+    Sätter den URL som vi vill skicka vårt resultat till för livescore.
+    URL hämtas från filen "config.py"
     '''
-    # Sets the URL to the Website for livescore from "config.py" (when start page is loade)
     response.set_header('Set-Cookie', 'API_URL='+API_URL)
 
+# Ställer in sökvägen 
 base_path = os.path.abspath(os.path.dirname(__file__))
 views_path = os.path.join(base_path, 'views')
 TEMPLATE_PATH.insert(0, views_path)
 
+# Konfigurerar sessionen
 session_opts = {
     'session.type': 'file',
     'session.cookie_expires': 300,
@@ -29,13 +30,16 @@ session_opts = {
     'session.auto': True
 }
 
+# Skapar en app med sessionen
 application = default_app()
 app = SessionMiddleware(application, session_opts)
 
 def connect_database():
+    # Skapar en uppkoppling till databasen
     return sqlite3.connect('pingo.db')
 
 def authenticate(email, password):
+    # Kontrollerar om användaren finns i databasen
     with connect_database() as conn:
         c = conn.cursor()
         c.execute("SELECT password FROM Users WHERE email=?", (email,))
@@ -48,11 +52,12 @@ def authenticate(email, password):
                 return True
     return False
 
-
 @route("/")
 def index():
+    # Hanterar index-sidan
     session = request.environ.get('beaker.session')
     if 'email' in session:
+        # Om användaren är inloggad skickas denne till index_log sidan
         conn = connect_database()
         c = conn.cursor()
         c.execute("SELECT username FROM Users WHERE email=?", (session['email'],))
@@ -64,28 +69,32 @@ def index():
 
 @route('/categories')
 def categories():
+    # Hanterar kategorier-sidan
     with connect_database() as conn:
         c = conn.cursor()
 
+        # Hämtar användarens kategorier från databasen
         c.execute('''SELECT category_name FROM Categories WHERE user_id = (
                      SELECT id FROM Users WHERE email=?) AND is_premade = 0''',
                   (request.environ.get('beaker.session').get('email'),))
         data = c.fetchall()
         categories = [{'category': row[0]} for row in data]
 
+        # Hämtar premade kategorier från databasen
         c.execute("SELECT category_name FROM Categories WHERE is_premade = 1")
         premade_data = c.fetchall()
         premade_categories = [{'category': row[0]} for row in premade_data]
 
     return template('views/categories', data=categories, premade_categories=premade_categories)
 
-
 @route('/bingo/<category>')
 def bingo(category):
+    # Hanterar bingo-sidan för en specifik kategori
     conn = connect_database()
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
 
+    # Hämtar utmaningarna för en specifik kategori
     c.execute('''SELECT challenge_name FROM Challenges
                  WHERE category_id = (
                  SELECT id FROM Categories WHERE category_name = ?)''', (category,))
@@ -100,10 +109,12 @@ def bingo(category):
 
 @route("/register", method=["GET"])
 def register():
+    # GET request för register route
     return template('views/register')
 
 @route("/register", method=["POST"])
 def register_user():
+    # POST request för register route
     email = getattr(request.forms,'email')
     password = getattr(request.forms,'password')
     username = getattr(request.forms, 'username')
@@ -123,10 +134,12 @@ def register_user():
 
 @route("/login", method=["GET"])
 def login():
+    # GET request för login route
     return template('views/login')
 
 @route("/login", method=["POST"])
 def login_user():
+    # POST request för login route
     email = getattr(request.forms,'email')
     password = getattr(request.forms,'password')
 
@@ -140,6 +153,7 @@ def login_user():
 
 @route('/start/<category>')
 def start(category):
+    # Hanterar start-sidan för en specifik kategori 
     conn = sqlite3.connect('pingo.db')
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
@@ -149,9 +163,9 @@ def start(category):
     conn.close()
     return template('views/start', data=challenges, category=category)
 
-
 @route('/starting/<category>', method='POST')
 def starting_game(category):
+    # Post request för start-sidan för en specifik kategori
     conn = sqlite3.connect('pingo.db')
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
@@ -164,19 +178,21 @@ def starting_game(category):
     second = getattr(request.forms, 'second')
     redirect('/bingo/{}?hour={}&minute={}&second={}'.format(category, hour, minute, second))
 
-#Gör inget just nu
 @route('/profile')
 def profile():
+    # Profile route
     return template('views/profile')
 
 @route('/logout')
 def logout():
+    # Loggar ut användaren och tar bort sessionen
     session = request.environ.get('beaker.session')
     session.delete()
     redirect('/')
 
 @route('/add', method="GET")
 def add():
+    # GET för add route
     if 'email' not in request.environ.get('beaker.session'):
         redirect('/login')
 
@@ -184,6 +200,8 @@ def add():
 
 @route('/add', method="POST")
 def add_new():
+    # POST Request för add route som lägger till en ny kategori i databasen
+    # om användaren inte är inloggad skickas denne till login sidan
     if 'email' not in request.environ.get('beaker.session'):
         redirect('/login')
 
@@ -203,6 +221,7 @@ def add_new():
 
 @route('/remove', method='POST')
 def remove_category():
+    # POST Request för remove route som tar bort en kategori från databasen
     if 'email' not in request.environ.get('beaker.session'):
         redirect('/login')
 
@@ -219,6 +238,7 @@ def remove_category():
 
 @route('/static/<filename:path>')
 def send_static(filename):
+    # Skickar statiska filer
     return static_file(filename, root='./views/static')
 
 run(app=app, host='127.0.0.1', port=8080, reloader=True, debug=True)
