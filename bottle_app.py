@@ -93,6 +93,7 @@ def bingo(category):
 
     conn.close()
 
+    '''Hämtar värden för timme, minut, sekund som nu finns i URL:en'''
     hour = request.query.get('hour')
     minute = request.query.get('minute')
     second = request.query.get('second')
@@ -140,28 +141,46 @@ def login_user():
 
 @route('/start/<category>')
 def start(category):
+    '''Ansluter till SQLite-databasen'''
     conn = sqlite3.connect('pingo.db')
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
+
+    '''En SELECT-fråga för att hämta utmaningarna från kategorin som valts'''
     c.execute('''SELECT challenge_name FROM Challenges
                  WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+    
+    '''Hämtar utmaningarna och lagrar dem i en lista'''
     challenges = [row['challenge_name'] for row in c.fetchall()]
+
     conn.close()
+
+    '''Returnerar start templaten och skickar med datan'''
     return template('views/start', data=challenges, category=category)
 
 
 @route('/starting/<category>', method='POST')
 def starting_game(category):
+    '''Ansluter till databasen'''
     conn = sqlite3.connect('pingo.db')
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
+    
+    '''En SELECT-fråga för att hämta utmaningar baserat på kategorin'''
     c.execute('''SELECT challenge_name FROM Challenges
                  WHERE category_id = (SELECT id FROM Categories WHERE category_name = ?)''', (category,))
+
+    '''Hämtar utmaningarna och lagrar i en lista'''             
     challenges = [row['challenge_name'] for row in c.fetchall()]
+
     conn.close()
+
+    '''Hämtar användarens värden för timme, minut och sekund från POST-DATA'''
     hour = getattr(request.forms, 'hour')
     minute = getattr(request.forms, 'minute')
     second = getattr(request.forms, 'second')
+
+    '''Omdirigerar användaren till /binog med den valda kategorin och den valda tiden'''
     redirect('/bingo/{}?hour={}&minute={}&second={}'.format(category, hour, minute, second))
 
 #Gör inget just nu

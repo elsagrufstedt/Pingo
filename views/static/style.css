@@ -850,8 +850,6 @@ input[type="text"] {
     padding-top: 20px;
     font-size: 12px;
 
-
-
     transform-style: preserve-3d;
     transition: all 1s ease;
 }
@@ -887,8 +885,6 @@ input[type="text"] {
     padding-top: 5%;
 }
 
-
-
 .loss_modal_container {
     display: none;
     position: fixed;
@@ -909,5 +905,3 @@ input[type="text"] {
 .modal-footer{
     border-top: #050931;
 }
-
-

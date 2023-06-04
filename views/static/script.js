@@ -76,11 +76,14 @@ bingo_boxes.forEach(bingo_box => {
 
 var start = document.getElementById("start");
 
+// Sätter värdena för hour, min, sec beroende på vad som finns i elementen med respektive ID
 var hour = document.getElementById("hour");
 var min = document.getElementById("minute");
 var sec = document.getElementById("second");
 
+// Funktion som gör så att timern räknar ner
 function timer() {
+  // Om timern är på noll avbryts intervallen och timern slutar räkna ner
   if (hour.value == 0 && min.value == 0 && sec.value == 0) {
     clearInterval(start_timer);
     isTimerEnded = true;
@@ -88,18 +91,21 @@ function timer() {
     hour.value = 0;
     min.value = 0;
     sec.value = 0;
+
+  // Är sekunderna över 0 minskas det med 1  
   } else if (sec.value > 0) {
     sec.value--;
+
+  // Är sekunderna 0 och minuterna över 0 sätts sekunderna till 59 och minskar minuterna med 1
   } else if (sec.value == 0 && min.value > 0) {
     sec.value = 59;
     min.value--;
+
+  //Om timmarna är över 0 och minuterna är 0 sätts sekunder och minuter till 59 och timmar minskar med 1
   } else if (hour.value > 0 && min.value == 0) {
     sec.value = 59;
     min.value = 59;
     hour.value--;
-  } else if (hour.value == 0 && min.value == 0 && sec.value == 0) {
-    clearInterval(start_timer);
-  }
 }
 
 // shufflefunktion
@@ -158,6 +164,7 @@ document.getElementById("close_loss_modal").addEventListener("click", function()
 
 
 function start_game() {
+  // Sätter intervallet på timern så timer funktionen körs varje sekund
   start_timer = setInterval(function() {
     timer();
     game_loss();
@@ -167,6 +174,8 @@ function start_game() {
 start.addEventListener("click", function() {
   console.log("Startar spelet")
   start_game();
+
+  //Låser input på timme, minut och sekund när användaren tryckt på starta spel
   start.disabled = true;
   hour.disabled = true;
   min.disabled = true;
@@ -205,7 +214,6 @@ function game_win() {
 
 
       confettiFY();
-
     }
   });
 }
@@ -218,11 +226,19 @@ function freeze() {
 }
 
 function showCharacterCount(input, characterCountId) {
+  //Hämtar max antal tecken från input-elementet
   const maxLength = input.maxLength;
+
+  //Hämtar aktuellt antal tecken som matats in
   const currentLength = input.value.length;
+
+  //Räknar hur många tecken som återstår
   const remaining = maxLength - currentLength;
 
+  //Hämtar elementet som visar hur många tecken som återstår
   const characterCountElement = document.getElementById(characterCountId);
+
+  //Uppdaterar characterCount med antalet återstående tecken och gör de till en sträng
   characterCountElement.textContent = remaining.toString();
 }
 
@@ -238,4 +254,4 @@ function hideModal() {
   modal.classList.remove("show");
   modal.style.display = "none";
 }
-
+}
